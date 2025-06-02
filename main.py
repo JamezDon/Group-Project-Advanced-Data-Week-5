@@ -1,6 +1,9 @@
-# Main
+"""Main"""
+
 
 def cool():
-  return True
+    """Cool function"""
+    return True
+
 
 cool()
