@@ -16,4 +16,4 @@ jobs:
         run: pip install pylint
       - name: Analysing the code with pylint
         run: |
-          find . -name '*.py' -exec pylint {} \;
+          pylint --fail-under 8 $(git ls-files '*.py')
