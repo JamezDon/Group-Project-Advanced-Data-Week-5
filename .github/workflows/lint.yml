@@ -1,0 +1,19 @@
+name: pylint workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout repositry"
+        uses: actions/checkout@v4
+      - name: "Install pylint"
+        run: pip install pylint
+      - name: Analysing the code with pylint
+        run: |
+          find . -name '*.py' -exec pylint {} \;
