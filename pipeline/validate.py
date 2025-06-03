@@ -4,13 +4,13 @@
 def check_status_code(res):
     """Checks the status code of the response."""
     if res.status_code == 404:
-        raise ValueError(f"{res.json()}")
+        return res.json()
     if res.status_code >= 500:
         raise RuntimeError("Unable to connect to API.")
     if res.status_code == 401:
         raise PermissionError("Invalid API key or not authorised.")
     if res.status_code != 200:
-        raise ValueError("Loading plant data was not successful.")
+        raise ValueError("Fetching plant data was not successful.")
 
 
 def get_dict_of_missing_info(plant_dict, keys):

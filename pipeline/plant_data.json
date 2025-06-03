@@ -2,7 +2,7 @@
     {
         "plant_id": 1,
         "name": "Venus flytrap",
-        "temperature": 14.763504211720722,
+        "temperature": 14.298805354695135,
         "origin_location": {
             "latitude": 43.74,
             "longitude": -11.5098,
@@ -14,14 +14,14 @@
             "email": "kenneth.buckridge@lnhm.co.uk",
             "phone": "763.914.8635 x57724"
         },
-        "last_watered": "2025-06-02T13:51:41.000Z",
-        "soil_moisture": 22.602002967359056,
-        "recording_taken": "2025-06-03T11:35:50.375Z"
+        "last_watered": "2025-06-03T13:51:41.000Z",
+        "soil_moisture": 96.62507536764706,
+        "recording_taken": "2025-06-03T14:52:52.918Z"
     },
     {
         "plant_id": 2,
         "name": "Corpse flower",
-        "temperature": 14.247490392364718,
+        "temperature": 14.023002915045627,
         "origin_location": {
             "latitude": 47.8428,
             "longitude": -48.7087,
@@ -34,13 +34,13 @@
             "phone": "673.641.8851"
         },
         "last_watered": "2025-06-02T14:58:34.000Z",
-        "soil_moisture": 29.49957644824312,
-        "recording_taken": "2025-06-03T11:35:50.946Z"
+        "soil_moisture": 20.900874080882346,
+        "recording_taken": "2025-06-03T14:52:53.849Z"
     },
     {
         "plant_id": 3,
         "name": "Rafflesia arnoldii",
-        "temperature": 16.44556717231067,
+        "temperature": 16.003371912056625,
         "origin_location": {
             "latitude": -25.4878,
             "longitude": -36.1349,
@@ -52,14 +52,14 @@
             "email": "eduardo.okuneva.ii@lnhm.co.uk",
             "phone": "408-816-2276 x87051"
         },
-        "last_watered": "2025-06-02T13:58:19.000Z",
-        "soil_moisture": 25.49925933014353,
-        "recording_taken": "2025-06-03T11:35:52.274Z"
+        "last_watered": "2025-06-03T13:58:19.000Z",
+        "soil_moisture": 96.9701822386679,
+        "recording_taken": "2025-06-03T14:52:54.233Z"
     },
     {
         "plant_id": 4,
         "name": "Black bat flower",
-        "temperature": 16.534095680268454,
+        "temperature": 16.30204539484293,
         "origin_location": {
             "latitude": 63.3661,
             "longitude": 46.4049,
@@ -72,13 +72,13 @@
             "phone": "(953) 607-4239 x328"
         },
         "last_watered": "2025-06-02T14:56:07.000Z",
-        "soil_moisture": 27.4992485380117,
-        "recording_taken": "2025-06-03T11:35:52.771Z"
+        "soil_moisture": 17.66209264565424,
+        "recording_taken": "2025-06-03T14:52:54.789Z"
     },
     {
         "plant_id": 5,
         "name": "Pitcher plant",
-        "temperature": 17.400638960779382,
+        "temperature": 16.95656561900131,
         "origin_location": {
             "latitude": 82.8917,
             "longitude": 0.6279,
@@ -90,9 +90,9 @@
             "email": "benny.block@lnhm.co.uk",
             "phone": "687-647-1094"
         },
-        "last_watered": "2025-06-02T13:57:08.000Z",
-        "soil_moisture": 22.074996,
-        "recording_taken": "2025-06-03T11:35:53.004Z",
+        "last_watered": "2025-06-03T13:57:08.000Z",
+        "soil_moisture": 96.7723143683703,
+        "recording_taken": "2025-06-03T14:52:55.110Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -110,7 +110,7 @@
     {
         "plant_id": 6,
         "name": "Wollemi pine",
-        "temperature": 16.337170606780933,
+        "temperature": 15.698168692679934,
         "origin_location": {
             "latitude": -40.3521,
             "longitude": -12.1055,
@@ -122,9 +122,9 @@
             "email": "iris.jenkins@lnhm.co.uk",
             "phone": "288.875.3012 x4682"
         },
-        "last_watered": "2025-06-02T13:03:31.000Z",
-        "soil_moisture": 24.166157943925242,
-        "recording_taken": "2025-06-03T11:35:53.211Z",
+        "last_watered": "2025-06-03T13:03:31.000Z",
+        "soil_moisture": 93.51216106719367,
+        "recording_taken": "2025-06-03T14:52:56.693Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -139,11 +139,10 @@
             "Wollemia nobilis"
         ]
     },
-    null,
     {
         "plant_id": 8,
         "name": "Bird of paradise",
-        "temperature": 16.806881726238935,
+        "temperature": 16.276734308776682,
         "origin_location": {
             "latitude": 54.1635,
             "longitude": 8.6662,
@@ -155,9 +154,9 @@
             "email": "bradford.mitchell.dvm@lnhm.co.uk",
             "phone": "(230) 859-2277 x3537"
         },
-        "last_watered": "2025-06-02T13:33:20.000Z",
-        "soil_moisture": 23.403808880308887,
-        "recording_taken": "2025-06-03T11:35:53.654Z",
+        "last_watered": "2025-06-03T13:33:20.000Z",
+        "soil_moisture": 95.2506560636183,
+        "recording_taken": "2025-06-03T14:52:57.840Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -175,7 +174,7 @@
     {
         "plant_id": 9,
         "name": "Cactus",
-        "temperature": 12.848827951002104,
+        "temperature": 12.485150601327941,
         "origin_location": {
             "latitude": 22.1228,
             "longitude": -11.0358,
@@ -187,9 +186,9 @@
             "email": "jo.baumbach@lnhm.co.uk",
             "phone": "976-364-3090"
         },
-        "last_watered": "2025-06-02T14:19:58.000Z",
-        "soil_moisture": 25.817902131782944,
-        "recording_taken": "2025-06-03T11:35:53.925Z",
+        "last_watered": "2025-06-03T14:19:58.000Z",
+        "soil_moisture": 98.19716651501365,
+        "recording_taken": "2025-06-03T14:52:59.314Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -207,7 +206,7 @@
     {
         "plant_id": 10,
         "name": "Dragon tree",
-        "temperature": 14.291554824892915,
+        "temperature": 13.913508318017868,
         "origin_location": {
             "latitude": -85.7462,
             "longitude": 178.9976,
@@ -219,14 +218,14 @@
             "email": "terrance.leuschke@lnhm.co.uk",
             "phone": "1-661-425-6823 x4455"
         },
-        "last_watered": "2025-06-02T14:15:42.000Z",
-        "soil_moisture": 28.942831637372805,
-        "recording_taken": "2025-06-03T11:35:54.799Z"
+        "last_watered": "2025-06-03T14:15:42.000Z",
+        "soil_moisture": 97.89708834586466,
+        "recording_taken": "2025-06-03T14:52:59.498Z"
     },
     {
         "plant_id": 11,
         "name": "Asclepias Curassavica",
-        "temperature": 17.813224821837622,
+        "temperature": 20.87706451690711,
         "origin_location": {
             "latitude": 89.0252,
             "longitude": -108.526,
@@ -238,9 +237,9 @@
             "email": "chester.smith@lnhm.co.uk",
             "phone": "1-730-711-3377 x08275"
         },
-        "last_watered": "2025-06-02T13:32:16.000Z",
-        "soil_moisture": 26.667124653739606,
-        "recording_taken": "2025-06-03T11:35:55.504Z",
+        "last_watered": "2025-06-03T13:32:16.000Z",
+        "soil_moisture": 95.17567529880478,
+        "recording_taken": "2025-06-03T14:52:59.622Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -258,7 +257,7 @@
     {
         "plant_id": 12,
         "name": "Brugmansia X Candida",
-        "temperature": 16.39826509814051,
+        "temperature": 15.868312129069016,
         "origin_location": {
             "latitude": 86.2589,
             "longitude": -108.5545,
@@ -270,14 +269,14 @@
             "email": "kenneth.murphy@lnhm.co.uk",
             "phone": "(682) 358-8815 x08653"
         },
-        "last_watered": "2025-06-02T13:34:25.000Z",
-        "soil_moisture": 21.880195073891628,
-        "recording_taken": "2025-06-03T11:35:56.602Z"
+        "last_watered": "2025-06-03T13:34:25.000Z",
+        "soil_moisture": 95.31758391261172,
+        "recording_taken": "2025-06-03T14:53:00.193Z"
     },
     {
         "plant_id": 13,
         "name": "Canna \u2018Striata\u2019",
-        "temperature": 14.946077354264855,
+        "temperature": 14.679982582810425,
         "origin_location": {
             "latitude": 26.7106,
             "longitude": 54.0918,
@@ -289,14 +288,14 @@
             "email": "irma.ortiz.jr.@lnhm.co.uk",
             "phone": "(456) 348-3790 x868"
         },
-        "last_watered": "2025-06-02T14:46:28.000Z",
-        "soil_moisture": 27.07299610894941,
-        "recording_taken": "2025-06-03T11:35:56.960Z"
+        "last_watered": "2025-06-03T14:46:28.000Z",
+        "soil_moisture": 99.61582583170254,
+        "recording_taken": "2025-06-03T14:53:00.626Z"
     },
     {
         "plant_id": 14,
         "name": "Colocasia Esculenta",
-        "temperature": 15.641020344902438,
+        "temperature": 15.089475585187483,
         "origin_location": {
             "latitude": -54.9306,
             "longitude": 81.3907,
@@ -308,9 +307,9 @@
             "email": "kathy.haley@lnhm.co.uk",
             "phone": "(514) 473-7641 x14748"
         },
-        "last_watered": "2025-06-02T13:28:35.000Z",
-        "soil_moisture": 25.775997204100662,
-        "recording_taken": "2025-06-03T11:35:57.355Z",
+        "last_watered": "2025-06-03T13:28:35.000Z",
+        "soil_moisture": 95.05719024390244,
+        "recording_taken": "2025-06-03T14:53:01.380Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -328,7 +327,7 @@
     {
         "plant_id": 15,
         "name": "Cuphea \u2018David Verity\u2019",
-        "temperature": 16.371287713963067,
+        "temperature": 16.000365783870446,
         "origin_location": {
             "latitude": -22.6373,
             "longitude": 100.898,
@@ -340,14 +339,14 @@
             "email": "jacob.jacobi@lnhm.co.uk",
             "phone": "(459) 933-0647"
         },
-        "last_watered": "2025-06-02T14:17:16.000Z",
-        "soil_moisture": 27.68905937794534,
-        "recording_taken": "2025-06-03T11:35:57.908Z"
+        "last_watered": "2025-06-03T14:17:16.000Z",
+        "soil_moisture": 97.90534536585366,
+        "recording_taken": "2025-06-03T14:53:03.021Z"
     },
     {
         "plant_id": 16,
         "name": "Euphorbia Cotinifolia",
-        "temperature": 25.973375708403864,
+        "temperature": 16.98087823551276,
         "origin_location": {
             "latitude": -60.739,
             "longitude": 39.0588,
@@ -359,9 +358,9 @@
             "email": "gordon.boehm@lnhm.co.uk",
             "phone": "464.633.6597 x7370"
         },
-        "last_watered": "2025-06-02T14:02:07.000Z",
-        "soil_moisture": -10.902607142857136,
-        "recording_taken": "2025-06-03T11:35:58.825Z",
+        "last_watered": "2025-06-03T14:02:07.000Z",
+        "soil_moisture": 95.63200857142857,
+        "recording_taken": "2025-06-03T14:53:04.594Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -379,7 +378,7 @@
     {
         "plant_id": 17,
         "name": "Ipomoea Batatas",
-        "temperature": 17.22038136125559,
+        "temperature": 16.60528983308955,
         "origin_location": {
             "latitude": -81.6237,
             "longitude": 158.4221,
@@ -391,9 +390,9 @@
             "email": "lucas.quitzon@lnhm.co.uk",
             "phone": "(400) 791-2051 x0032"
         },
-        "last_watered": "2025-06-02T13:10:19.000Z",
-        "soil_moisture": 26.12951784080512,
-        "recording_taken": "2025-06-03T11:35:59.437Z",
+        "last_watered": "2025-06-03T13:10:19.000Z",
+        "soil_moisture": 94.04162898550724,
+        "recording_taken": "2025-06-03T14:53:05.914Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -411,7 +410,7 @@
     {
         "plant_id": 18,
         "name": "Manihot Esculenta \u2018Variegata\u2019",
-        "temperature": 13.195404017277204,
+        "temperature": 12.90323072986623,
         "origin_location": {
             "latitude": 21.299,
             "longitude": 42.0051,
@@ -423,14 +422,14 @@
             "email": "earnest.stanton@lnhm.co.uk",
             "phone": "1-849-419-7923 x487"
         },
-        "last_watered": "2025-06-02T14:39:50.000Z",
-        "soil_moisture": 25.816090551181105,
-        "recording_taken": "2025-06-03T11:36:00.852Z"
+        "last_watered": "2025-06-03T14:39:50.000Z",
+        "soil_moisture": 99.25200469043152,
+        "recording_taken": "2025-06-03T14:53:07.363Z"
     },
     {
         "plant_id": 19,
         "name": "Musa Basjoo",
-        "temperature": 12.435389848083215,
+        "temperature": 12.150738754880981,
         "origin_location": {
             "latitude": -69.713,
             "longitude": 175.4523,
@@ -442,9 +441,9 @@
             "email": "helen.stracke@lnhm.co.uk",
             "phone": "1-219-392-5283"
         },
-        "last_watered": "2025-06-02T14:41:59.000Z",
-        "soil_moisture": 25.131542288557213,
-        "recording_taken": "2025-06-03T11:36:01.800Z",
+        "last_watered": "2025-06-03T14:41:59.000Z",
+        "soil_moisture": 99.3531170212766,
+        "recording_taken": "2025-06-03T14:53:07.877Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -462,7 +461,7 @@
     {
         "plant_id": 20,
         "name": "Salvia Splendens",
-        "temperature": 16.12677319760634,
+        "temperature": 15.732566182708286,
         "origin_location": {
             "latitude": -79.3405,
             "longitude": 152.5746,
@@ -474,9 +473,9 @@
             "email": "bernice.schulist@lnhm.co.uk",
             "phone": "516.311.7225"
         },
-        "last_watered": "2025-06-02T14:11:20.000Z",
-        "soil_moisture": 29.733844120328172,
-        "recording_taken": "2025-06-03T11:36:01.973Z",
+        "last_watered": "2025-06-03T14:11:20.000Z",
+        "soil_moisture": 97.64247086466166,
+        "recording_taken": "2025-06-03T14:53:08.411Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -494,7 +493,7 @@
     {
         "plant_id": 21,
         "name": "Anthurium",
-        "temperature": 15.363090899409276,
+        "temperature": 14.753792461105055,
         "origin_location": {
             "latitude": 85.3837,
             "longitude": -108.5995,
@@ -506,9 +505,9 @@
             "email": "oscar.schinner-little@lnhm.co.uk",
             "phone": "570-593-4399 x49703"
         },
-        "last_watered": "2025-06-02T13:12:41.000Z",
-        "soil_moisture": 21.056209598432915,
-        "recording_taken": "2025-06-03T11:36:02.610Z",
+        "last_watered": "2025-06-03T13:12:41.000Z",
+        "soil_moisture": 94.50996903460837,
+        "recording_taken": "2025-06-03T14:53:09.054Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -526,7 +525,7 @@
     {
         "plant_id": 22,
         "name": "Bird of Paradise",
-        "temperature": 25.06708320346449,
+        "temperature": 15.713558658198354,
         "origin_location": {
             "latitude": 34.8822,
             "longitude": -37.76,
@@ -538,9 +537,9 @@
             "email": "ms..ashley.stracke@lnhm.co.uk",
             "phone": "1-666-690-3171 x152"
         },
-        "last_watered": "2025-06-02T13:02:31.000Z",
-        "soil_moisture": 24.100613084112155,
-        "recording_taken": "2025-06-03T11:36:03.344Z",
+        "last_watered": "2025-06-03T13:02:31.000Z",
+        "soil_moisture": 93.52986062378167,
+        "recording_taken": "2025-06-03T14:53:09.363Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -558,7 +557,7 @@
     {
         "plant_id": 23,
         "name": "Cordyline Fruticosa",
-        "temperature": 15.231536369733714,
+        "temperature": 14.584458162126865,
         "origin_location": {
             "latitude": 64.0127,
             "longitude": -125.5911,
@@ -570,9 +569,9 @@
             "email": "clifton.brekke@lnhm.co.uk",
             "phone": "(889) 712-9685 x61463"
         },
-        "last_watered": "2025-06-02T13:02:45.000Z",
-        "soil_moisture": 20.07987696850394,
-        "recording_taken": "2025-06-03T11:36:03.845Z",
+        "last_watered": "2025-06-03T13:02:45.000Z",
+        "soil_moisture": 93.81971082089552,
+        "recording_taken": "2025-06-03T14:53:10.270Z",
         "images": {
             "license": 45,
             "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
@@ -590,7 +589,7 @@
     {
         "plant_id": 24,
         "name": "Ficus",
-        "temperature": 14.501380092141833,
+        "temperature": 14.238111472833115,
         "origin_location": {
             "latitude": -17.3909,
             "longitude": -81.7968,
@@ -602,9 +601,9 @@
             "email": "dr..phillip.lind@lnhm.co.uk",
             "phone": "(889) 896-3821"
         },
-        "last_watered": "2025-06-02T14:47:33.000Z",
-        "soil_moisture": 26.26847637795275,
-        "recording_taken": "2025-06-03T11:36:04.228Z",
+        "last_watered": "2025-06-03T14:47:33.000Z",
+        "soil_moisture": 99.66713510848126,
+        "recording_taken": "2025-06-03T14:53:10.525Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -622,7 +621,7 @@
     {
         "plant_id": 25,
         "name": "Palm Trees",
-        "temperature": 15.578639808248047,
+        "temperature": 15.271393833662515,
         "origin_location": {
             "latitude": 3.58,
             "longitude": 36.6064,
@@ -634,14 +633,14 @@
             "email": "dallas.terry@lnhm.co.uk",
             "phone": "489-414-1969 x514"
         },
-        "last_watered": "2025-06-02T14:35:22.000Z",
-        "soil_moisture": 25.032018830525274,
-        "recording_taken": "2025-06-03T11:36:04.693Z"
+        "last_watered": "2025-06-03T14:35:22.000Z",
+        "soil_moisture": 98.9916641509434,
+        "recording_taken": "2025-06-03T14:53:10.836Z"
     },
     {
         "plant_id": 26,
         "name": "Dieffenbachia Seguine",
-        "temperature": 15.342091216255838,
+        "temperature": 14.942892244127393,
         "origin_location": {
             "latitude": -38.6402,
             "longitude": 166.9358,
@@ -653,9 +652,9 @@
             "email": "jacquelyn.quigley@lnhm.co.uk",
             "phone": "1-672-222-8133 x105"
         },
-        "last_watered": "2025-06-02T14:10:30.000Z",
-        "soil_moisture": 25.616795564127287,
-        "recording_taken": "2025-06-03T11:36:05.383Z",
+        "last_watered": "2025-06-03T14:10:30.000Z",
+        "soil_moisture": 97.45840972222223,
+        "recording_taken": "2025-06-03T14:53:11.923Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -673,7 +672,7 @@
     {
         "plant_id": 27,
         "name": "Spathiphyllum",
-        "temperature": 14.131562625261274,
+        "temperature": 12.623654130942459,
         "origin_location": {
             "latitude": -34.7829,
             "longitude": 54.2456,
@@ -685,9 +684,9 @@
             "email": "wendy.swift@lnhm.co.uk",
             "phone": "(774) 986-4550 x796"
         },
-        "last_watered": "2025-06-02T14:33:40.000Z",
-        "soil_moisture": 25.66623650637881,
-        "recording_taken": "2025-06-03T11:36:06.105Z",
+        "last_watered": "2025-06-03T14:33:40.000Z",
+        "soil_moisture": 98.85578146341463,
+        "recording_taken": "2025-06-03T14:53:12.824Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -705,7 +704,7 @@
     {
         "plant_id": 28,
         "name": "Croton",
-        "temperature": 16.41616713722222,
+        "temperature": 15.947589684342137,
         "origin_location": {
             "latitude": 80.1723,
             "longitude": 89.3708,
@@ -717,9 +716,9 @@
             "email": "sadie.romaguera@lnhm.co.uk",
             "phone": "(415) 921-6221 x26702"
         },
-        "last_watered": "2025-06-02T13:51:21.000Z",
-        "soil_moisture": 22.795489151873767,
-        "recording_taken": "2025-06-03T11:36:06.374Z",
+        "last_watered": "2025-06-03T13:51:21.000Z",
+        "soil_moisture": 96.42967884615385,
+        "recording_taken": "2025-06-03T14:53:14.134Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -737,7 +736,7 @@
     {
         "plant_id": 29,
         "name": "Aloe Vera",
-        "temperature": 18.023711397756056,
+        "temperature": 17.548851597547714,
         "origin_location": {
             "latitude": -80.3481,
             "longitude": 45.8024,
@@ -749,9 +748,9 @@
             "email": "carolyn.jakubowski@lnhm.co.uk",
             "phone": "464.539.9779"
         },
-        "last_watered": "2025-06-02T13:49:02.000Z",
-        "soil_moisture": 27.38348888888889,
-        "recording_taken": "2025-06-03T11:36:07.832Z",
+        "last_watered": "2025-06-03T13:49:02.000Z",
+        "soil_moisture": 96.21853876349363,
+        "recording_taken": "2025-06-03T14:53:15.309Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -769,7 +768,7 @@
     {
         "plant_id": 30,
         "name": "Ficus Elastica",
-        "temperature": 15.985508276141054,
+        "temperature": 15.45070485403046,
         "origin_location": {
             "latitude": 22.6292,
             "longitude": -31.0999,
@@ -781,9 +780,9 @@
             "email": "leroy.hudson@lnhm.co.uk",
             "phone": "872-709-8943 x15830"
         },
-        "last_watered": "2025-06-02T13:33:30.000Z",
-        "soil_moisture": 21.813999014778332,
-        "recording_taken": "2025-06-03T11:36:08.791Z",
+        "last_watered": "2025-06-03T13:33:30.000Z",
+        "soil_moisture": 95.29431661750246,
+        "recording_taken": "2025-06-03T14:53:15.680Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -801,7 +800,7 @@
     {
         "plant_id": 31,
         "name": "Sansevieria Trifasciata",
-        "temperature": 17.43151007981705,
+        "temperature": 17.04554763335493,
         "origin_location": {
             "latitude": -37.6215,
             "longitude": -72.1543,
@@ -813,9 +812,9 @@
             "email": "darrel.lesch@lnhm.co.uk",
             "phone": "975-666-9644 x58578"
         },
-        "last_watered": "2025-06-02T14:14:04.000Z",
-        "soil_moisture": 28.240998134328365,
-        "recording_taken": "2025-06-03T11:36:09.650Z",
+        "last_watered": "2025-06-03T14:14:04.000Z",
+        "soil_moisture": 97.702921875,
+        "recording_taken": "2025-06-03T14:53:16.208Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -833,7 +832,7 @@
     {
         "plant_id": 32,
         "name": "Philodendron Hederaceum",
-        "temperature": 17.502026848902975,
+        "temperature": 16.9919856610303,
         "origin_location": {
             "latitude": 10.0446,
             "longitude": 166.9654,
@@ -845,9 +844,9 @@
             "email": "helen.waters@lnhm.co.uk",
             "phone": "1-520-943-3657 x23140"
         },
-        "last_watered": "2025-06-02T13:40:10.000Z",
-        "soil_moisture": 26.820784059314178,
-        "recording_taken": "2025-06-03T11:36:10.374Z",
+        "last_watered": "2025-06-03T13:40:10.000Z",
+        "soil_moisture": 95.8883167760075,
+        "recording_taken": "2025-06-03T14:53:17.166Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -865,7 +864,7 @@
     {
         "plant_id": 33,
         "name": "Schefflera Arboricola",
-        "temperature": 17.349369953524555,
+        "temperature": 16.750671248188763,
         "origin_location": {
             "latitude": -58.3733,
             "longitude": 6.5244,
@@ -877,9 +876,9 @@
             "email": "marty.lang@lnhm.co.uk",
             "phone": "1-539-229-4058"
         },
-        "last_watered": "2025-06-02T13:15:17.000Z",
-        "soil_moisture": 24.171405278039586,
-        "recording_taken": "2025-06-03T11:36:11.139Z",
+        "last_watered": "2025-06-03T13:15:17.000Z",
+        "soil_moisture": 94.55459444444445,
+        "recording_taken": "2025-06-03T14:53:18.038Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -897,7 +896,7 @@
     {
         "plant_id": 34,
         "name": "Aglaonema Commutatum",
-        "temperature": 13.34329738216286,
+        "temperature": 12.97284910848223,
         "origin_location": {
             "latitude": -59.666,
             "longitude": 22.1729,
@@ -909,9 +908,9 @@
             "email": "betty.kreiger@lnhm.co.uk",
             "phone": "(430) 985-1362 x54710"
         },
-        "last_watered": "2025-06-02T14:18:52.000Z",
-        "soil_moisture": 23.359863000000004,
-        "recording_taken": "2025-06-03T11:36:12.137Z",
+        "last_watered": "2025-06-03T14:18:52.000Z",
+        "soil_moisture": 97.97876441837732,
+        "recording_taken": "2025-06-03T14:53:19.724Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -929,7 +928,7 @@
     {
         "plant_id": 35,
         "name": "Monstera Deliciosa",
-        "temperature": 16.40170776249896,
+        "temperature": 16.167626686442258,
         "origin_location": {
             "latitude": 8.8125,
             "longitude": -146.1691,
@@ -942,8 +941,8 @@
             "phone": "312.868.8819 x8410"
         },
         "last_watered": "2025-06-02T14:55:08.000Z",
-        "soil_moisture": 27.984213733075435,
-        "recording_taken": "2025-06-03T11:36:12.323Z",
+        "soil_moisture": 14.899346153846153,
+        "recording_taken": "2025-06-03T14:53:20.063Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -961,7 +960,7 @@
     {
         "plant_id": 36,
         "name": "Tacca Integrifolia",
-        "temperature": 13.882285695129319,
+        "temperature": 13.417908025435624,
         "origin_location": {
             "latitude": 87.3702,
             "longitude": -65.8502,
@@ -973,9 +972,9 @@
             "email": "henrietta.gleichner@lnhm.co.uk",
             "phone": "(879) 206-9116 x8935"
         },
-        "last_watered": "2025-06-02T13:52:51.000Z",
-        "soil_moisture": 23.705142439024385,
-        "recording_taken": "2025-06-03T11:36:13.229Z",
+        "last_watered": "2025-06-03T13:52:51.000Z",
+        "soil_moisture": 96.66363143382353,
+        "recording_taken": "2025-06-03T14:53:20.969Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -993,7 +992,7 @@
     {
         "plant_id": 37,
         "name": "Psychopsis Papilio",
-        "temperature": 17.76855877520048,
+        "temperature": 17.375842592455033,
         "origin_location": {
             "latitude": -40.9469,
             "longitude": -17.7032,
@@ -1005,14 +1004,14 @@
             "email": "patricia.howell@lnhm.co.uk",
             "phone": "1-886-335-2758 x2333"
         },
-        "last_watered": "2025-06-02T14:12:01.000Z",
-        "soil_moisture": 28.323020465116286,
-        "recording_taken": "2025-06-03T11:36:13.753Z"
+        "last_watered": "2025-06-03T14:12:01.000Z",
+        "soil_moisture": 97.5941425800194,
+        "recording_taken": "2025-06-03T14:53:21.439Z"
     },
     {
         "plant_id": 38,
         "name": "Saintpaulia Ionantha",
-        "temperature": 16.39056592701952,
+        "temperature": 15.803200098489642,
         "origin_location": {
             "latitude": 83.5292,
             "longitude": -30.8766,
@@ -1024,9 +1023,9 @@
             "email": "santiago.ortiz@lnhm.co.uk",
             "phone": "(770) 924-1572 x884"
         },
-        "last_watered": "2025-06-02T13:19:28.000Z",
-        "soil_moisture": 20.112869521912344,
-        "recording_taken": "2025-06-03T11:36:14.679Z",
+        "last_watered": "2025-06-03T13:19:28.000Z",
+        "soil_moisture": 94.80697972350231,
+        "recording_taken": "2025-06-03T14:53:22.427Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1044,7 +1043,7 @@
     {
         "plant_id": 39,
         "name": "Gaillardia",
-        "temperature": 21.08404824736003,
+        "temperature": 14.97613744192856,
         "origin_location": {
             "latitude": -7.7324,
             "longitude": -109.3082,
@@ -1056,9 +1055,9 @@
             "email": "lindsay.feest@lnhm.co.uk",
             "phone": "(590) 404-7387 x7681"
         },
-        "last_watered": "2025-06-02T13:29:36.000Z",
-        "soil_moisture": 26.43302587800369,
-        "recording_taken": "2025-06-03T11:36:15.466Z",
+        "last_watered": "2025-06-03T13:29:36.000Z",
+        "soil_moisture": 95.08587292277615,
+        "recording_taken": "2025-06-03T14:53:23.152Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1076,7 +1075,7 @@
     {
         "plant_id": 40,
         "name": "Amaryllis",
-        "temperature": 16.584846430711284,
+        "temperature": 16.3603734268184,
         "origin_location": {
             "latitude": 89.6714,
             "longitude": -61.2803,
@@ -1089,8 +1088,8 @@
             "phone": "1-944-604-9635 x77682"
         },
         "last_watered": "2025-06-02T14:58:06.000Z",
-        "soil_moisture": 27.521741463414642,
-        "recording_taken": "2025-06-03T11:36:16.215Z",
+        "soil_moisture": 16.227642996108955,
+        "recording_taken": "2025-06-03T14:53:23.983Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1108,7 +1107,7 @@
     {
         "plant_id": 41,
         "name": "Caladium Bicolor",
-        "temperature": 17.317261127725818,
+        "temperature": 16.98977038813591,
         "origin_location": {
             "latitude": 87.938,
             "longitude": -128.8359,
@@ -1120,9 +1119,9 @@
             "email": "darin.friesen-stark.md@lnhm.co.uk",
             "phone": "734-212-1797 x507"
         },
-        "last_watered": "2025-06-02T14:30:02.000Z",
-        "soil_moisture": 26.45234656340756,
-        "recording_taken": "2025-06-03T11:36:16.726Z",
+        "last_watered": "2025-06-03T14:30:02.000Z",
+        "soil_moisture": 98.66366952380952,
+        "recording_taken": "2025-06-03T14:53:25.147Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1140,7 +1139,7 @@
     {
         "plant_id": 42,
         "name": "Chlorophytum Comosum",
-        "temperature": 13.597982336929842,
+        "temperature": 13.300996798802096,
         "origin_location": {
             "latitude": -73.4156,
             "longitude": 74.927,
@@ -1152,9 +1151,9 @@
             "email": "kristin.lakin.v@lnhm.co.uk",
             "phone": "(903) 973-1504 x9409"
         },
-        "last_watered": "2025-06-02T14:38:45.000Z",
-        "soil_moisture": 30.64984191176471,
-        "recording_taken": "2025-06-03T11:36:17.972Z",
+        "last_watered": "2025-06-03T14:38:45.000Z",
+        "soil_moisture": 99.13942130987293,
+        "recording_taken": "2025-06-03T14:53:25.372Z",
         "images": {
             "license": 45,
             "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
@@ -1169,11 +1168,10 @@
             "Chlorophytum comosum 'Vittatum'"
         ]
     },
-    null,
     {
         "plant_id": 44,
         "name": "Araucaria Heterophylla",
-        "temperature": 15.78922116376388,
+        "temperature": 15.426788418600548,
         "origin_location": {
             "latitude": 23.114,
             "longitude": -108.7315,
@@ -1185,9 +1183,9 @@
             "email": "dr..camille.kreiger@lnhm.co.uk",
             "phone": "1-288-382-3655 x5892"
         },
-        "last_watered": "2025-06-02T14:20:23.000Z",
-        "soil_moisture": 25.81837499999999,
-        "recording_taken": "2025-06-03T11:36:18.437Z",
+        "last_watered": "2025-06-03T14:20:23.000Z",
+        "soil_moisture": 98.05678942213517,
+        "recording_taken": "2025-06-03T14:53:27.018Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1205,7 +1203,7 @@
     {
         "plant_id": 45,
         "name": "Begonia",
-        "temperature": 18.06513089260953,
+        "temperature": 17.52463123201004,
         "origin_location": {
             "latitude": 14.31,
             "longitude": 21.8921,
@@ -1217,9 +1215,9 @@
             "email": "nathan.kuhic@lnhm.co.uk",
             "phone": "(470) 586-3930 x591"
         },
-        "last_watered": "2025-06-02T13:32:05.000Z",
-        "soil_moisture": 26.3625078776645,
-        "recording_taken": "2025-06-03T11:36:19.854Z",
+        "last_watered": "2025-06-03T13:32:05.000Z",
+        "soil_moisture": 95.37162085308057,
+        "recording_taken": "2025-06-03T14:53:27.940Z",
         "images": null,
         "scientific_name": [
             "Begonia 'Art Hodes'"
@@ -1228,7 +1226,7 @@
     {
         "plant_id": 46,
         "name": "Medinilla Magnifica",
-        "temperature": 18.62574701345784,
+        "temperature": 17.997829277887483,
         "origin_location": {
             "latitude": -34.1863,
             "longitude": -78.697,
@@ -1240,9 +1238,9 @@
             "email": "clinton.prohaska-christiansen.iii@lnhm.co.uk",
             "phone": "1-957-526-2533 x4543"
         },
-        "last_watered": "2025-06-02T13:08:03.000Z",
-        "soil_moisture": 24.955249536178115,
-        "recording_taken": "2025-06-03T11:36:21.241Z",
+        "last_watered": "2025-06-03T13:08:03.000Z",
+        "soil_moisture": 94.03852780395853,
+        "recording_taken": "2025-06-03T14:53:28.122Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1260,7 +1258,7 @@
     {
         "plant_id": 47,
         "name": "Calliandra Haematocephala",
-        "temperature": 12.409165564350978,
+        "temperature": 12.155201781064903,
         "origin_location": {
             "latitude": 83.9217,
             "longitude": -148.5469,
@@ -1272,9 +1270,9 @@
             "email": "vicky.leuschke@lnhm.co.uk",
             "phone": "(462) 735-6685 x8065"
         },
-        "last_watered": "2025-06-02T14:50:57.000Z",
-        "soil_moisture": -6.749637142857139,
-        "recording_taken": "2025-06-03T11:36:21.746Z",
+        "last_watered": "2025-06-03T14:50:57.000Z",
+        "soil_moisture": 99.78213714285714,
+        "recording_taken": "2025-06-03T14:53:29.504Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1292,7 +1290,7 @@
     {
         "plant_id": 48,
         "name": "Zamioculcas Zamiifolia",
-        "temperature": 15.41339291962927,
+        "temperature": 15.010053218349437,
         "origin_location": {
             "latitude": -82.1806,
             "longitude": -72.4879,
@@ -1304,9 +1302,9 @@
             "email": "bob.hartmann@lnhm.co.uk",
             "phone": "408-747-3878 x32922"
         },
-        "last_watered": "2025-06-02T14:09:29.000Z",
-        "soil_moisture": 23.702504940711464,
-        "recording_taken": "2025-06-03T11:36:22.065Z",
+        "last_watered": "2025-06-03T14:09:29.000Z",
+        "soil_moisture": 97.53860857409133,
+        "recording_taken": "2025-06-03T14:53:30.073Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1324,7 +1322,7 @@
     {
         "plant_id": 49,
         "name": "Crassula Ovata",
-        "temperature": 17.665973828829518,
+        "temperature": 17.258461274245953,
         "origin_location": {
             "latitude": 15.7997,
             "longitude": 148.993,
@@ -1336,9 +1334,9 @@
             "email": "dr..jacob.glover@lnhm.co.uk",
             "phone": "705-893-6693 x509"
         },
-        "last_watered": "2025-06-02T14:08:03.000Z",
-        "soil_moisture": 23.31291071428572,
-        "recording_taken": "2025-06-03T11:36:23.586Z",
+        "last_watered": "2025-06-03T14:08:03.000Z",
+        "soil_moisture": 97.3050009881423,
+        "recording_taken": "2025-06-03T14:53:30.339Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1356,7 +1354,7 @@
     {
         "plant_id": 50,
         "name": "Epipremnum Aureum",
-        "temperature": 15.464842307455068,
+        "temperature": 15.13919294526908,
         "origin_location": {
             "latitude": -62.6313,
             "longitude": 18.6216,
@@ -1368,9 +1366,9 @@
             "email": "peter.hartmann@lnhm.co.uk",
             "phone": "(718) 765-2084 x0261"
         },
-        "last_watered": "2025-06-02T14:30:25.000Z",
-        "soil_moisture": 28.54239040451553,
-        "recording_taken": "2025-06-03T11:36:24.439Z",
+        "last_watered": "2025-06-03T14:30:25.000Z",
+        "soil_moisture": 98.6598655705996,
+        "recording_taken": "2025-06-03T14:53:30.699Z",
         "images": {
             "license": 45,
             "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",

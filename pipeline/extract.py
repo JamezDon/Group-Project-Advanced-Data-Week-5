@@ -38,12 +38,15 @@ def retrieve_all_data(logger):
     output_json = []
     for i in range(1, 55):
         plant_data = get_data(i, logger)
-        if validate_plant_data(plant_data):
-            logger.error(f"Plant data is invalid: {plant_data}")
-        else:
-            output_json.append(plant_data)
-    save_data_as_json(output_json)
-    logger.info("Plant data exported to json file.")
+        try:
+            if validate_plant_data(plant_data):
+                logger.error(f"Plant data is invalid: {plant_data}")
+            else:
+                output_json.append(plant_data)
+                save_data_as_json(output_json)
+                logger.info("Plant data exported to json file.")
+        except ValueError as e:
+            logger.error(f"Error when validating plant data: {e}")
 
 
 if __name__ == "__main__":
