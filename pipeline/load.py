@@ -47,6 +47,9 @@ def get_plant_master_data(plant: dict) -> dict:
 
     plant_master["plant_name"] = plant["recording_taken"]
     plant_master["scientific_name"] = plant.get("scientific_name", None)
+    if plant_master["scientific_name"]:
+        plant_master["scientific_name"] = "".join(
+            plant_master["scientific_name"])
     plant_master["image_link"] = plant.get(
         "images", {}).get("original_url")
     plant_master["soil_moisture"] = plant["soil_moisture"]
@@ -83,7 +86,7 @@ def load_plant_master_data(plants_data: list[dict]) -> None:
 
     insert_query = """
                 IF NOT EXISTS (
-                    SELECT 1 FROM plant 
+                    SELECT 1 FROM plant
                     WHERE plant_name = ?
                     AND origin_id = ?)
                 BEGIN
@@ -96,12 +99,13 @@ def load_plant_master_data(plants_data: list[dict]) -> None:
     for plant in plants_data:
         data = get_plant_master_data(plant)
         origin_id = get_origin_id(plant["origin_location"])
+
         curs.execute(
             insert_query, (data["plant_name"],
                            origin_id,
                            data["plant_name"],
                            origin_id,
-                           data["scientific_name"][0],
+                           data["scientific_name"],
                            data["image_link"]))
         conn.commit()
 
@@ -131,7 +135,7 @@ def load_origin_location_data(plants_data: list[dict]) -> None:
 
     insert_query = """
                 IF NOT EXISTS (
-                    SELECT 1 FROM origin_location 
+                    SELECT 1 FROM origin_location
                     WHERE latitude = ?
                     AND longitude = ?)
                 BEGIN
@@ -158,8 +162,8 @@ def load_country_data(plants_data: list[dict]) -> None:
 
     insert_query = """
                 IF NOT EXISTS (
-                    SELECT 1 
-                    FROM country_origin 
+                    SELECT 1
+                    FROM country_origin
                     WHERE country_name = ?)
                 BEGIN
                     INSERT INTO country_origin VALUES (?)
