@@ -16,13 +16,13 @@ CREATE TABLE country_origin (
 
 CREATE TABLE origin_location (
     origin_id SMALLINT IDENTITY(1,1),
-    latitude FLOAT NOT NULL,
-    longitude FLOAT NOT NULL,
+    latitude DECIMAL(6, 4) NOT NULL,
+    longitude DECIMAL(7, 4) NOT NULL,
     city_name VARCHAR(50) NOT NULL,
     country_id TINYINT NOT NULL,
     PRIMARY KEY (origin_id),
     FOREIGN KEY (country_id)
-        REFERENCES country_origin(country_id)
+        REFERENCES country_origin(country_id),
 );
 
 CREATE TABLE plant (
@@ -39,13 +39,17 @@ CREATE TABLE plant (
 CREATE TABLE sensor_reading (
     sensor_reading_id BIGINT IDENTITY(1,1),
     taken_at DATETIME2(0) NOT NULL,
-    temperature FLOAT NOT NULL,
+    temperature DECIMAL(5, 2) NOT NULL,
     last_watered DATETIME2(0) NOT NULL,
-    soil_moisture FLOAT NOT NULL,
+    soil_moisture DECIMAL(5, 2) NOT NULL,
     plant_id SMALLINT NOT NULL,
     PRIMARY KEY (sensor_reading_id),
     FOREIGN KEY (plant_id) 
-        REFERENCES plant(plant_id)
+        REFERENCES plant(plant_id),
+    CHECK (
+        soil_moisture >= 0
+        AND soil_moisture <= 100
+    ) 
 );
 
 CREATE TABLE botanist (
