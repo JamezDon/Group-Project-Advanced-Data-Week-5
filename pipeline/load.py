@@ -23,3 +23,9 @@ if __name__ == "__main__":
     load_dotenv()
 
     conn = get_db_connection()
+
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM PLANT")
+    output = cursor.fetchall()
+
+    print(output)
