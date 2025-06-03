@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS country_origin;
 -- Longest official country name in English is 56 characters.
 CREATE TABLE country_origin (
     country_id TINYINT IDENTITY(1,1),
-    country_name VARCHAR(60),
+    country_name VARCHAR(60) NOT NULL,
     PRIMARY KEY (country_id)
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE origin_location (
     origin_id SMALLINT IDENTITY(1,1),
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
-    city VARCHAR(50) NOT NULL UNIQUE,
+    city_name VARCHAR(50) NOT NULL,
     country_id TINYINT NOT NULL,
     PRIMARY KEY (origin_id),
     FOREIGN KEY (country_id)
@@ -41,7 +41,7 @@ CREATE TABLE sensor_reading (
     taken_at DATETIME2(0) NOT NULL,
     temperature FLOAT NOT NULL,
     last_watered DATETIME2(0) NOT NULL,
-    plant_id SMALLINT,
+    plant_id SMALLINT NOT NULL,
     PRIMARY KEY (sensor_reading_id),
     FOREIGN KEY (plant_id) 
         REFERENCES plant(plant_id)
@@ -49,7 +49,7 @@ CREATE TABLE sensor_reading (
 
 CREATE TABLE botanist (
     botanist_id SMALLINT IDENTITY(1,1),
-    name VARCHAR NOT NULL,
+    botanist_name VARCHAR NOT NULL,
     email VARCHAR NOT NULL UNIQUE,
     phone VARCHAR NOT NULL UNIQUE,
     PRIMARY KEY (botanist_id)
