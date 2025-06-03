@@ -34,10 +34,22 @@ def get_sensor_reading_data(plant: dict) -> dict:
     sensor_reading["taken_at"] = plant["recording_taken"]
     sensor_reading["temperature"] = plant["temperature"]
     sensor_reading["last_watered"] = plant["last_watered"]
-    sensor_reading["soil_moisture"] = plant["recording_taken"]
+    sensor_reading["soil_moisture"] = plant["soil_moisture"]
     sensor_reading["plant_id"] = plant["plant_id"]
 
     return sensor_reading
+
+
+def get_plant_master_data(plant: dict) -> dict:
+    """Gets the plant master data from API data."""
+    plant_master = {}
+
+    plant_master["plant_name"] = plant["recording_taken"]
+    plant_master["scientific_name"] = plant.get("scientific_name", None)
+    plant_master["image_link"] = plant.get("images", None).get("original_url")
+    plant_master["soil_moisture"] = plant["soil_moisture"]
+
+    return plant_master
 
 
 def load_sensor_reading_data(plants_data: list[dict]) -> None:
@@ -80,9 +92,9 @@ if __name__ == "__main__":
                 "email": "kenneth.buckridge@lnhm.co.uk",
                 "phone": "763.914.8635 x57724"
             },
-            "last_watered": "2025-06-03T13:51:41Z",
+            "last_watered": "2025-06-03 13:51:41",
             "soil_moisture": 95.2,
-            "recording_taken": "2025-06-03T15:18:08Z"
+            "recording_taken": "2025-06-03 15:18:08"
         }
     ]
 
