@@ -6,7 +6,7 @@ import logging
 
 import requests
 
-from clean import check_plant_found
+from validate import check_status_code
 
 
 def add_logger():
@@ -24,28 +24,15 @@ def save_data_as_json(output):
         json.dump(output, file, indent=4)
 
 
-def check_status_code(res, id):
-    """Checks the status code of the response."""
-    if res.status_code == 404:
-        raise ValueError("Plant not found.")
-    if res.status_code >= 500:
-        raise RuntimeError("Unable to connect to API.")
-    if res.status_code == 401:
-        raise PermissionError("Invalid API key or not authorised.")
-    if res.status_code != 200:
-        raise ValueError("Loading weather data was not successful.")
-
-
 def get_data(id, logger):
     """Retrieve data from api for a given ID."""
     res = requests.get(f"https://sigma-labs-bot.herokuapp.com/api/plants/{id}")
-    # check_status_code(res, id)
-    data = res.json()
-    plant_found = check_plant_found(data)
-    if plant_found:
-        logger.error(f"{data}")
-    else:
+    try:
+        check_status_code(res)
+        data = res.json()
         return data
+    except (ValueError, RuntimeError, PermissionError) as e:
+        logger.error(f"Error fetching data: {e}")
 
 
 def retrieve_all_data(logger):
@@ -55,6 +42,7 @@ def retrieve_all_data(logger):
         plant_data = get_data(i, logger)
         output_json.append(plant_data)
     save_data_as_json(output_json)
+    logger.info("Plant data exported to json file.")
 
 
 if __name__ == "__main__":

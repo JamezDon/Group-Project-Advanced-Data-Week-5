@@ -1,8 +1,16 @@
-# Clean the raw data from api
+"""Functions for validating the plant data extracted from API."""
 
-def check_plant_found(data):
-    """Checks whether plant was found."""
-    return "error" in data
+
+def check_status_code(res):
+    """Checks the status code of the response."""
+    if res.status_code == 404:
+        raise ValueError(f"{res.json()}")
+    if res.status_code >= 500:
+        raise RuntimeError("Unable to connect to API.")
+    if res.status_code == 401:
+        raise PermissionError("Invalid API key or not authorised.")
+    if res.status_code != 200:
+        raise ValueError("Loading plant data was not successful.")
 
 
 def check_missing_keys(data):
@@ -20,7 +28,7 @@ def check_missing_keys(data):
 
 def check_missing_location_details(data):
     """Checks that data has all relevant location details."""
-    location_details = data["origin_locations"]
+    location_details = data["origin_location"]
 
     required_keys = ["latitude", "longitude", "country", "city"]
     missing_key = []
