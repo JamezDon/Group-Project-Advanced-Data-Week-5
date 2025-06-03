@@ -45,11 +45,12 @@ def get_plant_master_data(plant: dict) -> dict:
     """Gets the plant master data from API data."""
     plant_master = {}
 
-    plant_master["plant_name"] = plant["recording_taken"]
+    plant_master["plant_name"] = plant["name"]
     plant_master["scientific_name"] = plant.get("scientific_name", None)
     if plant_master["scientific_name"]:
         plant_master["scientific_name"] = "".join(
             plant_master["scientific_name"])
+
     plant_master["image_link"] = plant.get(
         "images", {}).get("original_url")
     plant_master["soil_moisture"] = plant["soil_moisture"]
