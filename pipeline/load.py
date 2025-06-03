@@ -52,6 +52,18 @@ def get_plant_master_data(plant: dict) -> dict:
     return plant_master
 
 
+def get_country_id(plant: dict) -> dict:
+    """Gets the corresponding country ID from database using country name."""
+
+    curs = get_db_cursor(conn)
+
+    curs.execute("SELECT country_id FROM country_origin WHERE country_name = ?",
+                 plant["origin_location"]["country"])
+    result = curs.fetchone()[0]
+
+    return result
+
+
 def load_plant_master_data(plants_data: list[dict]) -> None:
     """Loads plant master data from dictionary to plant table in SQL Server database."""
 
@@ -156,5 +168,3 @@ if __name__ == "__main__":
     ]
 
     conn = get_db_connection()
-
-    load_country_data(mock_data)
