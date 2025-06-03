@@ -52,8 +52,27 @@ def get_plant_master_data(plant: dict) -> dict:
     return plant_master
 
 
+def load_plant_master_data(plants_data: list[dict]) -> None:
+    """Loads plant master data from dictionary to plant table in SQL Server database."""
+
+    insert_query = """
+                INSERT INTO plant
+                VALUES (?, ?, ?, ?)
+                """
+
+    curs = get_db_cursor(conn)
+    for plant in plants_data:
+        data = get_plant_master_data(plant)
+        curs.execute(
+            insert_query, (data["plant_name"],
+                           data["origin_id"],
+                           data["scientific_name"],
+                           data["image_link"]))
+        conn.commit()
+
+
 def load_sensor_reading_data(plants_data: list[dict]) -> None:
-    """Loads sensor reading data from dictionary to SQL Server database."""
+    """Loads sensor reading data from dictionary to sensor reading table in SQL Server database."""
 
     insert_query = """
                 INSERT INTO sensor_reading
