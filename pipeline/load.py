@@ -3,12 +3,13 @@
 from os import environ as ENV
 
 from dotenv import load_dotenv
-from pyodbc import connect, Connection, cursor
+import pyodbc
+from pyodbc import Connection
 
 
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
-    conn = connect(driver='{ODBC Driver 18 for SQL Server}',
+    conn = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
                           server=ENV["DB_HOST"],
                           database=ENV["DB_NAME"],
                           TrustServerCertificate='yes',
@@ -16,6 +17,14 @@ def get_db_connection():
                           PWD=ENV["DB_PASSWORD"],)
 
     return conn
+
+
+def get_db_cursor(conn: Connection):
+    """Gets a connection to the SQL Server plants database."""
+
+    cursor = conn.cursor()
+
+    return cursor
 
 
 def get_sensor_reading_data(plant: dict) -> dict:
@@ -31,28 +40,52 @@ def get_sensor_reading_data(plant: dict) -> dict:
     return sensor_reading
 
 
-def load_sensor_reading_data(conn: Connection, plants_data: list[dict]) -> None:
+def load_sensor_reading_data(plants_data: list[dict]) -> None:
     """Loads sensor reading data from dictionary to SQL Server database."""
 
     insert_query = """
                 INSERT INTO sensor_reading
-                VALUES (%s, %s, %s, %s, %s)
+                VALUES (?, ?, ?, ?, ?)
                 """
 
-    with conn.cursor as curs:
-        for plant in plants_data:
-            reading = get_sensor_reading_data(plant)
-            curs.execute(
-                insert_query, (reading["taken_at"],
-                               reading["temperature"],
-                               reading["last_watered"],
-                               reading["soil_moisture"],
-                               reading["plant_id"]))
-            conn.commit()
+    curs = get_db_cursor(conn)
+    for plant in plants_data:
+        reading = get_sensor_reading_data(plant)
+        curs.execute(
+            insert_query, (reading["taken_at"],
+                           reading["temperature"],
+                           reading["last_watered"],
+                           reading["soil_moisture"],
+                           reading["plant_id"]))
+        conn.commit()
 
 
 if __name__ == "__main__":
 
     load_dotenv()
 
+    mock_data = [
+        {
+            "plant_id": 1,
+            "name": "Venus flytrap",
+            "temperature": 14.14,
+            "origin_location": {
+                "latitude": 43.74,
+                "longitude": -11.51,
+                "city": "Stammside",
+                "country": "Albania"
+            },
+            "botanist": {
+                "name": "Kenneth Buckridge",
+                "email": "kenneth.buckridge@lnhm.co.uk",
+                "phone": "763.914.8635 x57724"
+            },
+            "last_watered": "2025-06-03T13:51:41Z",
+            "soil_moisture": 95.2,
+            "recording_taken": "2025-06-03T15:18:08Z"
+        }
+    ]
+
     conn = get_db_connection()
+
+    load_sensor_reading_data(mock_data)
