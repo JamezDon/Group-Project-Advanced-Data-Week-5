@@ -46,7 +46,8 @@ def get_plant_master_data(plant: dict) -> dict:
 
     plant_master["plant_name"] = plant["recording_taken"]
     plant_master["scientific_name"] = plant.get("scientific_name", None)
-    plant_master["image_link"] = plant.get("images", None).get("original_url")
+    plant_master["image_link"] = plant.get(
+        "images", {}).get("original_url")
     plant_master["soil_moisture"] = plant["soil_moisture"]
 
     return plant_master
@@ -64,20 +65,41 @@ def get_country_id(plant: dict) -> dict:
     return result
 
 
+def get_origin_id(location_data: dict) -> dict:
+    """Gets the corresponding origin ID from database using longitude and latitude."""
+
+    curs = get_db_cursor(conn)
+
+    curs.execute("SELECT country_id FROM origin_location WHERE longitude = ? AND latitude = ?",
+                 (location_data["longitude"], location_data["latitude"]))
+    result = curs.fetchone()[0]
+
+    return result
+
+
 def load_plant_master_data(plants_data: list[dict]) -> None:
     """Loads plant master data from dictionary to plant table in SQL Server database."""
 
     insert_query = """
-                INSERT INTO plant
-                VALUES (?, ?, ?, ?)
+                IF NOT EXISTS (
+                    SELECT 1 FROM plant 
+                    WHERE plant_name = ?
+                    AND origin_id = ?)
+                BEGIN
+                    INSERT INTO plant
+                    VALUES (?, ?, ?, ?)
+                END
                 """
 
     curs = get_db_cursor(conn)
     for plant in plants_data:
         data = get_plant_master_data(plant)
+        origin_id = get_origin_id(plant["origin_location"])
         curs.execute(
             insert_query, (data["plant_name"],
-                           data["origin_id"],
+                           origin_id,
+                           data["plant_name"],
+                           origin_id,
                            data["scientific_name"],
                            data["image_link"]))
         conn.commit()
@@ -107,8 +129,14 @@ def load_origin_location_data(plants_data: list[dict]) -> None:
     """Loads origin location data from dictionary to origin_location table in SQL Server database."""
 
     insert_query = """
-                INSERT INTO origin_location
-                VALUES (?, ?, ?, ?)
+                IF NOT EXISTS (
+                    SELECT 1 FROM origin_location 
+                    WHERE latitude = ?
+                    AND longitude = ?)
+                BEGIN
+                    INSERT INTO origin_location
+                    VALUES (?, ?, ?, ?)
+                END
                 """
 
     curs = get_db_cursor(conn)
@@ -117,8 +145,10 @@ def load_origin_location_data(plants_data: list[dict]) -> None:
         curs.execute(
             insert_query, (location["latitude"],
                            location["longitude"],
+                           location["latitude"],
+                           location["longitude"],
                            location["city"],
-                           location["country"]))
+                           get_country_id(plant)))
         conn.commit()
 
 
@@ -127,7 +157,9 @@ def load_country_data(plants_data: list[dict]) -> None:
 
     insert_query = """
                 IF NOT EXISTS (
-                    SELECT 1 FROM country_origin WHERE country_name = ?)
+                    SELECT 1 
+                    FROM country_origin 
+                    WHERE country_name = ?)
                 BEGIN
                     INSERT INTO country_origin VALUES (?)
                 END
@@ -135,6 +167,7 @@ def load_country_data(plants_data: list[dict]) -> None:
 
     curs = get_db_cursor(conn)
     for plant in plants_data:
+        print(plant)
         country = plant["origin_location"]["country"]
         curs.execute(
             insert_query, (country, country))
@@ -161,10 +194,15 @@ if __name__ == "__main__":
                 "email": "kenneth.buckridge@lnhm.co.uk",
                 "phone": "763.914.8635 x57724"
             },
-            "last_watered": "2025-06-03T13:51:41Z",
+            "last_watered": "2025-06-03T13:51:41.000Z",
             "soil_moisture": 95.2,
-            "recording_taken": "2025-06-03T15:18:08Z"
+            "recording_taken": "2025-06-03T15:18:08.000Z"
         }
     ]
 
     conn = get_db_connection()
+
+    load_country_data(mock_data)
+    load_origin_location_data(mock_data)
+    load_plant_master_data(mock_data)
+    load_sensor_reading_data(mock_data)
