@@ -34,10 +34,21 @@ def get_sensor_reading_data(plant: dict) -> dict:
 def load_sensor_reading_data(conn: Connection, plants_data: list[dict]) -> None:
     """Loads sensor reading data from dictionary to SQL Server database."""
 
+    insert_query = """
+                INSERT INTO sensor_reading
+                VALUES (%s, %s, %s, %s, %s)
+                """
+
     with conn.cursor as curs:
         for plant in plants_data:
-            get_sensor_reading_data(plant):
-                curs.execute()
+            reading = get_sensor_reading_data(plant)
+            curs.execute(
+                insert_query, (reading["taken_at"],
+                               reading["temperature"],
+                               reading["last_watered"],
+                               reading["soil_moisture"],
+                               reading["plant_id"]))
+            conn.commit()
 
 
 if __name__ == "__main__":
