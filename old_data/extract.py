@@ -1,8 +1,10 @@
 """Python script to load the hour of data which was more than 24 hours ago"""
-
+from datetime import datetime, timedelta
 import pyodbc
 from dotenv import load_dotenv
+import os
 from os import environ as ENV
+import pandas as pd
 
 
 def get_connection():
@@ -16,18 +18,47 @@ def get_connection():
     return conn
 
 
-def get_first_hour():
+def get_time_range():
+    # 25 hours to account for sometimes the task triggering later
+    lower = datetime.now() - timedelta(hours=25)
+    upper = datetime.now() - timedelta(hours=23)
+    return lower, upper
 
-    SQL_QUERY = ("""
-                SELECT * FROM plant;
-                """)
+
+def get_first_hour(lower, upper):
+    query = ("""
+                SELECT * FROM sensor_reading
+                WHERE taken_at
+                BETWEEN ? AND ?;
+                """), (lower, upper)
 
     cursor = conn.cursor()
-    cursor.execute(SQL_QUERY)
+    cursor.execute(query)
     record = cursor.fetchall()
     print(record)
 
 
+def delete_first_hour(lower, upper):
+    lower, upper = get_time_range()
+    query = ("""
+                DELETE FROM sensor_reading
+                WHERE taken_at
+                BETWEEN ? AND ?;
+                """), (lower, upper)
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+
+
+def store_data(data):
+    os.makedirs("data")
+    df = pd.DataFrame(data)
+    df.to_csv("data/plant_data.csv", index=False)
+
+
 if __name__ == "__main__":
     load_dotenv()
-    get_connection()
+    conn = get_connection()
+    lower, upper = get_time_range()
+    get_first_hour(lower, upper)
+    delete_first_hour(lower, upper)
