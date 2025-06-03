@@ -101,7 +101,7 @@ def load_plant_master_data(plants_data: list[dict]) -> None:
                            origin_id,
                            data["plant_name"],
                            origin_id,
-                           data["scientific_name"],
+                           data["scientific_name"][0],
                            data["image_link"]))
         conn.commit()
 
