@@ -41,6 +41,7 @@ CREATE TABLE sensor_reading (
     taken_at DATETIME2(0) NOT NULL,
     temperature FLOAT NOT NULL,
     last_watered DATETIME2(0) NOT NULL,
+    soil_moisture FLOAT NOT NULL,
     plant_id SMALLINT NOT NULL,
     PRIMARY KEY (sensor_reading_id),
     FOREIGN KEY (plant_id) 
