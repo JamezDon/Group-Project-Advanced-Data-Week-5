@@ -1,6 +1,7 @@
 # Load data into database
 
 from os import environ as ENV
+import json
 
 from dotenv import load_dotenv
 import pyodbc
@@ -167,42 +168,30 @@ def load_country_data(plants_data: list[dict]) -> None:
 
     curs = get_db_cursor(conn)
     for plant in plants_data:
-        print(plant)
         country = plant["origin_location"]["country"]
         curs.execute(
             insert_query, (country, country))
         conn.commit()
 
 
+def read_json_data(filename: str) -> list[dict]:
+    """Reads JSON data and returns a list of dictionaries."""
+
+    with open(filename, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    return data
+
+
 if __name__ == "__main__":
 
     load_dotenv()
 
-    mock_data = [
-        {
-            "plant_id": 1,
-            "name": "Venus flytrap",
-            "temperature": 14.14,
-            "origin_location": {
-                "latitude": 43.74,
-                "longitude": -11.51,
-                "city": "Stammside",
-                "country": "Albania"
-            },
-            "botanist": {
-                "name": "Kenneth Buckridge",
-                "email": "kenneth.buckridge@lnhm.co.uk",
-                "phone": "763.914.8635 x57724"
-            },
-            "last_watered": "2025-06-03T13:51:41.000Z",
-            "soil_moisture": 95.2,
-            "recording_taken": "2025-06-03T15:18:08.000Z"
-        }
-    ]
+    seed_data = read_json_data("plant_data.json")
 
     conn = get_db_connection()
 
-    load_country_data(mock_data)
-    load_origin_location_data(mock_data)
-    load_plant_master_data(mock_data)
-    load_sensor_reading_data(mock_data)
+    load_country_data(seed_data)
+    load_origin_location_data(seed_data)
+    load_plant_master_data(seed_data)
+    load_sensor_reading_data(seed_data)
