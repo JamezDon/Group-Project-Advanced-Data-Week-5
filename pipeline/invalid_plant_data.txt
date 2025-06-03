@@ -1,0 +1,4 @@
+{'error': 'plant not found', 'plant_id': 7}
+{'error': 'plant sensor fault', 'plant_id': 3}
+{'error': 'plant not found', 'plant_id': 7}
+{'error': 'plant on loan to another museum', 'plant_id': 43}
