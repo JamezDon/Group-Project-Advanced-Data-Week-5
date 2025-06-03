@@ -91,6 +91,44 @@ def load_sensor_reading_data(plants_data: list[dict]) -> None:
         conn.commit()
 
 
+def load_origin_location_data(plants_data: list[dict]) -> None:
+    """Loads origin location data from dictionary to origin_location table in SQL Server database."""
+
+    insert_query = """
+                INSERT INTO origin_location
+                VALUES (?, ?, ?, ?)
+                """
+
+    curs = get_db_cursor(conn)
+    for plant in plants_data:
+        location = plant["origin_location"]
+        curs.execute(
+            insert_query, (location["latitude"],
+                           location["longitude"],
+                           location["city"],
+                           location["country"]))
+        conn.commit()
+
+
+def load_country_data(plants_data: list[dict]) -> None:
+    """Loads country origin data from to country_origin table in SQL Server database."""
+
+    insert_query = """
+                IF NOT EXISTS (
+                    SELECT 1 FROM country_origin WHERE country_name = ?)
+                BEGIN
+                    INSERT INTO country_origin VALUES (?)
+                END
+                """
+
+    curs = get_db_cursor(conn)
+    for plant in plants_data:
+        country = plant["origin_location"]["country"]
+        curs.execute(
+            insert_query, (country, country))
+        conn.commit()
+
+
 if __name__ == "__main__":
 
     load_dotenv()
@@ -111,12 +149,12 @@ if __name__ == "__main__":
                 "email": "kenneth.buckridge@lnhm.co.uk",
                 "phone": "763.914.8635 x57724"
             },
-            "last_watered": "2025-06-03 13:51:41",
+            "last_watered": "2025-06-03T13:51:41Z",
             "soil_moisture": 95.2,
-            "recording_taken": "2025-06-03 15:18:08"
+            "recording_taken": "2025-06-03T15:18:08Z"
         }
     ]
 
     conn = get_db_connection()
 
-    load_sensor_reading_data(mock_data)
+    load_country_data(mock_data)
