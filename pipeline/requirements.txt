@@ -4,3 +4,4 @@ ipykernel
 pylint
 python-dotenv
 pytest
+joblib

@@ -4,6 +4,7 @@ import json
 import logging
 
 import requests
+from joblib import Parallel, delayed
 
 from validate import check_status_code, validate_plant_data, convert_int_to_2dp
 
@@ -59,8 +60,10 @@ def write_valid_data_to_json(plant_data, logger):
 
 def retrieve_all_data(logger):
     """Fetches all plant data from the api for a given range."""
-    for i in range(1, 55):
-        plant_data = get_data(i, logger)
+    plant_ids = range(1, 54)
+    fetched_data = Parallel(n_jobs=10)(
+        delayed(get_data)(i, logger) for i in plant_ids)
+    for plant_data in fetched_data:
         write_valid_data_to_json(plant_data, logger)
 
 

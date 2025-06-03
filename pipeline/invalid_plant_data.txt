@@ -1,0 +1,107 @@
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 7}
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Error fetching data: Unable to connect to API.
+Error when validating plant data: argument of type 'NoneType' is not iterable
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data is invalid: {'error': 'plant on loan to another museum', 'plant_id': 43}
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 51}
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 52}
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 53}
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 7}
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Error when validating plant data: argument of type 'NoneType' is not iterable
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data is invalid: {'error': 'plant on loan to another museum', 'plant_id': 43}
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data exported to json file.
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 51}
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 52}
+Plant data is invalid: {'error': 'plant not found', 'plant_id': 53}
