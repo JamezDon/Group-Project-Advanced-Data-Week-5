@@ -1,12 +1,10 @@
-# Connect to and fetch data from ap
-
 """Access the api and retrieve all plant data"""
 import json
 import logging
 
 import requests
 
-from validate import check_status_code
+from validate import check_status_code, validate_plant_data
 
 
 def add_logger():
@@ -38,9 +36,12 @@ def get_data(id, logger):
 def retrieve_all_data(logger):
     """Fetches all plant data from the api for a given range."""
     output_json = []
-    for i in range(1, 51):
+    for i in range(1, 55):
         plant_data = get_data(i, logger)
-        output_json.append(plant_data)
+        if validate_plant_data(plant_data):
+            logger.error(f"Plant data is invalid: {plant_data}")
+        else:
+            output_json.append(plant_data)
     save_data_as_json(output_json)
     logger.info("Plant data exported to json file.")
 

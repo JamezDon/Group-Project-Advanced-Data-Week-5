@@ -83,29 +83,4 @@ def validate_plant_data(data):
         all_missing_keys.append(
             f"Missing keys for botanist: {missing_botanist_details}")
 
-    if all_missing_keys:
-        return all_missing_keys
-    return data
-
-
-data = {
-
-    "name": "b",
-
-    "origin_location": {
-            "latitude": 43.74,
-            "longitude": -11.5098,
-            "country": ""
-    },
-    "botanist": {
-        "name": "",
-        "email": "",
-    },
-    "last_watered": "",
-    "soil_moisture": "",
-    "recording_taken": "hh"
-}
-
-m = validate_data_keys(data)
-
-print(m)
+    return all_missing_keys
