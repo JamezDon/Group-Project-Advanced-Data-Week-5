@@ -1,8 +1,8 @@
 """Tests for validation functions."""
 
 
-from validate import (get_dict_of_missing_info, check_missing_keys, check_missing_location_details,
-                      check_missing_botanist_details)
+from validate import (get_dict_of_missing_info, check_missing_keys,
+                      check_missing_location_details)
 
 
 def test_get_dict_of_missing_info_returns_correct_missing_keys():
@@ -43,7 +43,7 @@ def test_get_dict_of_missing_info_returns_empty_dict_when_no_missing_keys_and_va
     required_keys = ["name", "plant_id", "origin_location", "soil_moisture"]
     data = {"name": "/", "plant_id": "/",
             "origin_location": "/", "soil_moisture": "/"}
-    assert get_dict_of_missing_info(data, required_keys) == {}
+    assert not get_dict_of_missing_info(data, required_keys)
 
 
 def test_check_missing_keys_returns_dict_of_missing_keys():
@@ -86,8 +86,7 @@ def test_check_missing_keys_returns_empty_dict_if_no_missing_key_and_values():
     data = {"plant_id": "/", "name": "/", "temperature": "/",
             "origin_location": "/", "botanist": "/", "last_watered": "/", "soil_moisture": "/",
             "recording_taken": "/"}
-    assert check_missing_keys(
-        data) == {}
+    assert not check_missing_keys(data)
 
 
 def test_check_missing_location_details_returns_dict_of_missing_keys():

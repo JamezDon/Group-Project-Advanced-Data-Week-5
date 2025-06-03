@@ -14,7 +14,7 @@ def check_status_code(res):
 
 
 def get_dict_of_missing_info(plant_dict, keys):
-
+    """Returns a dict of missing keys and values."""
     missing_info = {}
     missing_keys = []
     missing_values = []
@@ -60,6 +60,16 @@ def check_missing_botanist_details(data):
     required_keys = ["name", "email", "phone"]
     missing_info = get_dict_of_missing_info(botanist_details, required_keys)
     return missing_info
+
+
+def convert_int_to_2dp(data):
+    """Converts int to 2 decimal places."""
+    data["temperature"] = round(data["temperature"], 2)
+    data["soil_moisture"] = round(data["soil_moisture"], 2)
+    location = data["origin_location"]
+    location["latitude"] = round(location["latitude"], 2)
+    location["longitude"] = round(location["longitude"], 2)
+    return data
 
 
 def validate_plant_data(data):

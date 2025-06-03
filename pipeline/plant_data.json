@@ -2,10 +2,10 @@
     {
         "plant_id": 1,
         "name": "Venus flytrap",
-        "temperature": 14.298805354695135,
+        "temperature": 14.14,
         "origin_location": {
             "latitude": 43.74,
-            "longitude": -11.5098,
+            "longitude": -11.51,
             "city": "Stammside",
             "country": "Albania"
         },
@@ -15,16 +15,16 @@
             "phone": "763.914.8635 x57724"
         },
         "last_watered": "2025-06-03T13:51:41.000Z",
-        "soil_moisture": 96.62507536764706,
-        "recording_taken": "2025-06-03T14:52:52.918Z"
+        "soil_moisture": 95.2,
+        "recording_taken": "2025-06-03T15:18:08.682Z"
     },
     {
         "plant_id": 2,
         "name": "Corpse flower",
-        "temperature": 14.023002915045627,
+        "temperature": 13.95,
         "origin_location": {
-            "latitude": 47.8428,
-            "longitude": -48.7087,
+            "latitude": 47.84,
+            "longitude": -48.71,
             "city": "Floshire",
             "country": "American Samoa"
         },
@@ -33,17 +33,17 @@
             "email": "ms..diana.king@lnhm.co.uk",
             "phone": "673.641.8851"
         },
-        "last_watered": "2025-06-02T14:58:34.000Z",
-        "soil_moisture": 20.900874080882346,
-        "recording_taken": "2025-06-03T14:52:53.849Z"
+        "last_watered": "2025-06-03T14:58:34.000Z",
+        "soil_moisture": 98.89,
+        "recording_taken": "2025-06-03T15:18:09.668Z"
     },
     {
         "plant_id": 3,
         "name": "Rafflesia arnoldii",
-        "temperature": 16.003371912056625,
+        "temperature": 15.86,
         "origin_location": {
-            "latitude": -25.4878,
-            "longitude": -36.1349,
+            "latitude": -25.49,
+            "longitude": -36.13,
             "city": "Dale City",
             "country": "Mozambique"
         },
@@ -53,16 +53,16 @@
             "phone": "408-816-2276 x87051"
         },
         "last_watered": "2025-06-03T13:58:19.000Z",
-        "soil_moisture": 96.9701822386679,
-        "recording_taken": "2025-06-03T14:52:54.233Z"
+        "soil_moisture": 95.24,
+        "recording_taken": "2025-06-03T15:18:10.191Z"
     },
     {
         "plant_id": 4,
         "name": "Black bat flower",
-        "temperature": 16.30204539484293,
+        "temperature": 16.22,
         "origin_location": {
-            "latitude": 63.3661,
-            "longitude": 46.4049,
+            "latitude": 63.37,
+            "longitude": 46.4,
             "city": "West Tedboro",
             "country": "Taiwan"
         },
@@ -71,17 +71,17 @@
             "email": "wilson.welch@lnhm.co.uk",
             "phone": "(953) 607-4239 x328"
         },
-        "last_watered": "2025-06-02T14:56:07.000Z",
-        "soil_moisture": 17.66209264565424,
-        "recording_taken": "2025-06-03T14:52:54.789Z"
+        "last_watered": "2025-06-03T14:56:07.000Z",
+        "soil_moisture": 98.74,
+        "recording_taken": "2025-06-03T15:18:10.789Z"
     },
     {
         "plant_id": 5,
         "name": "Pitcher plant",
-        "temperature": 16.95656561900131,
+        "temperature": 16.81,
         "origin_location": {
-            "latitude": 82.8917,
-            "longitude": 0.6279,
+            "latitude": 82.89,
+            "longitude": 0.63,
             "city": "North Felicia",
             "country": "Saint Kitts and Nevis"
         },
@@ -91,8 +91,8 @@
             "phone": "687-647-1094"
         },
         "last_watered": "2025-06-03T13:57:08.000Z",
-        "soil_moisture": 96.7723143683703,
-        "recording_taken": "2025-06-03T14:52:55.110Z",
+        "soil_moisture": 95.51,
+        "recording_taken": "2025-06-03T15:18:11.521Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -110,10 +110,10 @@
     {
         "plant_id": 6,
         "name": "Wollemi pine",
-        "temperature": 15.698168692679934,
+        "temperature": 15.49,
         "origin_location": {
-            "latitude": -40.3521,
-            "longitude": -12.1055,
+            "latitude": -40.35,
+            "longitude": -12.11,
             "city": "Ferryfort",
             "country": "Mauritius"
         },
@@ -123,8 +123,8 @@
             "phone": "288.875.3012 x4682"
         },
         "last_watered": "2025-06-03T13:03:31.000Z",
-        "soil_moisture": 93.51216106719367,
-        "recording_taken": "2025-06-03T14:52:56.693Z",
+        "soil_moisture": 92.3,
+        "recording_taken": "2025-06-03T15:18:12.393Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -142,10 +142,10 @@
     {
         "plant_id": 8,
         "name": "Bird of paradise",
-        "temperature": 16.276734308776682,
+        "temperature": 16.1,
         "origin_location": {
-            "latitude": 54.1635,
-            "longitude": 8.6662,
+            "latitude": 54.16,
+            "longitude": 8.67,
             "city": "Edwardfurt",
             "country": "Liberia"
         },
@@ -155,8 +155,8 @@
             "phone": "(230) 859-2277 x3537"
         },
         "last_watered": "2025-06-03T13:33:20.000Z",
-        "soil_moisture": 95.2506560636183,
-        "recording_taken": "2025-06-03T14:52:57.840Z",
+        "soil_moisture": 94.09,
+        "recording_taken": "2025-06-03T15:18:12.688Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -174,10 +174,10 @@
     {
         "plant_id": 9,
         "name": "Cactus",
-        "temperature": 12.485150601327941,
+        "temperature": 12.36,
         "origin_location": {
-            "latitude": 22.1228,
-            "longitude": -11.0358,
+            "latitude": 22.12,
+            "longitude": -11.04,
             "city": "Port Johan",
             "country": "Cayman Islands"
         },
@@ -187,8 +187,8 @@
             "phone": "976-364-3090"
         },
         "last_watered": "2025-06-03T14:19:58.000Z",
-        "soil_moisture": 98.19716651501365,
-        "recording_taken": "2025-06-03T14:52:59.314Z",
+        "soil_moisture": 96.63,
+        "recording_taken": "2025-06-03T15:18:12.964Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -206,10 +206,10 @@
     {
         "plant_id": 10,
         "name": "Dragon tree",
-        "temperature": 13.913508318017868,
+        "temperature": 13.79,
         "origin_location": {
-            "latitude": -85.7462,
-            "longitude": 178.9976,
+            "latitude": -85.75,
+            "longitude": 179.0,
             "city": "North Adriel",
             "country": "Nicaragua"
         },
@@ -219,16 +219,16 @@
             "phone": "1-661-425-6823 x4455"
         },
         "last_watered": "2025-06-03T14:15:42.000Z",
-        "soil_moisture": 97.89708834586466,
-        "recording_taken": "2025-06-03T14:52:59.498Z"
+        "soil_moisture": 96.43,
+        "recording_taken": "2025-06-03T15:18:14.302Z"
     },
     {
         "plant_id": 11,
         "name": "Asclepias Curassavica",
-        "temperature": 20.87706451690711,
+        "temperature": 16.4,
         "origin_location": {
-            "latitude": 89.0252,
-            "longitude": -108.526,
+            "latitude": 89.03,
+            "longitude": -108.53,
             "city": "Dorianland",
             "country": "Mali"
         },
@@ -238,8 +238,8 @@
             "phone": "1-730-711-3377 x08275"
         },
         "last_watered": "2025-06-03T13:32:16.000Z",
-        "soil_moisture": 95.17567529880478,
-        "recording_taken": "2025-06-03T14:52:59.622Z",
+        "soil_moisture": 94.18,
+        "recording_taken": "2025-06-03T15:18:15.562Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -257,10 +257,10 @@
     {
         "plant_id": 12,
         "name": "Brugmansia X Candida",
-        "temperature": 15.868312129069016,
+        "temperature": 15.69,
         "origin_location": {
-            "latitude": 86.2589,
-            "longitude": -108.5545,
+            "latitude": 86.26,
+            "longitude": -108.55,
             "city": "Fort Maya",
             "country": "Wallis and Futuna"
         },
@@ -270,16 +270,16 @@
             "phone": "(682) 358-8815 x08653"
         },
         "last_watered": "2025-06-03T13:34:25.000Z",
-        "soil_moisture": 95.31758391261172,
-        "recording_taken": "2025-06-03T14:53:00.193Z"
+        "soil_moisture": 93.96,
+        "recording_taken": "2025-06-03T15:18:16.618Z"
     },
     {
         "plant_id": 13,
         "name": "Canna \u2018Striata\u2019",
-        "temperature": 14.679982582810425,
+        "temperature": 14.59,
         "origin_location": {
-            "latitude": 26.7106,
-            "longitude": 54.0918,
+            "latitude": 26.71,
+            "longitude": 54.09,
             "city": "Annaboro",
             "country": "French Southern Territories"
         },
@@ -289,16 +289,16 @@
             "phone": "(456) 348-3790 x868"
         },
         "last_watered": "2025-06-03T14:46:28.000Z",
-        "soil_moisture": 99.61582583170254,
-        "recording_taken": "2025-06-03T14:53:00.626Z"
+        "soil_moisture": 98.18,
+        "recording_taken": "2025-06-03T15:18:17.932Z"
     },
     {
         "plant_id": 14,
         "name": "Colocasia Esculenta",
-        "temperature": 15.089475585187483,
+        "temperature": 14.91,
         "origin_location": {
-            "latitude": -54.9306,
-            "longitude": 81.3907,
+            "latitude": -54.93,
+            "longitude": 81.39,
             "city": "Felixberg",
             "country": "Canada"
         },
@@ -308,8 +308,8 @@
             "phone": "(514) 473-7641 x14748"
         },
         "last_watered": "2025-06-03T13:28:35.000Z",
-        "soil_moisture": 95.05719024390244,
-        "recording_taken": "2025-06-03T14:53:01.380Z",
+        "soil_moisture": 93.46,
+        "recording_taken": "2025-06-03T15:18:19.458Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -327,10 +327,10 @@
     {
         "plant_id": 15,
         "name": "Cuphea \u2018David Verity\u2019",
-        "temperature": 16.000365783870446,
+        "temperature": 15.88,
         "origin_location": {
-            "latitude": -22.6373,
-            "longitude": 100.898,
+            "latitude": -22.64,
+            "longitude": 100.9,
             "city": "New Clark",
             "country": "Cayman Islands"
         },
@@ -340,16 +340,16 @@
             "phone": "(459) 933-0647"
         },
         "last_watered": "2025-06-03T14:17:16.000Z",
-        "soil_moisture": 97.90534536585366,
-        "recording_taken": "2025-06-03T14:53:03.021Z"
+        "soil_moisture": 96.58,
+        "recording_taken": "2025-06-03T15:18:20.855Z"
     },
     {
         "plant_id": 16,
         "name": "Euphorbia Cotinifolia",
-        "temperature": 16.98087823551276,
+        "temperature": 16.84,
         "origin_location": {
-            "latitude": -60.739,
-            "longitude": 39.0588,
+            "latitude": -60.74,
+            "longitude": 39.06,
             "city": "Boscomouth",
             "country": "Norway"
         },
@@ -359,8 +359,8 @@
             "phone": "464.633.6597 x7370"
         },
         "last_watered": "2025-06-03T14:02:07.000Z",
-        "soil_moisture": 95.63200857142857,
-        "recording_taken": "2025-06-03T14:53:04.594Z",
+        "soil_moisture": 93.46,
+        "recording_taken": "2025-06-03T15:18:22.288Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -378,10 +378,10 @@
     {
         "plant_id": 17,
         "name": "Ipomoea Batatas",
-        "temperature": 16.60528983308955,
+        "temperature": 16.4,
         "origin_location": {
-            "latitude": -81.6237,
-            "longitude": 158.4221,
+            "latitude": -81.62,
+            "longitude": 158.42,
             "city": "Herzogland",
             "country": "Jamaica"
         },
@@ -391,8 +391,8 @@
             "phone": "(400) 791-2051 x0032"
         },
         "last_watered": "2025-06-03T13:10:19.000Z",
-        "soil_moisture": 94.04162898550724,
-        "recording_taken": "2025-06-03T14:53:05.914Z",
+        "soil_moisture": 92.65,
+        "recording_taken": "2025-06-03T15:18:22.615Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -410,10 +410,10 @@
     {
         "plant_id": 18,
         "name": "Manihot Esculenta \u2018Variegata\u2019",
-        "temperature": 12.90323072986623,
+        "temperature": 12.81,
         "origin_location": {
-            "latitude": 21.299,
-            "longitude": 42.0051,
+            "latitude": 21.3,
+            "longitude": 42.01,
             "city": "Miramar",
             "country": "Congo"
         },
@@ -423,16 +423,16 @@
             "phone": "1-849-419-7923 x487"
         },
         "last_watered": "2025-06-03T14:39:50.000Z",
-        "soil_moisture": 99.25200469043152,
-        "recording_taken": "2025-06-03T14:53:07.363Z"
+        "soil_moisture": 97.82,
+        "recording_taken": "2025-06-03T15:18:23.733Z"
     },
     {
         "plant_id": 19,
         "name": "Musa Basjoo",
-        "temperature": 12.150738754880981,
+        "temperature": 12.06,
         "origin_location": {
-            "latitude": -69.713,
-            "longitude": 175.4523,
+            "latitude": -69.71,
+            "longitude": 175.45,
             "city": "Port Jennings",
             "country": "Macao"
         },
@@ -442,8 +442,8 @@
             "phone": "1-219-392-5283"
         },
         "last_watered": "2025-06-03T14:41:59.000Z",
-        "soil_moisture": 99.3531170212766,
-        "recording_taken": "2025-06-03T14:53:07.877Z",
+        "soil_moisture": 97.87,
+        "recording_taken": "2025-06-03T15:18:23.969Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -461,10 +461,10 @@
     {
         "plant_id": 20,
         "name": "Salvia Splendens",
-        "temperature": 15.732566182708286,
+        "temperature": 15.6,
         "origin_location": {
-            "latitude": -79.3405,
-            "longitude": 152.5746,
+            "latitude": -79.34,
+            "longitude": 152.57,
             "city": "Oceanside",
             "country": "Egypt"
         },
@@ -474,8 +474,8 @@
             "phone": "516.311.7225"
         },
         "last_watered": "2025-06-03T14:11:20.000Z",
-        "soil_moisture": 97.64247086466166,
-        "recording_taken": "2025-06-03T14:53:08.411Z",
+        "soil_moisture": 96.2,
+        "recording_taken": "2025-06-03T15:18:24.447Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -493,10 +493,10 @@
     {
         "plant_id": 21,
         "name": "Anthurium",
-        "temperature": 14.753792461105055,
+        "temperature": 14.55,
         "origin_location": {
-            "latitude": 85.3837,
-            "longitude": -108.5995,
+            "latitude": 85.38,
+            "longitude": -108.6,
             "city": "Hollisfurt",
             "country": "China"
         },
@@ -506,8 +506,8 @@
             "phone": "570-593-4399 x49703"
         },
         "last_watered": "2025-06-03T13:12:41.000Z",
-        "soil_moisture": 94.50996903460837,
-        "recording_taken": "2025-06-03T14:53:09.054Z",
+        "soil_moisture": 92.8,
+        "recording_taken": "2025-06-03T15:18:24.880Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -525,9 +525,9 @@
     {
         "plant_id": 22,
         "name": "Bird of Paradise",
-        "temperature": 15.713558658198354,
+        "temperature": 15.5,
         "origin_location": {
-            "latitude": 34.8822,
+            "latitude": 34.88,
             "longitude": -37.76,
             "city": "Joaquinton",
             "country": "Pitcairn Islands"
@@ -538,8 +538,8 @@
             "phone": "1-666-690-3171 x152"
         },
         "last_watered": "2025-06-03T13:02:31.000Z",
-        "soil_moisture": 93.52986062378167,
-        "recording_taken": "2025-06-03T14:53:09.363Z",
+        "soil_moisture": 92.22,
+        "recording_taken": "2025-06-03T15:18:25.518Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -557,10 +557,10 @@
     {
         "plant_id": 23,
         "name": "Cordyline Fruticosa",
-        "temperature": 14.584458162126865,
+        "temperature": 14.37,
         "origin_location": {
-            "latitude": 64.0127,
-            "longitude": -125.5911,
+            "latitude": 64.01,
+            "longitude": -125.59,
             "city": "New Glenda",
             "country": "Sweden"
         },
@@ -570,8 +570,8 @@
             "phone": "(889) 712-9685 x61463"
         },
         "last_watered": "2025-06-03T13:02:45.000Z",
-        "soil_moisture": 93.81971082089552,
-        "recording_taken": "2025-06-03T14:53:10.270Z",
+        "soil_moisture": 92.33,
+        "recording_taken": "2025-06-03T15:18:25.956Z",
         "images": {
             "license": 45,
             "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
@@ -589,10 +589,10 @@
     {
         "plant_id": 24,
         "name": "Ficus",
-        "temperature": 14.238111472833115,
+        "temperature": 14.15,
         "origin_location": {
-            "latitude": -17.3909,
-            "longitude": -81.7968,
+            "latitude": -17.39,
+            "longitude": -81.8,
             "city": "Adamshaven",
             "country": "Italy"
         },
@@ -602,8 +602,8 @@
             "phone": "(889) 896-3821"
         },
         "last_watered": "2025-06-03T14:47:33.000Z",
-        "soil_moisture": 99.66713510848126,
-        "recording_taken": "2025-06-03T14:53:10.525Z",
+        "soil_moisture": 98.3,
+        "recording_taken": "2025-06-03T15:18:26.521Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -621,10 +621,10 @@
     {
         "plant_id": 25,
         "name": "Palm Trees",
-        "temperature": 15.271393833662515,
+        "temperature": 15.17,
         "origin_location": {
             "latitude": 3.58,
-            "longitude": 36.6064,
+            "longitude": 36.61,
             "city": "Laronburgh",
             "country": "Wallis and Futuna"
         },
@@ -634,16 +634,16 @@
             "phone": "489-414-1969 x514"
         },
         "last_watered": "2025-06-03T14:35:22.000Z",
-        "soil_moisture": 98.9916641509434,
-        "recording_taken": "2025-06-03T14:53:10.836Z"
+        "soil_moisture": 97.56,
+        "recording_taken": "2025-06-03T15:18:28.096Z"
     },
     {
         "plant_id": 26,
         "name": "Dieffenbachia Seguine",
-        "temperature": 14.942892244127393,
+        "temperature": 14.81,
         "origin_location": {
-            "latitude": -38.6402,
-            "longitude": 166.9358,
+            "latitude": -38.64,
+            "longitude": 166.94,
             "city": "South Nyasia",
             "country": "Guernsey"
         },
@@ -653,8 +653,8 @@
             "phone": "1-672-222-8133 x105"
         },
         "last_watered": "2025-06-03T14:10:30.000Z",
-        "soil_moisture": 97.45840972222223,
-        "recording_taken": "2025-06-03T14:53:11.923Z",
+        "soil_moisture": 96.22,
+        "recording_taken": "2025-06-03T15:18:29.018Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -672,10 +672,10 @@
     {
         "plant_id": 27,
         "name": "Spathiphyllum",
-        "temperature": 12.623654130942459,
+        "temperature": 13.71,
         "origin_location": {
-            "latitude": -34.7829,
-            "longitude": 54.2456,
+            "latitude": -34.78,
+            "longitude": 54.25,
             "city": "South Dawn",
             "country": "Bosnia and Herzegovina"
         },
@@ -685,8 +685,8 @@
             "phone": "(774) 986-4550 x796"
         },
         "last_watered": "2025-06-03T14:33:40.000Z",
-        "soil_moisture": 98.85578146341463,
-        "recording_taken": "2025-06-03T14:53:12.824Z",
+        "soil_moisture": 97.48,
+        "recording_taken": "2025-06-03T15:18:29.816Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -704,10 +704,10 @@
     {
         "plant_id": 28,
         "name": "Croton",
-        "temperature": 15.947589684342137,
+        "temperature": 15.79,
         "origin_location": {
-            "latitude": 80.1723,
-            "longitude": 89.3708,
+            "latitude": 80.17,
+            "longitude": 89.37,
             "city": "Greenholtland",
             "country": "Senegal"
         },
@@ -717,8 +717,8 @@
             "phone": "(415) 921-6221 x26702"
         },
         "last_watered": "2025-06-03T13:51:21.000Z",
-        "soil_moisture": 96.42967884615385,
-        "recording_taken": "2025-06-03T14:53:14.134Z",
+        "soil_moisture": 94.86,
+        "recording_taken": "2025-06-03T15:18:30.471Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -736,10 +736,10 @@
     {
         "plant_id": 29,
         "name": "Aloe Vera",
-        "temperature": 17.548851597547714,
+        "temperature": 17.39,
         "origin_location": {
-            "latitude": -80.3481,
-            "longitude": 45.8024,
+            "latitude": -80.35,
+            "longitude": 45.8,
             "city": "Potomac",
             "country": "Palau"
         },
@@ -749,8 +749,8 @@
             "phone": "464.539.9779"
         },
         "last_watered": "2025-06-03T13:49:02.000Z",
-        "soil_moisture": 96.21853876349363,
-        "recording_taken": "2025-06-03T14:53:15.309Z",
+        "soil_moisture": 94.99,
+        "recording_taken": "2025-06-03T15:18:31.365Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -768,10 +768,10 @@
     {
         "plant_id": 30,
         "name": "Ficus Elastica",
-        "temperature": 15.45070485403046,
+        "temperature": 15.27,
         "origin_location": {
-            "latitude": 22.6292,
-            "longitude": -31.0999,
+            "latitude": 22.63,
+            "longitude": -31.1,
             "city": "Portsmouth",
             "country": "Saint Martin"
         },
@@ -781,8 +781,8 @@
             "phone": "872-709-8943 x15830"
         },
         "last_watered": "2025-06-03T13:33:30.000Z",
-        "soil_moisture": 95.29431661750246,
-        "recording_taken": "2025-06-03T14:53:15.680Z",
+        "soil_moisture": 93.79,
+        "recording_taken": "2025-06-03T15:18:32.028Z",
         "images": {
             "license": 5,
             "license_name": "Attribution-ShareAlike License",
@@ -800,10 +800,10 @@
     {
         "plant_id": 31,
         "name": "Sansevieria Trifasciata",
-        "temperature": 17.04554763335493,
+        "temperature": 16.92,
         "origin_location": {
-            "latitude": -37.6215,
-            "longitude": -72.1543,
+            "latitude": -37.62,
+            "longitude": -72.15,
             "city": "Ottomouth",
             "country": "Egypt"
         },
@@ -813,8 +813,8 @@
             "phone": "975-666-9644 x58578"
         },
         "last_watered": "2025-06-03T14:14:04.000Z",
-        "soil_moisture": 97.702921875,
-        "recording_taken": "2025-06-03T14:53:16.208Z",
+        "soil_moisture": 96.27,
+        "recording_taken": "2025-06-03T15:18:32.178Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -832,10 +832,10 @@
     {
         "plant_id": 32,
         "name": "Philodendron Hederaceum",
-        "temperature": 16.9919856610303,
+        "temperature": 16.82,
         "origin_location": {
-            "latitude": 10.0446,
-            "longitude": 166.9654,
+            "latitude": 10.04,
+            "longitude": 166.97,
             "city": "Steuberfurt",
             "country": "Cameroon"
         },
@@ -845,8 +845,8 @@
             "phone": "1-520-943-3657 x23140"
         },
         "last_watered": "2025-06-03T13:40:10.000Z",
-        "soil_moisture": 95.8883167760075,
-        "recording_taken": "2025-06-03T14:53:17.166Z",
+        "soil_moisture": 94.11,
+        "recording_taken": "2025-06-03T15:18:32.726Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -864,10 +864,10 @@
     {
         "plant_id": 33,
         "name": "Schefflera Arboricola",
-        "temperature": 16.750671248188763,
+        "temperature": 29.22,
         "origin_location": {
-            "latitude": -58.3733,
-            "longitude": 6.5244,
+            "latitude": -58.37,
+            "longitude": 6.52,
             "city": "Cutler Bay",
             "country": "Mexico"
         },
@@ -877,8 +877,8 @@
             "phone": "1-539-229-4058"
         },
         "last_watered": "2025-06-03T13:15:17.000Z",
-        "soil_moisture": 94.55459444444445,
-        "recording_taken": "2025-06-03T14:53:18.038Z",
+        "soil_moisture": 92.83,
+        "recording_taken": "2025-06-03T15:18:34.306Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -896,10 +896,10 @@
     {
         "plant_id": 34,
         "name": "Aglaonema Commutatum",
-        "temperature": 12.97284910848223,
+        "temperature": 12.85,
         "origin_location": {
-            "latitude": -59.666,
-            "longitude": 22.1729,
+            "latitude": -59.67,
+            "longitude": 22.17,
             "city": "New Danika",
             "country": "Western Sahara"
         },
@@ -909,8 +909,8 @@
             "phone": "(430) 985-1362 x54710"
         },
         "last_watered": "2025-06-03T14:18:52.000Z",
-        "soil_moisture": 97.97876441837732,
-        "recording_taken": "2025-06-03T14:53:19.724Z",
+        "soil_moisture": 96.53,
+        "recording_taken": "2025-06-03T15:18:35.151Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -928,10 +928,10 @@
     {
         "plant_id": 35,
         "name": "Monstera Deliciosa",
-        "temperature": 16.167626686442258,
+        "temperature": 16.09,
         "origin_location": {
-            "latitude": 8.8125,
-            "longitude": -146.1691,
+            "latitude": 8.81,
+            "longitude": -146.17,
             "city": "Clearwater",
             "country": "Yemen"
         },
@@ -940,9 +940,9 @@
             "email": "jorge.torp@lnhm.co.uk",
             "phone": "312.868.8819 x8410"
         },
-        "last_watered": "2025-06-02T14:55:08.000Z",
-        "soil_moisture": 14.899346153846153,
-        "recording_taken": "2025-06-03T14:53:20.063Z",
+        "last_watered": "2025-06-03T14:55:08.000Z",
+        "soil_moisture": 98.68,
+        "recording_taken": "2025-06-03T15:18:35.413Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -960,10 +960,10 @@
     {
         "plant_id": 36,
         "name": "Tacca Integrifolia",
-        "temperature": 13.417908025435624,
+        "temperature": 13.26,
         "origin_location": {
-            "latitude": 87.3702,
-            "longitude": -65.8502,
+            "latitude": 87.37,
+            "longitude": -65.85,
             "city": "South Armani",
             "country": "Puerto Rico"
         },
@@ -973,8 +973,8 @@
             "phone": "(879) 206-9116 x8935"
         },
         "last_watered": "2025-06-03T13:52:51.000Z",
-        "soil_moisture": 96.66363143382353,
-        "recording_taken": "2025-06-03T14:53:20.969Z",
+        "soil_moisture": 95.19,
+        "recording_taken": "2025-06-03T15:18:35.744Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -992,10 +992,10 @@
     {
         "plant_id": 37,
         "name": "Psychopsis Papilio",
-        "temperature": 17.375842592455033,
+        "temperature": 17.25,
         "origin_location": {
-            "latitude": -40.9469,
-            "longitude": -17.7032,
+            "latitude": -40.95,
+            "longitude": -17.7,
             "city": "Port Fredrick",
             "country": "Russian Federation"
         },
@@ -1005,16 +1005,16 @@
             "phone": "1-886-335-2758 x2333"
         },
         "last_watered": "2025-06-03T14:12:01.000Z",
-        "soil_moisture": 97.5941425800194,
-        "recording_taken": "2025-06-03T14:53:21.439Z"
+        "soil_moisture": 96.28,
+        "recording_taken": "2025-06-03T15:18:36.308Z"
     },
     {
         "plant_id": 38,
         "name": "Saintpaulia Ionantha",
-        "temperature": 15.803200098489642,
+        "temperature": 15.61,
         "origin_location": {
-            "latitude": 83.5292,
-            "longitude": -30.8766,
+            "latitude": 83.53,
+            "longitude": -30.88,
             "city": "Peoria",
             "country": "Greece"
         },
@@ -1024,8 +1024,8 @@
             "phone": "(770) 924-1572 x884"
         },
         "last_watered": "2025-06-03T13:19:28.000Z",
-        "soil_moisture": 94.80697972350231,
-        "recording_taken": "2025-06-03T14:53:22.427Z",
+        "soil_moisture": 93.07,
+        "recording_taken": "2025-06-03T15:18:37.210Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1043,10 +1043,10 @@
     {
         "plant_id": 39,
         "name": "Gaillardia",
-        "temperature": 14.97613744192856,
+        "temperature": 14.79,
         "origin_location": {
-            "latitude": -7.7324,
-            "longitude": -109.3082,
+            "latitude": -7.73,
+            "longitude": -109.31,
             "city": "Littlehaven",
             "country": "Saint Vincent and the Grenadines"
         },
@@ -1056,8 +1056,8 @@
             "phone": "(590) 404-7387 x7681"
         },
         "last_watered": "2025-06-03T13:29:36.000Z",
-        "soil_moisture": 95.08587292277615,
-        "recording_taken": "2025-06-03T14:53:23.152Z",
+        "soil_moisture": 93.91,
+        "recording_taken": "2025-06-03T15:18:38.745Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1075,10 +1075,10 @@
     {
         "plant_id": 40,
         "name": "Amaryllis",
-        "temperature": 16.3603734268184,
+        "temperature": 16.29,
         "origin_location": {
-            "latitude": 89.6714,
-            "longitude": -61.2803,
+            "latitude": 89.67,
+            "longitude": -61.28,
             "city": "South Hectorstead",
             "country": "Puerto Rico"
         },
@@ -1087,9 +1087,9 @@
             "email": "sandra.pfeffer@lnhm.co.uk",
             "phone": "1-944-604-9635 x77682"
         },
-        "last_watered": "2025-06-02T14:58:06.000Z",
-        "soil_moisture": 16.227642996108955,
-        "recording_taken": "2025-06-03T14:53:23.983Z",
+        "last_watered": "2025-06-03T14:58:06.000Z",
+        "soil_moisture": 98.86,
+        "recording_taken": "2025-06-03T15:18:40.167Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1107,10 +1107,10 @@
     {
         "plant_id": 41,
         "name": "Caladium Bicolor",
-        "temperature": 16.98977038813591,
+        "temperature": 16.88,
         "origin_location": {
-            "latitude": 87.938,
-            "longitude": -128.8359,
+            "latitude": 87.94,
+            "longitude": -128.84,
             "city": "Ernserworth",
             "country": "Nigeria"
         },
@@ -1120,8 +1120,8 @@
             "phone": "734-212-1797 x507"
         },
         "last_watered": "2025-06-03T14:30:02.000Z",
-        "soil_moisture": 98.66366952380952,
-        "recording_taken": "2025-06-03T14:53:25.147Z",
+        "soil_moisture": 97.29,
+        "recording_taken": "2025-06-03T15:18:40.911Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1139,10 +1139,10 @@
     {
         "plant_id": 42,
         "name": "Chlorophytum Comosum",
-        "temperature": 13.300996798802096,
+        "temperature": 13.2,
         "origin_location": {
-            "latitude": -73.4156,
-            "longitude": 74.927,
+            "latitude": -73.42,
+            "longitude": 74.93,
             "city": "Buffalo Grove",
             "country": "Peru"
         },
@@ -1152,8 +1152,8 @@
             "phone": "(903) 973-1504 x9409"
         },
         "last_watered": "2025-06-03T14:38:45.000Z",
-        "soil_moisture": 99.13942130987293,
-        "recording_taken": "2025-06-03T14:53:25.372Z",
+        "soil_moisture": 97.74,
+        "recording_taken": "2025-06-03T15:18:41.581Z",
         "images": {
             "license": 45,
             "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
@@ -1171,10 +1171,10 @@
     {
         "plant_id": 44,
         "name": "Araucaria Heterophylla",
-        "temperature": 15.426788418600548,
+        "temperature": 15.31,
         "origin_location": {
-            "latitude": 23.114,
-            "longitude": -108.7315,
+            "latitude": 23.11,
+            "longitude": -108.73,
             "city": "Catonsville",
             "country": "Cyprus"
         },
@@ -1184,8 +1184,8 @@
             "phone": "1-288-382-3655 x5892"
         },
         "last_watered": "2025-06-03T14:20:23.000Z",
-        "soil_moisture": 98.05678942213517,
-        "recording_taken": "2025-06-03T14:53:27.018Z",
+        "soil_moisture": 96.59,
+        "recording_taken": "2025-06-03T15:18:43.079Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1203,10 +1203,10 @@
     {
         "plant_id": 45,
         "name": "Begonia",
-        "temperature": 17.52463123201004,
+        "temperature": 17.35,
         "origin_location": {
             "latitude": 14.31,
-            "longitude": 21.8921,
+            "longitude": 21.89,
             "city": "South Julianview",
             "country": "Heard Island and McDonald Islands"
         },
@@ -1216,8 +1216,8 @@
             "phone": "(470) 586-3930 x591"
         },
         "last_watered": "2025-06-03T13:32:05.000Z",
-        "soil_moisture": 95.37162085308057,
-        "recording_taken": "2025-06-03T14:53:27.940Z",
+        "soil_moisture": 93.86,
+        "recording_taken": "2025-06-03T15:18:44.108Z",
         "images": null,
         "scientific_name": [
             "Begonia 'Art Hodes'"
@@ -1226,10 +1226,10 @@
     {
         "plant_id": 46,
         "name": "Medinilla Magnifica",
-        "temperature": 17.997829277887483,
+        "temperature": 17.79,
         "origin_location": {
-            "latitude": -34.1863,
-            "longitude": -78.697,
+            "latitude": -34.19,
+            "longitude": -78.7,
             "city": "Kathrynville",
             "country": "Macao"
         },
@@ -1239,8 +1239,8 @@
             "phone": "1-957-526-2533 x4543"
         },
         "last_watered": "2025-06-03T13:08:03.000Z",
-        "soil_moisture": 94.03852780395853,
-        "recording_taken": "2025-06-03T14:53:28.122Z",
+        "soil_moisture": 92.19,
+        "recording_taken": "2025-06-03T15:18:44.656Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1258,10 +1258,10 @@
     {
         "plant_id": 47,
         "name": "Calliandra Haematocephala",
-        "temperature": 12.155201781064903,
+        "temperature": 12.07,
         "origin_location": {
-            "latitude": 83.9217,
-            "longitude": -148.5469,
+            "latitude": 83.92,
+            "longitude": -148.55,
             "city": "Gavinstad",
             "country": "Jersey"
         },
@@ -1271,8 +1271,8 @@
             "phone": "(462) 735-6685 x8065"
         },
         "last_watered": "2025-06-03T14:50:57.000Z",
-        "soil_moisture": 99.78213714285714,
-        "recording_taken": "2025-06-03T14:53:29.504Z",
+        "soil_moisture": 97.62,
+        "recording_taken": "2025-06-03T15:18:46.021Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1290,10 +1290,10 @@
     {
         "plant_id": 48,
         "name": "Zamioculcas Zamiifolia",
-        "temperature": 15.010053218349437,
+        "temperature": 24.62,
         "origin_location": {
-            "latitude": -82.1806,
-            "longitude": -72.4879,
+            "latitude": -82.18,
+            "longitude": -72.49,
             "city": "Lake Norbertstead",
             "country": "Greenland"
         },
@@ -1303,8 +1303,8 @@
             "phone": "408-747-3878 x32922"
         },
         "last_watered": "2025-06-03T14:09:29.000Z",
-        "soil_moisture": 97.53860857409133,
-        "recording_taken": "2025-06-03T14:53:30.073Z",
+        "soil_moisture": 96.19,
+        "recording_taken": "2025-06-03T15:18:46.258Z",
         "images": {
             "license": 451,
             "license_name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
@@ -1322,10 +1322,10 @@
     {
         "plant_id": 49,
         "name": "Crassula Ovata",
-        "temperature": 17.258461274245953,
+        "temperature": 17.12,
         "origin_location": {
-            "latitude": 15.7997,
-            "longitude": 148.993,
+            "latitude": 15.8,
+            "longitude": 148.99,
             "city": "Ginaberg",
             "country": "Togo"
         },
@@ -1335,8 +1335,8 @@
             "phone": "705-893-6693 x509"
         },
         "last_watered": "2025-06-03T14:08:03.000Z",
-        "soil_moisture": 97.3050009881423,
-        "recording_taken": "2025-06-03T14:53:30.339Z",
+        "soil_moisture": 95.86,
+        "recording_taken": "2025-06-03T15:18:46.775Z",
         "images": {
             "license": 4,
             "license_name": "Attribution License",
@@ -1354,10 +1354,10 @@
     {
         "plant_id": 50,
         "name": "Epipremnum Aureum",
-        "temperature": 15.13919294526908,
+        "temperature": 15.03,
         "origin_location": {
-            "latitude": -62.6313,
-            "longitude": 18.6216,
+            "latitude": -62.63,
+            "longitude": 18.62,
             "city": "Joanyland",
             "country": "Antigua and Barbuda"
         },
@@ -1367,8 +1367,8 @@
             "phone": "(718) 765-2084 x0261"
         },
         "last_watered": "2025-06-03T14:30:25.000Z",
-        "soil_moisture": 98.6598655705996,
-        "recording_taken": "2025-06-03T14:53:30.699Z",
+        "soil_moisture": 97.22,
+        "recording_taken": "2025-06-03T15:18:48.150Z",
         "images": {
             "license": 45,
             "license_name": "Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)",
