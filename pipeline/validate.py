@@ -74,7 +74,7 @@ def convert_int_to_2dp(data: dict) -> dict:
 
 
 def has_null_images_key(data: dict) -> bool:
-    """Return True if the images key if is present but has a value of 'null' in plant data."""
+    """Returns True if the images key is present but is null in plant data."""
 
     if "images" in data:
         if not data["images"]:
