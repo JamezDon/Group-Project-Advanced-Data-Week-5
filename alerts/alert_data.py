@@ -79,7 +79,7 @@ def get_alert_data(potential_alerts: list[dict]) -> list[dict]:
 
     alert_required = []
     for reading in potential_alerts:
-        if reading["soil_moisture_alert"] is True or reading["temp_alert"] is True:
+        if reading["soil_moisture_alert"] or reading["temp_alert"]:
             alert_required.append(reading)
     return alert_required
 
