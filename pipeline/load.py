@@ -54,10 +54,6 @@ def get_plant_master_data(plant: dict) -> dict:
         plant_master["scientific_name"] = "".join(
             plant_master["scientific_name"])
 
-    if "images" in plant:
-        if plant["images"] == "null":
-            plant.pop("images")
-
     plant_master["image_link"] = plant.get("images", {}).get("original_url")
     plant_master["soil_moisture"] = plant["soil_moisture"]
 
