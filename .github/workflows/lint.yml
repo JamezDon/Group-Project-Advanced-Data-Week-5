@@ -1,4 +1,4 @@
-name: pylint workflow
+name: pylint/pytest workflow
 on:
   push:
     branches:
@@ -17,3 +17,13 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           pylint --fail-under 8 $(git ls-files '*.py')
+  test:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: "Checkout repositry"
+        uses: actions/checkout@v4
+      - name: "Install packages"
+        run: pip install -r pipeline/requirements.txt
+      - name: "Run tests"
+        run: pytest 
