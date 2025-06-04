@@ -10,20 +10,20 @@ import pyodbc
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
 
-    conn = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
-                          server=ENV["DB_HOST"],
-                          database=ENV["DB_NAME"],
-                          TrustServerCertificate='yes',
-                          UID=ENV["DB_USER"],
-                          PWD=ENV["DB_PASSWORD"],)
+    connection = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
+                                server=ENV["DB_HOST"],
+                                database=ENV["DB_NAME"],
+                                TrustServerCertificate='yes',
+                                UID=ENV["DB_USER"],
+                                PWD=ENV["DB_PASSWORD"],)
 
-    return conn
+    return connection
 
 
-def get_db_cursor(conn):
+def get_db_cursor(connection):
     """Gets a cursor for the SQL Server plants database."""
 
-    cursor = conn.cursor()
+    cursor = connection.cursor()
 
     return cursor
 
@@ -64,10 +64,10 @@ def get_plant_master_data(plant: dict) -> dict:
     return plant_master
 
 
-def get_country_id(plant: dict) -> dict:
+def get_country_id(connection, plant: dict) -> dict:
     """Gets the corresponding country ID from database using country name."""
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
 
     curs.execute("SELECT country_id FROM country WHERE country_name = ?",
                  plant["origin_location"]["country"])
@@ -76,10 +76,10 @@ def get_country_id(plant: dict) -> dict:
     return result
 
 
-def get_origin_id(location_data: dict) -> dict:
+def get_origin_id(connection, location_data: dict) -> dict:
     """Gets the corresponding origin ID from database using longitude and latitude."""
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
 
     curs.execute("SELECT country_id FROM origin WHERE longitude = ? AND latitude = ?",
                  (location_data["longitude"], location_data["latitude"]))
@@ -88,10 +88,10 @@ def get_origin_id(location_data: dict) -> dict:
     return result
 
 
-def get_plant_id(plant_data: dict) -> dict:
+def get_plant_id(connection, plant_data: dict) -> dict:
     """Gets the corresponding origin ID from database using longitude and latitude."""
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
 
     curs.execute("""SELECT plant_id
                     FROM plant 
@@ -104,7 +104,7 @@ def get_plant_id(plant_data: dict) -> dict:
     return result
 
 
-def load_plant_master_data(plants_data: list[dict]) -> None:
+def load_plant_master_data(connection, plants_data: list[dict]) -> None:
     """Loads plant master data from dictionary to plant table in SQL Server database."""
 
     insert_query = """
@@ -118,10 +118,10 @@ def load_plant_master_data(plants_data: list[dict]) -> None:
                 END
                 """
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
     for plant in plants_data:
         data = get_plant_master_data(plant)
-        origin_id = get_origin_id(plant["origin_location"])
+        origin_id = get_origin_id(connection, plant["origin_location"])
 
         curs.execute(
             insert_query, (data["plant_name"],
@@ -130,10 +130,10 @@ def load_plant_master_data(plants_data: list[dict]) -> None:
                            origin_id,
                            data["scientific_name"],
                            data["image_link"]))
-        conn.commit()
+        connection.commit()
 
 
-def load_sensor_reading_data(plants_data: list[dict]) -> None:
+def load_sensor_reading_data(connection, plants_data: list[dict]) -> None:
     """Loads sensor reading data from dictionary to sensor reading table in SQL Server database."""
 
     insert_query = """
@@ -141,7 +141,7 @@ def load_sensor_reading_data(plants_data: list[dict]) -> None:
                 VALUES (?, ?, ?, ?, ?)
                 """
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
     for plant in plants_data:
         reading = get_sensor_reading_data(plant)
         curs.execute(
@@ -149,11 +149,11 @@ def load_sensor_reading_data(plants_data: list[dict]) -> None:
                            reading["temperature"],
                            reading["last_watered"],
                            reading["soil_moisture"],
-                           get_plant_id(plant)))
-        conn.commit()
+                           get_plant_id(connection, plant)))
+        connection.commit()
 
 
-def load_origin_data(plants_data: list[dict]) -> None:
+def load_origin_data(connection, plants_data: list[dict]) -> None:
     """Loads origin location data from dictionary to origin table in database."""
 
     insert_query = """
@@ -167,7 +167,7 @@ def load_origin_data(plants_data: list[dict]) -> None:
                 END
                 """
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
     for plant in plants_data:
         location = plant["origin_location"]
         curs.execute(
@@ -176,11 +176,11 @@ def load_origin_data(plants_data: list[dict]) -> None:
                            location["latitude"],
                            location["longitude"],
                            location["city"],
-                           get_country_id(plant)))
-        conn.commit()
+                           get_country_id(connection, plant)))
+        connection.commit()
 
 
-def load_country_data(plants_data: list[dict]) -> None:
+def load_country_data(connection, plants_data: list[dict]) -> None:
     """Loads country origin data from to country table in SQL Server database."""
 
     insert_query = """
@@ -193,12 +193,12 @@ def load_country_data(plants_data: list[dict]) -> None:
                 END
                 """
 
-    curs = get_db_cursor(conn)
+    curs = get_db_cursor(connection)
     for plant in plants_data:
         country = plant["origin_location"]["country"]
         curs.execute(
             insert_query, (country, country))
-        conn.commit()
+        connection.commit()
 
 
 def read_json_data(filename: str) -> list[dict]:
@@ -218,7 +218,9 @@ if __name__ == "__main__":
 
     conn = get_db_connection()
 
-    load_country_data(seed_data)
-    load_origin_data(seed_data)
-    load_plant_master_data(seed_data)
-    load_sensor_reading_data(seed_data)
+    load_country_data(conn, seed_data)
+    load_origin_data(conn, seed_data)
+    load_plant_master_data(conn, seed_data)
+    load_sensor_reading_data(conn, seed_data)
+
+    conn.close()
