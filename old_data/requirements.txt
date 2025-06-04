@@ -2,3 +2,5 @@ pyodbc
 python-dotenv
 pytest
 pandas
+pyarrow
+boto3

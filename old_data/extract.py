@@ -21,7 +21,6 @@ def get_connection():
 
 def get_time_range() -> datetime:
     """Get time range of the oldest hour of data currently stored in the database."""
-    # Ensure the time is exactly on the hour
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
     lower = now - timedelta(hours=25)
@@ -32,15 +31,13 @@ def get_time_range() -> datetime:
 def get_first_hour(lower: datetime, upper: datetime) -> dict:
     """Query the database for the oldest hour of data currently stored in the database."""
     query = ("""
-                SELECT * FROM sensor_reading
+                DELETE FROM sensor_reading
                 WHERE taken_at
                 BETWEEN ? AND ?;
                 """)
 
-    cursor = conn.cursor()
-    cursor.execute(query, (lower, upper))
-    record = cursor.fetchall()
-    return record
+    data = pd.read_sql(query, conn, params=[lower, upper])
+    return data
 
 
 def delete_first_hour(lower: datetime, upper: datetime) -> None:
@@ -60,8 +57,9 @@ def store_data(data: pd.DataFrame) -> None:
     """Store the hour of data in a csv"""
     if not os.path.exists("data"):
         os.makedirs("data")
+    print(data)
     df = pd.DataFrame(data)
-    df.to_csv("data/plant_data.csv", index=False)
+    df.to_csv("data/sensor_reading.csv", index=False)
 
 
 if __name__ == "__main__":
