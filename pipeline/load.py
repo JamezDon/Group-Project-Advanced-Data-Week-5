@@ -5,7 +5,6 @@ import json
 
 from dotenv import load_dotenv
 import pyodbc
-from pyodbc import Connection
 
 
 def get_db_connection():
@@ -21,7 +20,7 @@ def get_db_connection():
     return conn
 
 
-def get_db_cursor(conn: Connection):
+def get_db_cursor(conn):
     """Gets a connection to the SQL Server plants database."""
 
     cursor = conn.cursor()
@@ -94,7 +93,11 @@ def get_plant_id(plant_data: dict) -> dict:
 
     curs = get_db_cursor(conn)
 
-    curs.execute("SELECT plant_id FROM plant WHERE plant_name COLLATE SQL_Latin1_General_CP1_CS_AS LIKE ?",
+    curs.execute("""SELECT plant_id
+                    FROM plant 
+                    WHERE plant_name 
+                    COLLATE SQL_Latin1_General_CP1_CS_AS 
+                    LIKE ?""",
                  plant_data["name"])
     result = curs.fetchone()[0]
 
@@ -151,7 +154,7 @@ def load_sensor_reading_data(plants_data: list[dict]) -> None:
 
 
 def load_origin_location_data(plants_data: list[dict]) -> None:
-    """Loads origin location data from dictionary to origin_location table in SQL Server database."""
+    """Loads origin location data from dictionary to origin_location table in database."""
 
     insert_query = """
                 IF NOT EXISTS (
