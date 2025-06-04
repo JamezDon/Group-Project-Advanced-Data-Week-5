@@ -12,3 +12,4 @@ terraform.tfstate.backup
 terraform.tfvars
 
 .venv
+**/*.json
