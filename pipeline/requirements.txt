@@ -1,0 +1,6 @@
+pyodbc
+requests
+pylint
+python-dotenv
+pytest
+joblib
