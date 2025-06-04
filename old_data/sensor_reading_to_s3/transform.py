@@ -31,13 +31,6 @@ def create_directories(base_dir="c17-james-plant-bucket"):
         print(f"Created {full_path}")
 
 
-def get_metadata():
-    plant_metadata = data[["plant_id", "plant_name",
-                           "origin_id", "scientific_name", "image_link"]].drop_duplicates().reset_index(drop=True)
-    country_origin_metadata = data[[
-        "country_id", "country_name"]].drop_duplicates().reset_index(drop=True)
-
-
 def sensor_data(data):
     """Partition data by year, month, day and hour."""
     data["taken_at"] = pd.to_datetime(data["taken_at"])

@@ -23,50 +23,35 @@ def get_time_range() -> datetime:
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
-    lower = now - timedelta(hours=25)
-    upper = now - timedelta(hours=24)
+    lower = now - timedelta(minutes=10)
+    upper = now - timedelta(minutes=1)
     return lower, upper
 
 
-def get_first_hour(lower: datetime, upper: datetime) -> dict:
-    """Query the database for the oldest hour of data currently stored in the database."""
-    query = ("""
-                DELETE FROM sensor_reading
-                WHERE taken_at
-                BETWEEN ? AND ?;
-                """)
+def make_query(table):
+    query = (f"SELECT * FROM {table} WHERE taken_at BETWEEN ? AND ?; ")
 
     data = pd.read_sql(query, conn, params=[lower, upper])
     return data
 
 
-def delete_first_hour(lower: datetime, upper: datetime) -> None:
-    """Delete the oldest hour of data currently stored in the database."""
-    lower, upper = get_time_range()
-    query = ("""
-                DELETE FROM sensor_reading
-                WHERE taken_at
-                BETWEEN ? AND ?;
-                """)
-
-    cursor = conn.cursor()
-    cursor.execute(query, (lower, upper))
-
-
-def store_data(data: pd.DataFrame) -> None:
+def store_data(data: pd.DataFrame, table) -> None:
     """Store the hour of data in a csv"""
     if not os.path.exists("data"):
         os.makedirs("data")
-    print(data)
     df = pd.DataFrame(data)
-    df.to_csv("data/sensor_reading.csv", index=False)
+    df.to_csv(f"data/{table}.csv", index=False)
+
+
+def get_metadata():
+    lower, upper = get_time_range()
+    tables = ["country", "origin", "plant", "botanist_assignment", "botanist"]
+    for table in tables:
+        data = make_query(table)
+        store_data(data, table)
 
 
 if __name__ == "__main__":
     load_dotenv()
     conn = get_connection()
-    lower, upper = get_time_range()
-    first_hour = get_first_hour(lower, upper)
-    print(first_hour)
-    delete_first_hour(lower, upper)
-    store_data(first_hour)
+    get_metadata()
