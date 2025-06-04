@@ -16,6 +16,6 @@ The aim of this project is to provide the botany wing of the Liverpool Museum of
 
 ### Architecture Diagram
 
-[This] (https://drive.google.com/file/d/1TZ2gYMCZ_hS4WolWVszTNtK7FmUFajcS/view?usp=sharing_) is the Architecture Diagram for the project.
+[This](https://drive.google.com/file/d/11U41I-OMjPg7EMjDN2sX_dWcqhBOkwnR/view?usp=sharing) is the Architecture Diagram for the project.
 
 ## Setup and installation
