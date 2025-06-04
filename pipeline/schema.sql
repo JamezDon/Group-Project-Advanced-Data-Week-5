@@ -54,9 +54,9 @@ CREATE TABLE sensor_reading (
 
 CREATE TABLE botanist (
     botanist_id SMALLINT IDENTITY(1,1),
-    botanist_name VARCHAR NOT NULL,
-    email VARCHAR NOT NULL UNIQUE,
-    phone VARCHAR NOT NULL UNIQUE,
+    botanist_name VARCHAR(40) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    phone VARCHAR(21) NOT NULL UNIQUE,
     PRIMARY KEY (botanist_id)
 );
 
