@@ -54,7 +54,7 @@ def get_plant_master_data(plant: dict) -> dict:
 
     if "images" in plant:
         if plant["images"] == "null":
-            plant["images"] = {}
+            plant.pop("images")
 
     plant_master["image_link"] = plant.get("images", {}).get("original_url")
     plant_master["soil_moisture"] = plant["soil_moisture"]
@@ -81,6 +81,18 @@ def get_origin_id(location_data: dict) -> dict:
 
     curs.execute("SELECT country_id FROM origin_location WHERE longitude = ? AND latitude = ?",
                  (location_data["longitude"], location_data["latitude"]))
+    result = curs.fetchone()[0]
+
+    return result
+
+
+def get_plant_id(plant_data: dict) -> dict:
+    """Gets the corresponding origin ID from database using longitude and latitude."""
+
+    curs = get_db_cursor(conn)
+
+    curs.execute("SELECT plant_id FROM plant WHERE plant_name = ?",
+                 plant_data["name"])
     result = curs.fetchone()[0]
 
     return result
@@ -131,7 +143,7 @@ def load_sensor_reading_data(plants_data: list[dict]) -> None:
                            reading["temperature"],
                            reading["last_watered"],
                            reading["soil_moisture"],
-                           reading["plant_id"]))
+                           get_plant_id(plant)))
         conn.commit()
 
 
@@ -202,5 +214,5 @@ if __name__ == "__main__":
 
     # load_country_data(seed_data)
     # load_origin_location_data(seed_data)
-    load_plant_master_data(seed_data)
+    # load_plant_master_data(seed_data)
     load_sensor_reading_data(seed_data)
