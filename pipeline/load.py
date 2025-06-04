@@ -10,7 +10,7 @@ import pyodbc
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
 
-    connection = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
+    connection = pyodbc.connect(driver=ENV["DB_DRIVER"],
                                 server=ENV["DB_HOST"],
                                 database=ENV["DB_NAME"],
                                 TrustServerCertificate='yes',
