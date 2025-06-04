@@ -3,7 +3,7 @@
 
 from validate import (get_dict_of_missing_info, check_missing_keys,
                       check_missing_location_details,
-                      is_null_images_key)
+                      has_null_images_key)
 
 
 def test_get_dict_of_missing_info_returns_correct_missing_keys():
@@ -119,23 +119,23 @@ def test_check_missing_location_details_returns_dict_of_missing_keys_and_values(
         data) == {"missing_keys": ["latitude"], "missing_values": ["country", "city"]}
 
 
-def test_is_null_images_key_returns_true():
+def test_has_null_images_key_returns_true():
     """Tests that True is returned if images key is present but equals 'null'."""
 
-    assert is_null_images_key({"images": "null"})
+    assert has_null_images_key({"images": None})
 
 
-def test_is_null_images_key_returns_false_no_key():
+def test_has_null_images_key_returns_false_no_key():
     """Tests that False is returned if images key is not present."""
 
     data = {"plant_id": 7, "name": "/", "temperature": "/",
             "origin_location": "/", "botanist": "/", "last_watered": "", "soil_moisture": "",
             "recording_taken": ""}
 
-    assert not is_null_images_key({})
+    assert not has_null_images_key({})
 
 
-def test_is_null_images_key_returns_false_valid_key_nested_dict():
+def test_has_null_images_key_returns_false_valid_key_nested_dict():
     """Tests that False is returned if images key present and valid."""
 
-    assert not is_null_images_key({"images": {"url": "/"}})
+    assert not has_null_images_key({"images": {"url": "/"}})

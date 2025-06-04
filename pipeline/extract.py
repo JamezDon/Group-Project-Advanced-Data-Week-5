@@ -6,7 +6,8 @@ from logging import Logger
 import requests
 from joblib import Parallel, delayed
 
-from validate import check_status_code, validate_plant_data, convert_int_to_2dp
+from validate import (check_status_code, validate_plant_data, convert_int_to_2dp,
+                      has_null_images_key)
 
 
 def add_logger() -> Logger:
@@ -47,6 +48,8 @@ def retrieve_all_data(logger: Logger) -> list[dict]:
             if validate_plant_data(plant_data):
                 logger.error(f"Plant data is invalid: {plant_data}")
             else:
+                if has_null_images_key(plant_data):
+                    plant_data.pop("images")
                 converted_data = convert_int_to_2dp(plant_data)
                 output_data.append(converted_data)
         except TypeError as e:
