@@ -91,7 +91,7 @@ def get_plant_id(plant_data: dict) -> dict:
 
     curs = get_db_cursor(conn)
 
-    curs.execute("SELECT plant_id FROM plant WHERE plant_name = ?",
+    curs.execute("SELECT plant_id FROM plant WHERE plant_name COLLATE SQL_Latin1_General_CP1_CS_AS LIKE ?",
                  plant_data["name"])
     result = curs.fetchone()[0]
 
