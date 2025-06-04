@@ -1,3 +1,4 @@
+"""Tests for checking plant data for alerts."""
 from alert_data import check_for_alerts
 
 

@@ -1,11 +1,12 @@
+"""Checks the plant data in the RDS for temp or soil moisture outside
+the optimum range."""
 from os import environ as ENV
 from dotenv import load_dotenv
 
 import pyodbc
-from pyodbc import Connection, Cursor
 
 
-def get_db_connection() -> Connection:
+def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
 
     connection = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
@@ -18,7 +19,7 @@ def get_db_connection() -> Connection:
     return connection
 
 
-def get_db_cursor(connection: Connection) -> Cursor:
+def get_db_cursor(connection):
     """Gets a cursor for the SQL Server plants database."""
 
     cursor = connection.cursor()
@@ -26,7 +27,7 @@ def get_db_cursor(connection: Connection) -> Cursor:
     return cursor
 
 
-def get_last_3_readings(conn: Connection) -> list[dict]:
+def get_last_3_readings(conn) -> list[dict]:
     """Gets the average of the last 3 recorded readings for temperature and soil moisture."""
     query = """WITH ranked_readings as (SELECT 
                     p.plant_id, 
@@ -78,15 +79,15 @@ def get_alert_data(potential_alerts: list[dict]) -> list[dict]:
 
     alert_required = []
     for reading in potential_alerts:
-        if reading["soil_moisture_alert"] == True or reading["temp_alert"] == True:
+        if reading["soil_moisture_alert"] is True or reading["temp_alert"] is True:
             alert_required.append(reading)
     return alert_required
 
 
 if __name__ == "__main__":
     load_dotenv()
-    conn = get_db_connection()
-    last_3_readings = get_last_3_readings(conn)
+    database_conn = get_db_connection()
+    last_3_readings = get_last_3_readings(database_conn)
 
     alert_plant_data = check_for_alerts(last_3_readings)
     print(alert_plant_data)
