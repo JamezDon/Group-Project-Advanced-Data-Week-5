@@ -73,6 +73,16 @@ def convert_int_to_2dp(data: dict) -> dict:
     return data
 
 
+def is_null_images_key(data: dict) -> dict:
+    """Return True if the images key if is present but has a value of 'null'."""
+
+    if "images" in data:
+        if data["images"] == "null":
+            return True
+
+    return False
+
+
 def validate_plant_data(data: dict) -> list[dict]:
     """Checks that relevant keys are not missing from the plant data."""
     all_missing_keys = []
