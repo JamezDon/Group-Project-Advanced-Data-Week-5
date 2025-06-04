@@ -21,7 +21,7 @@ def get_db_connection():
 
 
 def get_db_cursor(conn):
-    """Gets a connection to the SQL Server plants database."""
+    """Gets a cursor for the SQL Server plants database."""
 
     cursor = conn.cursor()
 
@@ -69,7 +69,7 @@ def get_country_id(plant: dict) -> dict:
 
     curs = get_db_cursor(conn)
 
-    curs.execute("SELECT country_id FROM country_origin WHERE country_name = ?",
+    curs.execute("SELECT country_id FROM country WHERE country_name = ?",
                  plant["origin_location"]["country"])
     result = curs.fetchone()[0]
 
@@ -81,7 +81,7 @@ def get_origin_id(location_data: dict) -> dict:
 
     curs = get_db_cursor(conn)
 
-    curs.execute("SELECT country_id FROM origin_location WHERE longitude = ? AND latitude = ?",
+    curs.execute("SELECT country_id FROM origin WHERE longitude = ? AND latitude = ?",
                  (location_data["longitude"], location_data["latitude"]))
     result = curs.fetchone()[0]
 
@@ -153,16 +153,16 @@ def load_sensor_reading_data(plants_data: list[dict]) -> None:
         conn.commit()
 
 
-def load_origin_location_data(plants_data: list[dict]) -> None:
-    """Loads origin location data from dictionary to origin_location table in database."""
+def load_origin_data(plants_data: list[dict]) -> None:
+    """Loads origin location data from dictionary to origin table in database."""
 
     insert_query = """
                 IF NOT EXISTS (
-                    SELECT 1 FROM origin_location
+                    SELECT 1 FROM origin
                     WHERE latitude = ?
                     AND longitude = ?)
                 BEGIN
-                    INSERT INTO origin_location
+                    INSERT INTO origin
                     VALUES (?, ?, ?, ?)
                 END
                 """
@@ -181,15 +181,15 @@ def load_origin_location_data(plants_data: list[dict]) -> None:
 
 
 def load_country_data(plants_data: list[dict]) -> None:
-    """Loads country origin data from to country_origin table in SQL Server database."""
+    """Loads country origin data from to country table in SQL Server database."""
 
     insert_query = """
                 IF NOT EXISTS (
                     SELECT 1
-                    FROM country_origin
+                    FROM country
                     WHERE country_name = ?)
                 BEGIN
-                    INSERT INTO country_origin VALUES (?)
+                    INSERT INTO country VALUES (?)
                 END
                 """
 
@@ -219,6 +219,6 @@ if __name__ == "__main__":
     conn = get_db_connection()
 
     load_country_data(seed_data)
-    load_origin_location_data(seed_data)
+    load_origin_data(seed_data)
     load_plant_master_data(seed_data)
     load_sensor_reading_data(seed_data)
