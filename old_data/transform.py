@@ -1,5 +1,11 @@
 """Transform the data ready to upload to s3"""
 import os
+import pandas as pd
+
+
+def read_csv():
+    df = pd.read_csv("data/plant_data.csv")
+    return df
 
 
 def create_directories(base_dir="c17-james-plants"):
@@ -19,9 +25,15 @@ def create_directories(base_dir="c17-james-plants"):
 
 
 def get_metadata():
-    plant_metadata = truck_metadata = data[["truck_id", "truck_name",
-                                            "truck_description", "has_card_reader", "fsa_rating"]].drop_duplicates().reset_index(drop=True)
+    plant_metadata = data[["plant_id", "plant_name",
+                           "origin_id", "scientific_name", "image_link"]].drop_duplicates().reset_index(drop=True)
+    country_origin_metadata = data[[
+        "country_id", "country_name"]].drop_duplicates().reset_index(drop=True)
 
 
 if __name__ == "__main__":
+    data = read_csv()
+    create_directories()
+    get_metadata(data)
+
     pass
