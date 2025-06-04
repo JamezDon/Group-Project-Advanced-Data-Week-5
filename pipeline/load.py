@@ -1,4 +1,4 @@
-# Load data into database
+"""Script for loading data into the SQL Server database."""
 
 from os import environ as ENV
 import json
@@ -10,6 +10,7 @@ from pyodbc import Connection
 
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
+
     conn = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
                           server=ENV["DB_HOST"],
                           database=ENV["DB_NAME"],
@@ -30,6 +31,7 @@ def get_db_cursor(conn: Connection):
 
 def get_sensor_reading_data(plant: dict) -> dict:
     """Gets the sensor reading data from API data for a single plant."""
+
     sensor_reading = {}
 
     sensor_reading["taken_at"] = plant["recording_taken"]
@@ -43,6 +45,7 @@ def get_sensor_reading_data(plant: dict) -> dict:
 
 def get_plant_master_data(plant: dict) -> dict:
     """Gets the plant master data from API data."""
+
     plant_master = {}
 
     plant_master["plant_name"] = plant["name"]
