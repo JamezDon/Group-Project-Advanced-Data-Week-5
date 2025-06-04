@@ -4,3 +4,4 @@ pytest
 pandas
 pyarrow
 boto3
+pylint

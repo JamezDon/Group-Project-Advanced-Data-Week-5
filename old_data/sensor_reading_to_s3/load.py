@@ -1,7 +1,8 @@
 """Script to load the summary data to s3"""
-from boto3 import client
 import os
 from os import environ as ENV
+
+from boto3 import client
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -29,5 +30,5 @@ def each_file(s3):
 
 
 if __name__ == "__main__":
-    s3 = connect_to_s3()
-    each_file(s3)
+    s3_conn = connect_to_s3()
+    each_file(s3_conn)
