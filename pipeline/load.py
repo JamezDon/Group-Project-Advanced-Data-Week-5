@@ -52,11 +52,11 @@ def get_plant_master_data(plant: dict) -> dict:
         plant_master["scientific_name"] = "".join(
             plant_master["scientific_name"])
 
-    if plant_master["images"] == "null":
-        plant_master["images"] == {}
+    if "images" in plant:
+        if plant["images"] == "null":
+            plant["images"] = {}
 
-    plant_master["image_link"] = plant.get(
-        "images", {}).get("original_url")
+    plant_master["image_link"] = plant.get("images", {}).get("original_url")
     plant_master["soil_moisture"] = plant["soil_moisture"]
 
     return plant_master
@@ -200,7 +200,7 @@ if __name__ == "__main__":
 
     conn = get_db_connection()
 
-    load_country_data(seed_data)
-    load_origin_location_data(seed_data)
+    # load_country_data(seed_data)
+    # load_origin_location_data(seed_data)
     load_plant_master_data(seed_data)
     load_sensor_reading_data(seed_data)
