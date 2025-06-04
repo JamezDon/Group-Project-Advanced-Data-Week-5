@@ -1,3 +1,4 @@
+pyodbc
 requests
 pylint
 python-dotenv
