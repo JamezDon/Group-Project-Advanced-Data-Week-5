@@ -55,28 +55,30 @@ def get_last_3_readings(conn: Connection) -> list[dict]:
     return avg_last_3_readings
 
 
-def check_for_temp_alert(readings: list[dict]) -> list[dict]:
-    """Checks if the avg temp for the last 3 readings 
-    requires an alert to be sent out."""
+def check_for_alerts(readings: list[dict]) -> list[dict]:
+    """Checks if plants require an alert for temp or soil moisture."""
 
-    alert_required = []
+    checked_data = []
     optimum_temp = list(range(15, 31))
     optimum_soil_moisture = list(range(10, 61))
+
     for reading in readings:
-        if int(reading["avg_temp"]) not in optimum_temp:
-            alert_required.append(reading)
+        temp_alert = int(reading["avg_temp"]) not in optimum_temp
+        soil_moisture_alert = int(
+            reading["avg_soil_moisture"]) not in optimum_soil_moisture
+        reading["temp_alert"] = temp_alert
+        reading["soil_moisture_alert"] = soil_moisture_alert
+        checked_data.append(reading)
 
-    return alert_required
+    return checked_data
 
 
-def check_for_soil_moisture_alert(readings: list[dict]) -> list[dict]:
-    """Checks if the avg soil moisture for the last 3 readings 
-    requires an alert to be sent out."""
+def get_alert_data(potential_alerts: list[dict]) -> list[dict]:
+    """Returns a list of plant's which require alerts for temp or soil moisture."""
+
     alert_required = []
-    optimum_temp = list(range(15, 31))
-    optimum_soil_moisture = list(range(10, 61))
-    for reading in readings:
-        if int(reading["avg_soil_moisture"]) not in optimum_soil_moisture:
+    for reading in potential_alerts:
+        if reading["soil_moisture_alert"] == True or reading["temp_alert"] == True:
             alert_required.append(reading)
     return alert_required
 
@@ -85,7 +87,6 @@ if __name__ == "__main__":
     load_dotenv()
     conn = get_db_connection()
     last_3_readings = get_last_3_readings(conn)
-    temp_alerts = check_for_temp_alert(last_3_readings)
-    # print(temp_alerts)
-    soil_moisture_alerts = check_for_soil_moisture_alert(last_3_readings)
-    print(soil_moisture_alerts)
+
+    alert_plant_data = check_for_alerts(last_3_readings)
+    print(alert_plant_data)
