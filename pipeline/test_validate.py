@@ -32,8 +32,9 @@ def test_get_dict_of_missing_info_returns_correct_missing_keys_and_values():
 
     required_keys = ["name", "plant_id", "origin_location", "soil_moisture"]
     data = {"name": "/", "origin_location": "", "soil_moisture": ""}
-    assert get_dict_of_missing_info(data, required_keys) == {"missing_keys": ["plant_id"], "missing_values": [
-        "origin_location", "soil_moisture"]}
+    assert get_dict_of_missing_info(data, required_keys) == {"missing_keys": ["plant_id"],
+                                                             "missing_values":
+                                                             ["origin_location", "soil_moisture"]}
 
 
 def test_get_dict_of_missing_info_returns_empty_dict_when_no_missing_keys_and_values():
