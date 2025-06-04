@@ -212,7 +212,7 @@ if __name__ == "__main__":
 
     conn = get_db_connection()
 
-    # load_country_data(seed_data)
-    # load_origin_location_data(seed_data)
-    # load_plant_master_data(seed_data)
+    load_country_data(seed_data)
+    load_origin_location_data(seed_data)
+    load_plant_master_data(seed_data)
     load_sensor_reading_data(seed_data)
