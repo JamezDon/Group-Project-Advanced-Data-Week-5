@@ -6,7 +6,8 @@ COPY requirements.txt
 
 RUN pip install -r requirements.txt
 
-COPY 
-# ^ PYTHON FILES
+COPY extract.py
+COPY load.py
+COPY pipeline_lambda.py
 
 CMD ["pipeline_lambda.lambda_handler"]
