@@ -15,7 +15,6 @@ def lambda_handler(event: dict, context: dict) -> dict:
     load_to_json(plant_data)
 
     # Load data
-    load_dotenv()
 
     seed_data = read_json_data("plant_data.json")
 
@@ -32,4 +31,6 @@ def lambda_handler(event: dict, context: dict) -> dict:
 
 
 if __name__ == "__main__":
+    load_dotenv()
+
     print(lambda_handler(None, None))
