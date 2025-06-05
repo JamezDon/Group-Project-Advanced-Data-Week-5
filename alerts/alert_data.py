@@ -1,9 +1,9 @@
 """Checks the plant data in the RDS for temp or soil moisture outside
 the optimum range."""
 from os import environ as ENV
-from dotenv import load_dotenv
 
 import pyodbc
+from dotenv import load_dotenv
 
 
 def get_db_connection():
