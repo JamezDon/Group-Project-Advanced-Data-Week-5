@@ -12,10 +12,10 @@ The aim of this project is to provide the botany wing of the Liverpool Museum of
 
 ### ERD
 
-[This](https://drawsql.app/teams/sigma-labs-48/diagrams/lmnh-plant-monitoring-erd) is the ERD for the project.
+![Project ERD](assert/project_erd.png)
 
 ### Architecture Diagram
 
-[This](https://drive.google.com/file/d/11U41I-OMjPg7EMjDN2sX_dWcqhBOkwnR/view?usp=sharing) is the Architecture Diagram for the project.
+![Project architecture diagramD](assert/project_architecture_diagram.png)
 
 ## Setup and installation
