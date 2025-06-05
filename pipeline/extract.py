@@ -58,4 +58,4 @@ def retrieve_all_data(logger: Logger) -> list[dict]:
 if __name__ == "__main__":
     terminal_logger = add_logger()
     plant_data = retrieve_all_data(terminal_logger)
-    # load_to_json(plant_data)
+    load_to_json(plant_data)
