@@ -7,7 +7,7 @@ import requests
 from joblib import Parallel, delayed
 
 from validate import (check_status_code, validate_plant_data, convert_int_to_2dp,
-                      has_null_images_key)
+                      has_null_images_key, check_negative_moisture)
 
 
 def add_logger() -> Logger:
@@ -50,6 +50,8 @@ def retrieve_all_data(logger: Logger) -> list[dict]:
             else:
                 if has_null_images_key(plant_data):
                     plant_data.pop("images")
+                if check_negative_moisture(plant_data):
+                    plant_data["soil_moisture"] = 0
                 converted_data = convert_int_to_2dp(plant_data)
                 output_data.append(converted_data)
         except TypeError as e:

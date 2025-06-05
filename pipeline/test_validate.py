@@ -3,7 +3,7 @@
 
 from validate import (get_dict_of_missing_info, check_missing_keys,
                       check_missing_location_details,
-                      has_null_images_key)
+                      has_null_images_key, check_negative_moisture)
 
 
 def test_get_dict_of_missing_info_returns_correct_missing_keys():
@@ -139,3 +139,23 @@ def test_has_null_images_key_returns_false_valid_key_nested_dict():
     """Tests that False is returned if images key present and valid."""
 
     assert not has_null_images_key({"images": {"url": "/"}})
+
+
+def test_has_negative_soil_moisture():
+    """Tests that True is returned when soil moisture is negative"""
+    assert check_negative_moisture({"soil_moisture": -12.101})
+
+
+def test_has_positive_soil_moisture():
+    """Tests that False is returned when soil moisture is positive."""
+    assert not check_negative_moisture({"soil_moisture": 12.131})
+
+
+def test_has_zero_moisture():
+    """Tests that False is returned when soil moisture is 0."""
+    assert not check_negative_moisture({"soil_moisture": 0})
+
+
+def test_has_negative_small_moisture():
+    """Tests that True is returned when soil moisture is -0.001."""
+    assert check_negative_moisture({"soil_moisture": -0.001})
