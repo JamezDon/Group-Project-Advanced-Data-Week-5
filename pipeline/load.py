@@ -6,8 +6,6 @@ import json
 from dotenv import load_dotenv
 import pyodbc
 
-from extract import retrieve_all_data, add_logger
-
 
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
@@ -209,8 +207,7 @@ if __name__ == "__main__":
 
     load_dotenv()
 
-    file_logger = add_logger()
-    seed_data = retrieve_all_data(file_logger)
+    seed_data = read_json_data("plant_data.json")
 
     conn = get_db_connection()
 
