@@ -26,4 +26,4 @@ jobs:
       - name: "Install packages"
         run: pip install -r pipeline/requirements.txt
       - name: "Run tests"
-        run: pytest 
+        run: pytest pipeline/
