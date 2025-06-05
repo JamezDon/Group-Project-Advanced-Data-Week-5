@@ -1,6 +1,7 @@
 """Checks the plant data in the RDS for temp or soil moisture outside
 the optimum range."""
 from os import environ as ENV
+from datetime import datetime, timedelta
 
 import pyodbc
 from dotenv import load_dotenv
@@ -59,24 +60,87 @@ def get_last_three_readings(conn) -> list[dict]:
     return avg_last_3_readings
 
 
-def check_for_alerts(readings: list[dict]) -> list[dict]:
+def check_recent_alert_sent(plant_id, conn) -> bool:
+    """Checks if a recent alert was sent for the plant_id provided within the last hour."""
+
+    curs = conn.cursor()
+    one_hour_ago = datetime.now() - timedelta(hours=1)
+
+    curs.execute(
+        """
+    SELECT COUNT(*) FROM alert
+    WHERE plant_id = ? AND alert_sent_at >= ?;
+    """,
+        (plant_id, one_hour_ago)
+    )
+    recent_alert_count = curs.fetchone()[0]
+    return recent_alert_count != 0
+
+
+def insert_alert_query(reading, alert_type, conn):
+    """Adds an alert into the alert table."""
+
+    curs = conn.cursor()
+    plant_id = reading["plant_id"]
+    time = datetime.now()
+    alert_type = ", ".join(alert_type)
+
+    insert_query = """ INSERT INTO alert 
+                        (plant_id, alert_sent_at, alert_type)
+                        VALUES (?, ?, ?); """
+
+    curs.execute(insert_query, (plant_id, time, alert_type))
+
+    conn.commit()
+
+
+def get_alert_record(reading, alert_type):
+    """Returns a dict of an alert record for the reading provided."""
+
+    alert_record = {
+        "plant_id": reading["plant_id"],
+        "plant_name": reading["plant_name"],
+        "avg_temp": reading["avg_temp"],
+        "avg_soil_moisture": reading["avg_soil_moisture"],
+        "alert_sent_at": datetime.now(),
+        "alert_type": alert_type
+    }
+
+    return alert_record
+
+
+def check_for_alerts(readings: list[dict], conn) -> list[dict]:
     """Checks if plants require an alert for temp or soil moisture."""
 
-    checked_data = []
+    alert_required = []
     optimum_temp = [15, 30]
-    optimum_soil_moisture = [10, 60]
+    optimum_soil_moisture = 20
 
     for reading in readings:
         temp = int(reading["avg_temp"])
         soil_moisture = int(
             reading["avg_soil_moisture"])
         temp_alert = not optimum_temp[0] <= temp <= optimum_temp[1]
-        soil_moisture_alert = not optimum_soil_moisture[0] <= soil_moisture <= optimum_soil_moisture[1]
-        reading["temp_alert"] = temp_alert
-        reading["soil_moisture_alert"] = soil_moisture_alert
-        checked_data.append(reading)
+        soil_moisture_alert = soil_moisture < optimum_soil_moisture
 
-    return checked_data
+        if temp_alert or soil_moisture_alert:
+            recent_alert = check_recent_alert_sent(reading["plant_id"])
+
+            if not recent_alert:
+                alert_type = []
+                if temp_alert:
+                    alert_type.append("temperature")
+                if soil_moisture_alert:
+                    alert_type.append("soil_moisture")
+
+                insert_alert_query(reading, alert_type, conn)
+
+                alert_required.append(get_alert_record(reading, alert_type))
+                # reading["temp_alert"] = temp_alert
+                # reading["soil_moisture_alert"] = soil_moisture_alert
+                # checked_data.append(reading)
+
+    return alert_required
 
 
 if __name__ == "__main__":
@@ -84,4 +148,4 @@ if __name__ == "__main__":
     database_conn = get_db_connection()
     last_three_readings = get_last_three_readings(database_conn)
 
-    alert_plant_data = check_for_alerts(last_three_readings)
+    alert_plant_data = check_for_alerts(last_three_readings, database_conn)
