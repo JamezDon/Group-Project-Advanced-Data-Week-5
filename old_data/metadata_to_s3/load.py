@@ -5,8 +5,6 @@ from os import environ as ENV
 from boto3 import client
 from dotenv import load_dotenv
 
-load_dotenv()
-
 
 def connect_to_s3():
     """Connect to s3"""
@@ -30,5 +28,6 @@ def each_file(s3):
 
 
 if __name__ == "__main__":
+    load_dotenv()
     s3_conn = connect_to_s3()
     each_file(s3_conn)
