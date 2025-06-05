@@ -109,6 +109,4 @@ def validate_plant_data(data: dict) -> list[dict]:
 
 def check_negative_moisture(data: dict) -> bool:
     """Returns True if the soil moisture level is below 0."""
-    if data["soil_moisture"] < 0:
-        return True
-    return False
+    return data["soil_moisture"] < 0
