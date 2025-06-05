@@ -105,3 +105,10 @@ def validate_plant_data(data: dict) -> list[dict]:
             f"Missing keys for botanist: {missing_botanist_details}")
 
     return all_missing_keys
+
+
+def check_negative_moisture(data: dict) -> bool:
+    """Returns True if the soil moisture level is below 0."""
+    if data["soil_moisture"] < 0:
+        return True
+    return False
