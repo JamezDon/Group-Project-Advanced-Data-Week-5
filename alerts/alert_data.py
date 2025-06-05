@@ -73,7 +73,8 @@ def check_recent_alert_sent(plant_id, conn) -> bool:
     """,
         (plant_id, one_hour_ago)
     )
-    recent_alert_count = curs.fetchone()[0]
+    recent_alert_count = curs.fetchone()
+    curs.close()
     return recent_alert_count != 0
 
 
@@ -82,27 +83,31 @@ def insert_alert_query(reading, alert_type, conn):
 
     curs = conn.cursor()
     plant_id = reading["plant_id"]
-    time = datetime.now()
+    alert_sent_at = datetime.now()
     alert_type = ", ".join(alert_type)
 
     insert_query = """ INSERT INTO alert 
                         (plant_id, alert_sent_at, alert_type)
                         VALUES (?, ?, ?); """
 
-    curs.execute(insert_query, (plant_id, time, alert_type))
+    curs.execute(insert_query, (plant_id, alert_sent_at, alert_type))
 
     conn.commit()
+    curs.close()
 
 
 def get_alert_record(reading, alert_type):
     """Returns a dict of an alert record for the reading provided."""
+
+    now = datetime.now()
+    alert_sent_at = datetime.strftime(now, "%Y-%m-%d")
 
     alert_record = {
         "plant_id": reading["plant_id"],
         "plant_name": reading["plant_name"],
         "avg_temp": reading["avg_temp"],
         "avg_soil_moisture": reading["avg_soil_moisture"],
-        "alert_sent_at": datetime.now(),
+        "alert_sent_at": alert_sent_at,
         "alert_type": alert_type
     }
 
@@ -124,7 +129,7 @@ def check_for_alerts(readings: list[dict], conn) -> list[dict]:
         soil_moisture_alert = soil_moisture < optimum_soil_moisture
 
         if temp_alert or soil_moisture_alert:
-            recent_alert = check_recent_alert_sent(reading["plant_id"])
+            recent_alert = check_recent_alert_sent(reading["plant_id"], conn)
 
             if not recent_alert:
                 alert_type = []
@@ -136,9 +141,6 @@ def check_for_alerts(readings: list[dict], conn) -> list[dict]:
                 insert_alert_query(reading, alert_type, conn)
 
                 alert_required.append(get_alert_record(reading, alert_type))
-                # reading["temp_alert"] = temp_alert
-                # reading["soil_moisture_alert"] = soil_moisture_alert
-                # checked_data.append(reading)
 
     return alert_required
 
@@ -146,6 +148,24 @@ def check_for_alerts(readings: list[dict], conn) -> list[dict]:
 if __name__ == "__main__":
     load_dotenv()
     database_conn = get_db_connection()
-    last_three_readings = get_last_three_readings(database_conn)
+    # last_three_readings = get_last_three_readings(database_conn)
 
-    alert_plant_data = check_for_alerts(last_three_readings, database_conn)
+    print(database_conn)
+
+    # alert_plant_data = check_for_alerts(last_three_readings, database_conn)
+
+    # curs = database_conn.cursor()
+    # one_hour_ago = datetime.now() - timedelta(hours=1)
+
+    # print(database_conn)
+    # curs.execute(
+    #     """
+    # SELECT COUNT(*) FROM alert
+    # WHERE plant_id = ? AND alert_sent_at >= ?;
+    # """,
+    #     (1, one_hour_ago)
+    # )
+
+    # recent_alert_count = curs.fetchone()[0]
+    # print(recent_alert_count)
+    # recent_alert_count != 0
