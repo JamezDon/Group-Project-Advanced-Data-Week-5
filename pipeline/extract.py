@@ -42,6 +42,7 @@ def retrieve_all_data(logger: Logger) -> list[dict]:
     plant_ids = range(1, 54)
     fetched_data = Parallel(n_jobs=10)(
         delayed(get_data)(i, logger) for i in plant_ids)
+    logger.info("Plant data fetched from API.")
     for plant_data in fetched_data:
         try:
             if validate_plant_data(plant_data):
@@ -55,6 +56,6 @@ def retrieve_all_data(logger: Logger) -> list[dict]:
 
 
 if __name__ == "__main__":
-    file_logger = add_logger()
-    plant_data = retrieve_all_data(file_logger)
-    load_to_json(plant_data)
+    terminal_logger = add_logger()
+    plant_data = retrieve_all_data(terminal_logger)
+    # load_to_json(plant_data)
