@@ -6,6 +6,8 @@ import json
 from dotenv import load_dotenv
 import pyodbc
 
+from extract import retrieve_all_data, add_logger, load_to_json
+
 
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
@@ -139,6 +141,8 @@ def load_sensor_reading_data(connection, plants_data: list[dict]) -> None:
 
     data_to_insert = []
 
+    curs.fast_executemany = True
+
     for plant in plants_data:
         data_to_insert.append(get_sensor_reading_data(connection, plant))
 
@@ -207,6 +211,9 @@ if __name__ == "__main__":
 
     load_dotenv()
 
+    file_logger = add_logger()
+    plant_data = retrieve_all_data(file_logger)
+    seed_data = load_to_json(plant_data)
     seed_data = read_json_data("plant_data.json")
 
     conn = get_db_connection()
