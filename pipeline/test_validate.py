@@ -154,3 +154,8 @@ def test_has_positive_soil_moisture():
 def test_has_zero_moisture():
     """Tests that False is returned when soil moisture is 0."""
     assert not check_negative_moisture({"soil_moisture": 0})
+
+
+def test_has_negative_small_moisture():
+    """Tests that True is returned when soil moisture is -0.001."""
+    assert check_negative_moisture({"soil_moisture": -0.001})
