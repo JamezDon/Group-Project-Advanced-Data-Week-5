@@ -14,7 +14,14 @@ An ETL pipeline which extracts data from the LNMH plants API, removes any invali
         - `brew install sqlcmd`
     - Run the shell script to drop any existing database tables and re-create them.
         - `bash reset.sh`
+4. Install the Microsoft ODBC driver for SQL Server allow connection to the database on macOS machines:
+    - `brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release`
+    - `brew update`
+    - `HOMEBREW_ACCEPT_EULA=Y brew install msodbcsql18 mssql-tools18`
+
 
 # Usage
-1. Run the `load.py` script.
-    - If the other database tables are already populated with master data, this script will simply load relevant data to the `sensor_reading` database table.
+1. Run the `load.py` script:
+    - `python3 load.py`
+
+    - Note: If the other database tables are already populated with master data, this script will simply load relevant data to the `sensor_reading` database table.
