@@ -1,5 +1,7 @@
-import pytest
 from datetime import datetime, timedelta
+
+import pytest
+
 from extract import get_time_range
 
 

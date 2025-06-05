@@ -1,6 +1,7 @@
 """Transform the data ready to upload to s3"""
 import os
 from os import environ as ENV
+
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
