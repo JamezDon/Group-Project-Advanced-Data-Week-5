@@ -31,7 +31,7 @@ def create_directories(base_dir="c17-james-plant-bucket"):
         print(f"Created {full_path}")
 
 
-def sensor_data(data: pd.Dataframe):
+def sensor_data(data: pd.DataFrame):
     """Partition data by year, month, day and hour."""
     data["taken_at"] = pd.to_datetime(data["taken_at"])
     data["year"] = data["taken_at"].dt.year
@@ -53,3 +53,4 @@ def sensor_data(data: pd.Dataframe):
 if __name__ == "__main__":
     sensor_reading_data = read_csv()
     sensor_data(sensor_reading_data)
+    print("done")

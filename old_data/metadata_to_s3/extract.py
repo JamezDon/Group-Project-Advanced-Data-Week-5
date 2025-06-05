@@ -31,9 +31,10 @@ def get_time_range() -> datetime:
 
 def make_query(table: str,lower: datetime,upper: datetime,conn) -> pd.DataFrame:
     """Make select query for given table"""
-    query = f"SELECT * FROM {table} WHERE taken_at BETWEEN ? AND ?; "
+    print(f"Getting data from {table}")
+    query = f"SELECT * FROM {table}; "
 
-    data = pd.read_sql(query, conn, params=[lower, upper])
+    data = pd.read_sql(query, conn)
     return data
 
 

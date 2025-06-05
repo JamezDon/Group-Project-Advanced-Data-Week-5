@@ -41,7 +41,6 @@ def load_metadata():
     for table in tables:
         data = read_csv(table)
         unique_data = get_unique(data)
-        print(unique_data)
         unique_data.to_parquet(
             f"c17-james-plant-bucket/input/{table}/{table}_metadata.parquet")
 

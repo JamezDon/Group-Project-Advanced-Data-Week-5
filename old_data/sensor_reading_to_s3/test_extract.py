@@ -10,3 +10,4 @@ def test_time_range_is_correct():
     lower = now - timedelta(hours=25)
     upper = now - timedelta(hours=24)
     assert get_time_range() == (lower, upper)
+
