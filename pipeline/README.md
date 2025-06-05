@@ -1,10 +1,10 @@
 # Pipeline
 
 ## Overview
-An ETL pipeline which extracts data from the LNMH plants API, removes any invalid data, transforms valid data before loading to a MS SQL Server database. The database is hosted using AWS RDS. 
+An ETL pipeline which extracts data from the LNMH plants API, removes any invalid data, then transforms valid data before loading to a **MS SQL Server** database. The database is hosted using **AWS RDS**. 
 
 ## Setup and Installation
-1. Create and activate a new virtual environment 
+1. Create and activate a new virtual environment.
     - `python3 -m venv .venv` 
     - `source .venv/bin/activate`
 2. Install all dependencies.
@@ -16,4 +16,5 @@ An ETL pipeline which extracts data from the LNMH plants API, removes any invali
         - `bash reset.sh`
 
 # Usage
-1. 
+1. Run the `load.py` script.
+    - If the other database tables are already populated with master data, this script will simply load relevant data to the `sensor_reading` database table.
