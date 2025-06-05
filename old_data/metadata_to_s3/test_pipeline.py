@@ -1,3 +1,4 @@
+"""Tests for metadata pipeline"""
 import pytest
 import pandas as pd
 

@@ -8,9 +8,6 @@ import pyarrow.parquet as pq
 from dotenv import load_dotenv
 
 
-load_dotenv()
-
-
 def read_csv():
     df = pd.read_csv("data/sensor_reading.csv")
     return df
@@ -52,6 +49,7 @@ def sensor_data(data: pd.DataFrame):
 
 
 if __name__ == "__main__":
+    load_dotenv()
     sensor_reading_data = read_csv()
     sensor_data(sensor_reading_data)
     print("done")

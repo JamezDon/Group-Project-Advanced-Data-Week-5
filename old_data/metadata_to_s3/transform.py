@@ -5,9 +5,6 @@ import pandas as pd
 from dotenv import load_dotenv
 
 
-load_dotenv()
-
-
 def read_csv(table: str) -> pd.DataFrame:
     """Read data from given table."""
     df = pd.read_csv(f"data/{table}.csv")
@@ -46,5 +43,6 @@ def load_metadata():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     create_directories()
     load_metadata()

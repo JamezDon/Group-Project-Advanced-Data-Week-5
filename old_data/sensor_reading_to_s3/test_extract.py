@@ -1,3 +1,4 @@
+"""Test sensor reading pipeline"""
 from datetime import datetime, timedelta
 
 import pytest
