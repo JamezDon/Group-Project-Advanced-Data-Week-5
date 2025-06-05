@@ -13,6 +13,20 @@ data "aws_ecr_image" "lambda-image-version" {
   image_tag       = "latest"
 }
 
+# Trust doc
+data "aws_iam_policy_document" "lambda-role-trust-policy-doc" {
+    statement {
+      effect = "Allow"
+      principals {
+        type = "Service"
+        identifiers = [ "lambda.amazonaws.com" ]
+      }
+      actions = [
+        "sts:AssumeRole"
+      ]
+    }
+}
+
 # Permissions doc
 data "aws_iam_policy_document" "lambda-role-permissions-policy-doc" {
     statement {
