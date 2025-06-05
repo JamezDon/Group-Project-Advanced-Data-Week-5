@@ -1,7 +1,8 @@
 """Functions for validating the plant data extracted from API."""
+from requests import Response
 
 
-def check_status_code(res):
+def check_status_code(res: Response) -> dict:
     """Checks the status code of the response."""
     if res.status_code == 404:
         return res.json()
@@ -13,7 +14,7 @@ def check_status_code(res):
         raise ValueError("Fetching plant data was not successful.")
 
 
-def get_dict_of_missing_info(plant_dict, keys):
+def get_dict_of_missing_info(plant_dict: dict, keys: list):
     """Returns a dict of missing keys and values."""
     missing_info = {}
     missing_keys = []
@@ -33,7 +34,7 @@ def get_dict_of_missing_info(plant_dict, keys):
     return missing_info
 
 
-def check_missing_keys(data):
+def check_missing_keys(data: dict) -> dict:
     """Check that the plant data has all valid keys."""
 
     required_keys = ["plant_id", "name", "temperature", "origin_location", "botanist",
@@ -44,7 +45,7 @@ def check_missing_keys(data):
     return missing_info
 
 
-def check_missing_location_details(data):
+def check_missing_location_details(data: dict) -> dict:
     """Checks that data has all relevant location details."""
     location_details = data["origin_location"]
 
@@ -53,7 +54,7 @@ def check_missing_location_details(data):
     return missing_info
 
 
-def check_missing_botanist_details(data):
+def check_missing_botanist_details(data: dict) -> dict:
     """Checks that data has all relevant botanist details."""
     botanist_details = data["botanist"]
 
@@ -62,7 +63,7 @@ def check_missing_botanist_details(data):
     return missing_info
 
 
-def convert_int_to_2dp(data):
+def convert_int_to_2dp(data: dict) -> dict:
     """Converts int to 2 decimal places."""
     data["temperature"] = round(data["temperature"], 2)
     data["soil_moisture"] = round(data["soil_moisture"], 2)
@@ -72,7 +73,17 @@ def convert_int_to_2dp(data):
     return data
 
 
-def validate_plant_data(data):
+def has_null_images_key(data: dict) -> bool:
+    """Returns True if the images key is present but is null in plant data."""
+
+    if "images" in data:
+        if not data["images"]:
+            return True
+
+    return False
+
+
+def validate_plant_data(data: dict) -> list[dict]:
     """Checks that relevant keys are not missing from the plant data."""
     all_missing_keys = []
 

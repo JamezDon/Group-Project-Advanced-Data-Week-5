@@ -2,7 +2,8 @@
 
 
 from validate import (get_dict_of_missing_info, check_missing_keys,
-                      check_missing_location_details)
+                      check_missing_location_details,
+                      has_null_images_key)
 
 
 def test_get_dict_of_missing_info_returns_correct_missing_keys():
@@ -32,8 +33,9 @@ def test_get_dict_of_missing_info_returns_correct_missing_keys_and_values():
 
     required_keys = ["name", "plant_id", "origin_location", "soil_moisture"]
     data = {"name": "/", "origin_location": "", "soil_moisture": ""}
-    assert get_dict_of_missing_info(data, required_keys) == {"missing_keys": ["plant_id"], "missing_values": [
-        "origin_location", "soil_moisture"]}
+    assert get_dict_of_missing_info(data, required_keys) == {"missing_keys": ["plant_id"],
+                                                             "missing_values":
+                                                             ["origin_location", "soil_moisture"]}
 
 
 def test_get_dict_of_missing_info_returns_empty_dict_when_no_missing_keys_and_values():
@@ -115,3 +117,25 @@ def test_check_missing_location_details_returns_dict_of_missing_keys_and_values(
     data = {"origin_location": {"longitude": "/", "city": "", "country": ""}}
     assert check_missing_location_details(
         data) == {"missing_keys": ["latitude"], "missing_values": ["country", "city"]}
+
+
+def test_has_null_images_key_returns_true():
+    """Tests that True is returned if images key is present but equals 'null'."""
+
+    assert has_null_images_key({"images": None})
+
+
+def test_has_null_images_key_returns_false_no_key():
+    """Tests that False is returned if images key is not present."""
+
+    data = {"plant_id": 7, "name": "/", "temperature": "/",
+            "origin_location": "/", "botanist": "/", "last_watered": "", "soil_moisture": "",
+            "recording_taken": ""}
+
+    assert not has_null_images_key({})
+
+
+def test_has_null_images_key_returns_false_valid_key_nested_dict():
+    """Tests that False is returned if images key present and valid."""
+
+    assert not has_null_images_key({"images": {"url": "/"}})

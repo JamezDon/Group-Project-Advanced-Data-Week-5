@@ -1,6 +1,5 @@
+pyodbc
 requests
-pandas
-ipykernel
 pylint
 python-dotenv
 pytest

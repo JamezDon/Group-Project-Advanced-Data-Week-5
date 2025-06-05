@@ -1,39 +1,31 @@
 """Access the api and retrieve all plant data"""
-import os
 import json
 import logging
+from logging import Logger
 
 import requests
 from joblib import Parallel, delayed
 
-from validate import check_status_code, validate_plant_data, convert_int_to_2dp
+from validate import (check_status_code, validate_plant_data, convert_int_to_2dp,
+                      has_null_images_key)
 
 
-def add_logger():
+def add_logger() -> Logger:
     """Sets a logger that logs to invalid_plant_data file."""
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
-    file_handler = logging.FileHandler("invalid_plant_data.txt")
-    logger.addHandler(file_handler)
+    stream_handler = logging.StreamHandler()
+    logger.addHandler(stream_handler)
     return logger
 
 
-def load_to_json(filepath, new_reading):
-    """Appends new reading to json file."""
-
-    if os.path.exists(filepath):
-        with open(filepath, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        data = []
-
-    data.append(new_reading)
-
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4)
+def load_to_json(output: list[dict]) -> None:
+    """Writes validated plant data to json file."""
+    with open("plant_data.json", 'w', encoding="utf-8") as file:
+        json.dump(output, file, indent=4)
 
 
-def get_data(plant_id, logger):
+def get_data(plant_id: str, logger: Logger) -> dict:
     """Retrieve data from api for a given ID."""
     res = requests.get(
         f"https://sigma-labs-bot.herokuapp.com/api/plants/{plant_id}", timeout=5)
@@ -45,28 +37,27 @@ def get_data(plant_id, logger):
         logger.error(f"Error fetching data: {e}")
 
 
-def write_valid_data_to_json(plant_data, logger):
-    """Writes valid data to json files."""
-    try:
-        if validate_plant_data(plant_data):
-            logger.error(f"Plant data is invalid: {plant_data}")
-        else:
-            converted_data = convert_int_to_2dp(plant_data)
-            load_to_json("plant_data.json", converted_data)
-            logger.info("Plant data exported to json file.")
-    except TypeError as e:
-        logger.error(f"Error when validating plant data: {e}")
-
-
-def retrieve_all_data(logger):
+def retrieve_all_data(logger: Logger) -> list[dict]:
     """Fetches all plant data from the api for a given range."""
+    output_data = []
     plant_ids = range(1, 54)
     fetched_data = Parallel(n_jobs=10)(
         delayed(get_data)(i, logger) for i in plant_ids)
     for plant_data in fetched_data:
-        write_valid_data_to_json(plant_data, logger)
+        try:
+            if validate_plant_data(plant_data):
+                logger.error(f"Plant data is invalid: {plant_data}")
+            else:
+                if has_null_images_key(plant_data):
+                    plant_data.pop("images")
+                converted_data = convert_int_to_2dp(plant_data)
+                output_data.append(converted_data)
+        except TypeError as e:
+            logger.error(f"Error when validating plant data: {e}")
+    return output_data
 
 
 if __name__ == "__main__":
     file_logger = add_logger()
-    retrieve_all_data(file_logger)
+    plant_data = retrieve_all_data(file_logger)
+    load_to_json(plant_data)
