@@ -60,7 +60,7 @@ def get_last_three_readings(conn) -> list[dict]:
     return avg_last_3_readings
 
 
-def check_recent_alert_sent(plant_id, conn) -> bool:
+def check_recent_alert_sent(plant_id: str, conn) -> bool:
     """Checks if a recent alert was sent for the plant_id provided within the last hour."""
 
     curs = conn.cursor()
@@ -78,7 +78,7 @@ def check_recent_alert_sent(plant_id, conn) -> bool:
     return recent_alert_count != 0
 
 
-def insert_alert_query(reading, alert_type, conn):
+def insert_alert_query(reading: dict, alert_type: list, conn) -> None:
     """Adds an alert into the alert table."""
 
     curs = conn.cursor()
@@ -96,7 +96,7 @@ def insert_alert_query(reading, alert_type, conn):
     curs.close()
 
 
-def get_alert_record(reading, alert_type):
+def get_alert_record(reading: dict, alert_type: list) -> dict:
     """Returns a dict of an alert record for the reading provided."""
 
     now = datetime.now()
@@ -148,24 +148,8 @@ def check_for_alerts(readings: list[dict], conn) -> list[dict]:
 if __name__ == "__main__":
     load_dotenv()
     database_conn = get_db_connection()
-    # last_three_readings = get_last_three_readings(database_conn)
+    last_three_readings = get_last_three_readings(database_conn)
 
     print(database_conn)
 
-    # alert_plant_data = check_for_alerts(last_three_readings, database_conn)
-
-    # curs = database_conn.cursor()
-    # one_hour_ago = datetime.now() - timedelta(hours=1)
-
-    # print(database_conn)
-    # curs.execute(
-    #     """
-    # SELECT COUNT(*) FROM alert
-    # WHERE plant_id = ? AND alert_sent_at >= ?;
-    # """,
-    #     (1, one_hour_ago)
-    # )
-
-    # recent_alert_count = curs.fetchone()[0]
-    # print(recent_alert_count)
-    # recent_alert_count != 0
+    alert_plant_data = check_for_alerts(last_three_readings, database_conn)
