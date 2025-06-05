@@ -25,8 +25,8 @@ def get_time_range() -> datetime:
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
-    lower = now - timedelta(hours=5)
-    upper = now - timedelta(hours=1)
+    lower = now - timedelta(hours=25)
+    upper = now - timedelta(hours=24)
     return lower, upper
 
 
@@ -35,10 +35,11 @@ def get_first_hour(lower: datetime, upper: datetime, conn) -> dict:
     print("Getting data")
     query = """
                 SELECT * FROM sensor_reading
-                WHERE taken_at > (?);
+                WHERE taken_at
+                BETWEEN ? AND ?;
                 """
 
-    data = pd.read_sql(query, conn, params=(lower,))
+    data = pd.read_sql(query, conn, params=(lower,upper))
     print("Got data")
     return data
 
