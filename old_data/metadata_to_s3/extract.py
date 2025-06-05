@@ -29,7 +29,7 @@ def get_time_range() -> datetime:
     return lower, upper
 
 
-def make_query(table: str,lower: datetime,upper: datetime,conn) -> pd.DataFrame:
+def make_query(table:str ,conn) -> pd.DataFrame:
     """Make select query for given table"""
     print(f"Getting data from {table}")
     query = f"SELECT * FROM {table}; "
