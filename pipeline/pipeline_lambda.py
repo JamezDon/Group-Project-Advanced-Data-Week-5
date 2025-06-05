@@ -10,18 +10,14 @@ from load import (get_db_connection, load_origin_data, load_country_data,
 def lambda_handler(event: dict, context: dict) -> dict:
     """Makes a lambda handler."""
 
-    # Extract data
     file_logger = add_logger()
     plant_data = retrieve_all_data(file_logger)
 
-    # Load data
     conn = get_db_connection()
-
     load_country_data(conn, plant_data)
     load_origin_data(conn, plant_data)
     load_plant_master_data(conn, plant_data)
     load_sensor_reading_data(conn, plant_data)
-
     conn.close()
 
     return {None: None}
