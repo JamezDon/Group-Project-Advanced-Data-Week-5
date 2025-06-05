@@ -6,6 +6,8 @@ import json
 from dotenv import load_dotenv
 import pyodbc
 
+from extract import retrieve_all_data, add_logger
+
 
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
@@ -28,16 +30,14 @@ def get_db_cursor(connection):
     return cursor
 
 
-def get_sensor_reading_data(plant: dict) -> dict:
+def get_sensor_reading_data(connection, plant: dict) -> dict:
     """Gets the sensor reading data from API data for a single plant."""
 
-    sensor_reading = {}
-
-    sensor_reading["taken_at"] = plant["recording_taken"]
-    sensor_reading["temperature"] = plant["temperature"]
-    sensor_reading["last_watered"] = plant["last_watered"]
-    sensor_reading["soil_moisture"] = plant["soil_moisture"]
-    sensor_reading["plant_id"] = plant["plant_id"]
+    sensor_reading = (plant["recording_taken"],
+                      plant["temperature"],
+                      plant["last_watered"],
+                      plant["soil_moisture"],
+                      get_plant_id(connection, plant))
 
     return sensor_reading
 
@@ -133,20 +133,19 @@ def load_sensor_reading_data(connection, plants_data: list[dict]) -> None:
     """Loads sensor reading data from dictionary to sensor reading table in SQL Server database."""
 
     insert_query = """
-                INSERT INTO sensor_reading
+                INSERT INTO sensor_reading2
                 VALUES (?, ?, ?, ?, ?)
                 """
 
     curs = get_db_cursor(connection)
+
+    data_to_insert = []
+
     for plant in plants_data:
-        reading = get_sensor_reading_data(plant)
-        curs.execute(
-            insert_query, (reading["taken_at"],
-                           reading["temperature"],
-                           reading["last_watered"],
-                           reading["soil_moisture"],
-                           get_plant_id(connection, plant)))
-        connection.commit()
+        data_to_insert.append(get_sensor_reading_data(connection, plant))
+
+    curs.executemany(insert_query, data_to_insert)
+    connection.commit()
 
 
 def load_origin_data(connection, plants_data: list[dict]) -> None:
@@ -210,7 +209,8 @@ if __name__ == "__main__":
 
     load_dotenv()
 
-    seed_data = read_json_data("plant_data.json")
+    file_logger = add_logger()
+    seed_data = retrieve_all_data(file_logger)
 
     conn = get_db_connection()
 
