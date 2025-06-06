@@ -91,3 +91,8 @@ CREATE TABLE alert (
     FOREIGN KEY (alert_type_id)
         REFERENCES alert_type(alert_type_id)
 );
+
+INSERT INTO alert_type
+VALUES 
+('temperature'),
+('soil moisture');
