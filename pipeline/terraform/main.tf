@@ -4,6 +4,43 @@ provider "aws" {
     access_key = var.AWS_ACCESS_KEY_ID
 }
 
+## S3 Bucket
+
+resource "aws_s3_bucket" "long-term-storage-s3-bucket" {
+    bucket = "c17-narcus-plant-bucket"
+    force_destroy = true
+}
+
+## ECR Repositories
+
+resource "aws_ecr_repository" "alerts-lambda-ecr-repository" {
+  name = "c17-narcus-alerts-lambda"
+  image_tag_mutability = "MUTABLE"
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+  force_delete = true
+}
+
+resource "aws_ecr_repository" "historical-data-ecr-repository" {
+  name = "c17-narcus-historical-sensor-readings-ecr"
+  image_tag_mutability = "MUTABLE"
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+  force_delete = true
+}
+
+resource "aws_ecr_repository" "short-term-data-ecr-repository" {
+  name = "c17-narcus-lmnh-botany"
+  image_tag_mutability = "MUTABLE"
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+  force_delete = true
+}
+
+
 data "aws_ecr_repository" "lambda-image-repo" {
   name = "c17-narcus-lmnh-botany"
 }
