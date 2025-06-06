@@ -38,15 +38,6 @@ data "aws_iam_policy_document" "lambda-role-permissions-policy-doc" {
       ]
       resources = [ "arn:aws:logs:eu-west-2:129033205317:*" ]
     }
-    statement {
-      effect = "Allow"
-      actions = [
-        "athena:*",
-        "glue:*",
-        "s3:*"
-      ]
-      resources = [ "*" ]
-    }
 }
 
 # Role
