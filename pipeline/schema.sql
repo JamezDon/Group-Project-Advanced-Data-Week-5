@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS plant;
 DROP TABLE IF EXISTS origin;
 DROP TABLE IF EXISTS botanist;
 DROP TABLE IF EXISTS country;
+DROP TABLE IF EXISTS alert;
+DROP TABLE IF EXISTS alert_type;
 
 -- Longest official country name in English is 56 characters.
 CREATE TABLE country (
@@ -69,4 +71,23 @@ CREATE TABLE botanist_assignment (
         REFERENCES plant(plant_id),
     FOREIGN KEY (botanist_id)
         REFERENCES botanist(botanist_id)
+);
+
+CREATE TABLE alert_type (
+    alert_type_id SMALLINT IDENTITY(1,1),
+    alert_type_name VARCHAR(30) NOT NULL UNIQUE,
+    PRIMARY KEY alert_type_id
+);
+
+CREATE TABLE alert (
+    alert_id BIGINT IDENTITY(1,1),
+    plant_id SMALLINT NOT NULL,
+    alert_type_id SMALLINT NOT NULL,
+    alert_value DECIMAL(5, 2) NOT NULL,
+    sent_at DATETIME2(0) NOT NULL,
+    PRIMARY KEY (alert_id),
+    FOREIGN KEY (plant_id)
+        REFERENCES plant(plant_id),
+    FOREIGN KEY (alert_type_id)
+        REFERENCES alert_type(alert_type_id)
 );
