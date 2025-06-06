@@ -74,6 +74,7 @@ resource "aws_lambda_function" "simple-email-lambda" {
         DB_PASSWORD = var.DB_PASSWORD
         DB_NAME = var.DB_NAME
         DB_SCHEMA = var.DB_SCHEMA
+        DB_DRIVER = var.DB_DRIVER
     }
   }
 }

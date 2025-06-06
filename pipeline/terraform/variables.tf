@@ -34,3 +34,7 @@ variable DB_NAME {
 variable DB_SCHEMA {
     type = string
 }
+
+variable DB_DRIVER {
+    type = string
+}
