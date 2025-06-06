@@ -20,7 +20,7 @@ def get_connection():
     return conn
 
 
-def get_time_range() -> datetime:
+def get_time_range() -> tuple():
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
@@ -29,8 +29,8 @@ def get_time_range() -> datetime:
     return lower, upper
 
 
-def make_query(table:str ,conn) -> pd.DataFrame:
-    """Make select query for given table"""
+def make_query(table:str, conn) -> pd.DataFrame:
+    """Make select query for given table."""
     print(f"Getting data from {table}")
     query = f"SELECT * FROM {table}; "
 
@@ -39,22 +39,23 @@ def make_query(table:str ,conn) -> pd.DataFrame:
 
 
 def store_data(data: pd.DataFrame, table) -> None:
-    """Store the hour of data in a csv"""
+    """Store the hour of data in a csv."""
     if not os.path.exists("data"):
         os.makedirs("data")
-    df = pd.DataFrame(data)
-    df.to_csv(f"data/{table}.csv", index=False)
+    data.to_csv(f"data/{table}.csv", index=False)
 
 
-def get_metadata():
+def get_metadata() -> None:
     """Main loop for each table in the database."""
     conn = get_connection()
-    lower, upper = get_time_range()
-    tables = ["country", "origin", "plant", "botanist_assignment", "botanist"]
-    for table in tables:
-        data = make_query(table,lower,upper,conn)
-        store_data(data, table)
-
+    try:
+        lower, upper = get_time_range()
+        tables = ["country", "origin", "plant", "botanist_assignment", "botanist"]
+        for table in tables:
+            data = make_query(table,lower,upper,conn)
+            store_data(data, table)
+    finally:
+        conn.close()
 
 if __name__ == "__main__":
     load_dotenv()

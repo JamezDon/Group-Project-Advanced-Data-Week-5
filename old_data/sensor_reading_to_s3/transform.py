@@ -1,4 +1,4 @@
-"""Transform the data ready to upload to s3"""
+"""Transform the data ready to upload to s3."""
 import os
 from os import environ as ENV
 
@@ -8,13 +8,13 @@ import pyarrow.parquet as pq
 from dotenv import load_dotenv
 
 
-def read_csv():
-    df = pd.read_csv("data/sensor_reading.csv")
-    return df
+def read_csv() -> pd.DataFrame:
+    """Read sensor reading csv"""
+    return pd.read_csv("data/sensor_reading.csv")
 
 
-def create_directories(base_dir="c17-james-plant-bucket"):
-    """Create the directories ready for the metadata"""
+def create_directories(base_dir:str="c17-james-plant-bucket"):
+    """Create the directories ready for the metadata."""
     sub_dirs = [
         "input/plant",
         "input/origin",
@@ -43,7 +43,7 @@ def sensor_data(data: pd.DataFrame):
 
     pq.write_to_dataset(
         table,
-        root_path="c17-james-plant-bucket/input/sensor_reading",
+        root_path="c17-james-plant-bucket/input/sensor_reading.",
         partition_cols=["year", "month", "day", "hour"]
     )
 

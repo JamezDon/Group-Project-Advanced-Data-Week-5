@@ -21,12 +21,12 @@ def get_connection():
     return conn
 
 
-def get_time_range() -> datetime:
+def get_time_range() -> tuple():
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
-    lower = now - timedelta(hours=25)
-    upper = now - timedelta(hours=24)
+    lower = now - timedelta(hours=2)
+    upper = now - timedelta(hours=1)
     return lower, upper
 
 
@@ -58,7 +58,7 @@ def delete_first_hour(lower: datetime, upper: datetime, conn) -> None:
 
 
 def store_data(data: pd.DataFrame) -> None:
-    """Store the hour of data in a csv"""
+    """Store the hour of data in a csv."""
     if not os.path.exists("data"):
         os.makedirs("data")
     print(data)

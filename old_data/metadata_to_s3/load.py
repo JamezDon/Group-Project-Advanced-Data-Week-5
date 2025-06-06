@@ -1,4 +1,4 @@
-"""Script to load the summary data to s3"""
+"""Script to load the summary data to s3."""
 import os
 from os import environ as ENV
 
@@ -15,7 +15,7 @@ def connect_to_s3():
 
 
 def each_file(s3):
-    """Load to s3"""
+    """Load to s3."""
     root_path = "c17-james-plant-bucket"
     bucket_name = ENV["TARGET_BUCKET_NAME"]
     for dirpath, _, filenames in os.walk(root_path):

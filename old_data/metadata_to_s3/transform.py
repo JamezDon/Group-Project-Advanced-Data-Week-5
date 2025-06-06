@@ -1,4 +1,4 @@
-"""Transform the data ready to upload to s3"""
+"""Transform the data ready to upload to s3."""
 import os
 
 import pandas as pd
@@ -7,11 +7,10 @@ from dotenv import load_dotenv
 
 def read_csv(table: str) -> pd.DataFrame:
     """Read data from given table."""
-    df = pd.read_csv(f"data/{table}.csv")
-    return df
+    return pd.read_csv(f"data/{table}.csv")
 
 
-def create_directories(base_dir="c17-james-plant-bucket"):
+def create_directories(base_dir:str="c17-james-plant-bucket"):
     """Create the directories ready for the metadata."""
     sub_dirs = [
         "input/plant",
@@ -27,7 +26,7 @@ def create_directories(base_dir="c17-james-plant-bucket"):
 
 
 def get_unique(data: pd.DataFrame) -> pd.DataFrame:
-    """Get only unique rows in data"""
+    """Get only unique rows in data."""
     unique_data = data.drop_duplicates().reset_index(drop=True)
     return unique_data
 
