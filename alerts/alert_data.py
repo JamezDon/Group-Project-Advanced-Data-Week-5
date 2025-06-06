@@ -145,6 +145,37 @@ def check_for_alerts(readings: list[dict], conn) -> list[dict]:
     return alert_required
 
 
+def make_html(data: list[dict]) -> str:
+    """Converts the data into html to make the alert look better."""
+    start = f"""<!DOCTYPE html>
+                <html>
+                <body>
+
+                <h1> Plant Alerts </h1>
+            """
+    body = ""
+    for plant in data:
+        body += f"""
+                <h2> Plant {plant["plant_id"]} ({plant["plant_name"]}) </h2>
+
+                <h3> Sensor readings:</h3>
+                
+                <p> Average temperature over last 3 readings: {plant["avg_temp"]} </p>
+                <p> Average soil moisture over last 3 readings: {plant["avg_soil_moisture"]} </p>
+
+
+                <h3> Alert information:</h3>
+
+                <p> Alert sent at: {plant["alert_sent_at"]} </p>
+                <p> Alert type: {plant["alert_type"]} </p>
+                """
+
+    end = """</body>
+            </html>
+            """
+    return start+body+end
+
+
 if __name__ == "__main__":
     load_dotenv()
     database_conn = get_db_connection()
