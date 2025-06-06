@@ -76,7 +76,7 @@ CREATE TABLE botanist_assignment (
 CREATE TABLE alert_type (
     alert_type_id SMALLINT IDENTITY(1,1),
     alert_type_name VARCHAR(30) NOT NULL UNIQUE,
-    PRIMARY KEY alert_type_id
+    PRIMARY KEY (alert_type_id)
 );
 
 CREATE TABLE alert (
