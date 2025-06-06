@@ -25,8 +25,8 @@ def get_time_range() -> tuple[datetime, datetime]:
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
-    lower = now - timedelta(hours=10)
-    upper = now - timedelta(hours=1)
+    lower = now - timedelta(hours=25)
+    upper = now - timedelta(hours=24)
     return lower, upper
 
 

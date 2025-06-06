@@ -1,8 +1,12 @@
 """Transform the data ready to upload to s3."""
 import os
+from os import environ as ENV
 
 import pandas as pd
 from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 def read_csv(table: str) -> pd.DataFrame:
@@ -10,7 +14,7 @@ def read_csv(table: str) -> pd.DataFrame:
     return pd.read_csv(f"data/{table}.csv")
 
 
-def create_directories(base_dir:str="c17-james-plant-bucket"):
+def create_directories(base_dir:str=f"{ENV["TARGET_BUCKET_NAME"]}"):
     """Create the directories ready for the metadata."""
     sub_dirs = [
         "input/plant",
@@ -38,7 +42,7 @@ def load_metadata():
         data = read_csv(table)
         unique_data = get_unique(data)
         unique_data.to_parquet(
-            f"c17-james-plant-bucket/input/{table}/{table}_metadata.parquet")
+            f"{ENV["TARGET_BUCKET_NAME"]}/input/{table}/{table}_metadata.parquet")
 
 
 if __name__ == "__main__":

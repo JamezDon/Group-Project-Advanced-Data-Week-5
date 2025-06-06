@@ -55,6 +55,8 @@ def delete_first_hour(lower: datetime, upper: datetime, conn: "Connection") -> N
 
     cursor = conn.cursor()
     cursor.execute(query, (lower, upper))
+    conn.commit()
+    print("Deleted data")
 
 
 def store_data(data: pd.DataFrame) -> None:
@@ -71,7 +73,6 @@ if __name__ == "__main__":
     connection = get_connection()
     lower_bound, upper_bound = get_time_range()
     first_hour = get_first_hour(lower_bound, upper_bound, connection)
-    print(first_hour)
-    #delete_first_hour(lower_bound, upper_bound, connection)
+    delete_first_hour(lower_bound, upper_bound, connection)
     store_data(first_hour)
     connection.close()
