@@ -39,6 +39,8 @@ def sensor_data(data: pd.DataFrame):
         partition_cols=["year", "month", "day", "hour"]
     )
 
+    return summary
+
 
 if __name__ == "__main__":
     load_dotenv()

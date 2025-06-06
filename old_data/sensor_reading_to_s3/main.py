@@ -1,4 +1,4 @@
-"""ETL pipeline for uploading live sensor readings to s3"""
+"""ETL pipeline for uploading live sensor readings to s3."""
 from dotenv import load_dotenv
 
 from extract import get_connection, get_time_range, get_first_hour, delete_first_hour,store_data

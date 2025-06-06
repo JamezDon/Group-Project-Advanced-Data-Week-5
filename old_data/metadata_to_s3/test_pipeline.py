@@ -17,3 +17,20 @@ def test_get_unique_removes_duplicates():
     result = get_unique(df)
     assert len(result) == 3
 
+def test_get_unique_removes_duplicates_if_all_same():
+    """Test that the unique function removes all duplicates."""
+    df = pd.DataFrame({
+        "id": [1,1,1,1,1],
+        "value": ["a", "a", "a", "a", "a"]
+    })
+    result = get_unique(df)
+    assert len(result) == 1
+
+def test_get_unique_keeps_all_unique_rows():
+    """Test that the unique function removes all duplicates."""
+    df = pd.DataFrame({
+        "id": [1,2,3],
+        "value": ["a", "b", "c"]
+    })
+    result = get_unique(df)
+    assert len(result) == 3
