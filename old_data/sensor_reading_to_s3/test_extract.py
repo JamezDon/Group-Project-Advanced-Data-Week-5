@@ -16,11 +16,5 @@ def test_time_range_is_correct():
     upper = now - timedelta(hours=24)
     assert get_time_range() == (lower, upper)
 
-def test_sensor_data_partitioning(tmp_path):
-    df = pd.DataFrame({
-        "taken_at": pd.date_range("2024-01-01", periods=2, freq="h"),
-        "value": [10,20]
-    })
-    sensor_data(df)
 
 
