@@ -30,7 +30,7 @@ def get_db_cursor(connection: "Connection"):
 
 def get_last_three_readings(connection: "Connection") -> list[dict]:
     """Gets the average of the last 3 recorded readings for temperature and soil moisture."""
-    query = """WITH ranked_readings as 
+    query = """WITH ranked_readings as
                 (
                 SELECT 
                     p.plant_id, 
@@ -64,8 +64,11 @@ def get_last_three_readings(connection: "Connection") -> list[dict]:
     return avg_last_3_readings
 
 
-def check_recent_alert_sent(plant_id: int, connection: "Connection", alert_type_id: int) -> bool:
-    """Checks if a recent alert was sent for the plant_id and alert type provided within the last hour."""
+def recent_alert_sent(plant_id: int, connection: "Connection", alert_type_id: int) -> bool:
+    """
+    Checks if a recent alert was sent for the 
+    plant_id and alert type provided within the last hour.
+    """
 
     curs = connection.cursor()
     one_hour_ago = datetime.now() - timedelta(hours=1)
@@ -77,7 +80,7 @@ def check_recent_alert_sent(plant_id: int, connection: "Connection", alert_type_
     """,
         (plant_id, one_hour_ago, alert_type_id)
     )
-    recent_alert_count = curs.fetchone()
+    recent_alert_count = curs.fetchone()[0]
     curs.close()
     return recent_alert_count != 0
 
@@ -110,7 +113,7 @@ def insert_alert_query(reading: dict, alert_type_id: int, connection: "Connectio
     if alert_type_id == 2:
         alert_value = reading["avg_soil_moisture"]
 
-    insert_query = """ INSERT INTO alert 
+    insert_query = """ INSERT INTO alert
                         (plant_id, sent_at, alert_type_id, alert_value)
                         VALUES (?, ?, ?, ?); """
 
@@ -121,56 +124,37 @@ def insert_alert_query(reading: dict, alert_type_id: int, connection: "Connectio
     curs.close()
 
 
-def get_alert_record(reading: dict, alert_type: list) -> dict:
-    """Returns a dict of an alert record for the reading provided."""
-
-    now = datetime.now()
-    alert_sent_at = datetime.strftime(now, "%Y-%m-%d")
-
-    alert_record = {
-        "plant_id": reading["plant_id"],
-        "plant_name": reading["plant_name"],
-        "avg_temp": reading["avg_temp"],
-        "avg_soil_moisture": reading["avg_soil_moisture"],
-        "alert_sent_at": alert_sent_at,
-        "alert_type": alert_type
-    }
-
-    return alert_record
-
-
-def temp_alert_is_required(reading: dict, connection: "Connection") -> dict | None:
+def temp_alert_required(reading: dict, connection: "Connection") -> bool:
     """Checks if plants require an alert for temp."""
 
     optimum_temp = [15, 30]
 
-    temp = int(reading["avg_temp"])
+    temp = reading["avg_temp"]
+
     plant_id = get_plant_id(connection, reading)
 
     temp_alert = not optimum_temp[0] <= temp <= optimum_temp[1]
-    print(temp_alert)
 
     if temp_alert:
-        if not check_recent_alert_sent(
+        if not recent_alert_sent(
                 plant_id, connection, 1):
             return True
 
     return False
 
 
-def soil_moisture_alert_is_required(reading: dict, connection: "Connection") -> dict | None:
+def soil_moisture_alert_required(reading: dict, connection: "Connection") -> bool:
     """Checks if plants require an alert for soil moisture."""
 
     optimum_soil_moisture = 20
 
-    soil_moisture = int(
-        reading["avg_soil_moisture"])
+    soil_moisture = reading["avg_soil_moisture"]
     plant_id = get_plant_id(connection, reading)
 
     soil_moisture_alert = soil_moisture < optimum_soil_moisture
 
     if soil_moisture_alert:
-        if not check_recent_alert_sent(
+        if not recent_alert_sent(
                 plant_id, connection, 2):
             return True
 
@@ -180,19 +164,10 @@ def soil_moisture_alert_is_required(reading: dict, connection: "Connection") -> 
 if __name__ == "__main__":
     load_dotenv()
     conn = get_db_connection()
-    # average_readings = get_last_three_readings(conn)
-
-    average_readings = [{'plant_id': 1, 'plant_name': 'Venus flytrap', 'avg_temp': 14.69, 'avg_soil_moisture': 27.84},
-                        {'plant_id': 2, 'plant_name': 'Corpse flower',
-                            'avg_temp': 14.21, 'avg_soil_moisture': 30.35},
-                        {'plant_id': 3, 'plant_name': 'Rafflesia arnoldii',
-                            'avg_temp': 16.37, 'avg_soil_moisture': 26.13},
-                        {'plant_id': 4, 'plant_name': 'Black bat flower',
-                            'avg_temp': 16.5, 'avg_soil_moisture': 30.18},
-                        {'plant_id': 5, 'plant_name': 'Pitcher plant', 'avg_temp': 17.33, 'avg_soil_moisture': 26.9}]
+    average_readings = get_last_three_readings(conn)
 
     for plant in average_readings:
-        if temp_alert_is_required(plant, conn):
+        if temp_alert_required(plant, conn):
             insert_alert_query(plant, 1, conn)
-        if soil_moisture_alert_is_required(plant, conn):
+        if soil_moisture_alert_required(plant, conn):
             insert_alert_query(plant, 2, conn)
