@@ -1,4 +1,6 @@
 """Test sensor reading pipeline."""
+# pylint: skip-file
+
 from datetime import datetime, timedelta
 import os
 import pytest
