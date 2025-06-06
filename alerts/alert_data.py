@@ -112,7 +112,7 @@ def insert_alert_query(reading: dict, alert_type_id: int, connection: "Connectio
 
     insert_query = """ INSERT INTO alert 
                         (plant_id, sent_at, alert_type_id, alert_value)
-                        VALUES (?, ?, ?); """
+                        VALUES (?, ?, ?, ?); """
 
     curs.execute(insert_query, (plant_id, alert_sent_at,
                  alert_type_id, alert_value))
@@ -148,6 +148,7 @@ def temp_alert_is_required(reading: dict, connection: "Connection") -> dict | No
     plant_id = get_plant_id(connection, reading)
 
     temp_alert = not optimum_temp[0] <= temp <= optimum_temp[1]
+    print(temp_alert)
 
     if temp_alert:
         if not check_recent_alert_sent(
