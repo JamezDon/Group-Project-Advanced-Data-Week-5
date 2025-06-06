@@ -1,3 +1,4 @@
+# pylint: disable=unused-argument
 """Tests for checking plant data for alerts."""
 
 from unittest.mock import MagicMock, patch
@@ -41,7 +42,7 @@ def test_temp_alert_required_returns_false_temp_in_range(self):
 
 
 @patch("alert_data.recent_alert_sent", return_value=False)
-def test_temp_alert_required_returns_false_temp_at_lower_threshold(self):
+def test_temp_alert_required_returns_false_temp_at_threshold(self):
     """Checks that the function identifies a plant as needed
     a temperature alert when the temp is at the lower threshold of good range."""
 
@@ -107,7 +108,7 @@ def test_soil_moisture_alert_required_returns_false_in_good_range(self):
 
 
 @patch("alert_data.recent_alert_sent", return_value=False)
-def test_soil_moisture_alert_required_returns_false_in_good_range(self):
+def test_soil_moisture_alert_required_returns_false_at_threshold(self):
     """Checks that the function identifies a plant as needed
     a temperature alert when the soil moisture is at lower threshold of good range."""
 
