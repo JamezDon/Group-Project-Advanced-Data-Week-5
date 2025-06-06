@@ -5,6 +5,8 @@ import pandas as pd
 
 from transform import get_unique
 from extract import get_metadata
+from load import connect_to_s3
+
 
 def test_get_unique_removes_duplicates():
     """Test that the unique function removes all duplicates."""

@@ -6,15 +6,15 @@ from boto3 import client
 from dotenv import load_dotenv
 
 
-def connect_to_s3():
-    """Connect to s3"""
+def connect_to_s3() -> client:
+    """Connect to s3."""
     s3_client = client(
         "s3", aws_access_key_id=ENV["AWS_ACCESS_KEY_ID"], aws_secret_access_key=ENV[
             "AWS_SECRET_ACCESS_KEY"])
     return s3_client
 
 
-def each_file(s3):
+def load_files_to_bucket(s3: client) -> None:
     """Load to s3."""
     root_path = "c17-james-plant-bucket"
     bucket_name = ENV["TARGET_BUCKET_NAME"]
@@ -30,4 +30,4 @@ def each_file(s3):
 if __name__ == "__main__":
     load_dotenv()
     s3_conn = connect_to_s3()
-    each_file(s3_conn)
+    load_files_to_bucket(s3_conn)

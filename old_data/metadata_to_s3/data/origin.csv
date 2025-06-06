@@ -1,0 +1,49 @@
+origin_id,latitude,longitude,city_name,country_id
+1,43.74,-11.51,Stammside,1
+2,47.84,-48.71,Floshire,2
+3,-25.49,-36.13,Dale City,3
+4,63.37,46.4,West Tedboro,4
+5,82.89,0.63,North Felicia,5
+6,-40.35,-12.11,Ferryfort,6
+7,54.16,8.67,Edwardfurt,7
+8,22.12,-11.04,Port Johan,8
+9,-85.75,179.0,North Adriel,9
+10,89.03,-108.53,Dorianland,10
+11,86.26,-108.55,Fort Maya,11
+12,26.71,54.09,Annaboro,12
+13,-54.93,81.39,Felixberg,13
+14,-22.64,100.9,New Clark,8
+15,-60.74,39.06,Boscomouth,14
+16,-81.62,158.42,Herzogland,15
+17,21.3,42.01,Miramar,16
+18,-69.71,175.45,Port Jennings,17
+19,-79.34,152.57,Oceanside,18
+20,85.38,-108.6,Hollisfurt,19
+21,34.88,-37.76,Joaquinton,20
+22,64.01,-125.59,New Glenda,21
+23,-17.39,-81.8,Adamshaven,22
+24,3.58,36.61,Laronburgh,11
+25,-38.64,166.94,South Nyasia,23
+26,-34.78,54.25,South Dawn,24
+27,80.17,89.37,Greenholtland,25
+28,-80.35,45.8,Potomac,26
+29,22.63,-31.1,Portsmouth,27
+30,-37.62,-72.15,Ottomouth,18
+31,10.04,166.97,Steuberfurt,28
+32,-58.37,6.52,Cutler Bay,29
+33,-59.67,22.17,New Danika,30
+34,8.81,-146.17,Clearwater,31
+35,87.37,-65.85,South Armani,32
+36,-40.95,-17.7,Port Fredrick,33
+37,83.53,-30.88,Peoria,34
+38,-7.73,-109.31,Littlehaven,35
+39,89.67,-61.28,South Hectorstead,32
+40,87.94,-128.84,Ernserworth,36
+41,-73.42,74.93,Buffalo Grove,37
+42,23.11,-108.73,Catonsville,38
+43,14.31,21.89,South Julianview,39
+44,-34.19,-78.7,Kathrynville,17
+45,83.92,-148.55,Gavinstad,40
+46,-82.18,-72.49,Lake Norbertstead,41
+47,15.8,148.99,Ginaberg,42
+48,-62.63,18.62,Joanyland,43

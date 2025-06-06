@@ -2,6 +2,8 @@
 from datetime import datetime, timedelta
 import os
 from os import environ as ENV
+from typing import Tuple
+import logging
 
 import pyodbc
 from dotenv import load_dotenv
@@ -10,7 +12,7 @@ import pandas as pd
 
 def get_connection():
     """Establish connection to database."""
-    conn = pyodbc.connect(f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+    conn = pyodbc.connect(f"DRIVER={{{ENV["DB_DRIVER"]}}};"
                           f"Server={ENV["DB_HOST"]};"
                           f"Database={ENV["DB_NAME"]};"
                           f"UID={ENV["DB_USER"]};"
@@ -20,7 +22,7 @@ def get_connection():
     return conn
 
 
-def get_time_range() -> tuple():
+def get_time_range() -> Tuple[datetime, datetime]:
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
@@ -29,7 +31,7 @@ def get_time_range() -> tuple():
     return lower, upper
 
 
-def make_query(table:str, conn) -> pd.DataFrame:
+def make_query(table:str, conn: "Connection") -> pd.DataFrame:
     """Make select query for given table."""
     print(f"Getting data from {table}")
     query = f"SELECT * FROM {table}; "
@@ -38,7 +40,7 @@ def make_query(table:str, conn) -> pd.DataFrame:
     return data
 
 
-def store_data(data: pd.DataFrame, table) -> None:
+def store_data(data: pd.DataFrame, table: str) -> None:
     """Store the hour of data in a csv."""
     if not os.path.exists("data"):
         os.makedirs("data")
@@ -49,11 +51,13 @@ def get_metadata() -> None:
     """Main loop for each table in the database."""
     conn = get_connection()
     try:
-        lower, upper = get_time_range()
         tables = ["country", "origin", "plant", "botanist_assignment", "botanist"]
         for table in tables:
-            data = make_query(table,lower,upper,conn)
+            data = make_query(table,conn)
             store_data(data, table)
+    except Exception as e:
+        logging.error("Error occurred in get_metadata(): %s", e)
+        raise
     finally:
         conn.close()
 

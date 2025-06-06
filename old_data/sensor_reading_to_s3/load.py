@@ -6,7 +6,7 @@ from boto3 import client
 from dotenv import load_dotenv
 
 
-def connect_to_s3():
+def connect_to_s3() -> client:
     """Connect to s3."""
     s3_client = client(
         "s3", aws_access_key_id=ENV["AWS_ACCESS_KEY_ID"], aws_secret_access_key=ENV[
@@ -14,7 +14,7 @@ def connect_to_s3():
     return s3_client
 
 
-def load_files_to_bucket(s3):
+def load_files_to_bucket(s3) -> None:
     """Load to s3."""
     root_path = "c17-james-plant-bucket"
     bucket_name = ENV["TARGET_BUCKET_NAME"]

@@ -2,6 +2,7 @@
 from datetime import datetime, timedelta
 import os
 from os import environ as ENV
+from typing import Tuple
 
 import pyodbc
 from dotenv import load_dotenv
@@ -11,7 +12,7 @@ import pandas as pd
 
 def get_connection():
     """Establish connection to database."""
-    conn = pyodbc.connect(f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+    conn = pyodbc.connect(f"DRIVER={{{ENV["DB_DRIVER"]}}};"
                           f"Server={ENV["DB_HOST"]};"
                           f"Database={ENV["DB_NAME"]};"
                           f"UID={ENV["DB_USER"]};"
@@ -21,16 +22,16 @@ def get_connection():
     return conn
 
 
-def get_time_range() -> tuple():
+def get_time_range() -> Tuple[datetime, datetime]:
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
-    lower = now - timedelta(hours=2)
-    upper = now - timedelta(hours=1)
+    lower = now - timedelta(hours=25)
+    upper = now - timedelta(hours=24)
     return lower, upper
 
 
-def get_first_hour(lower: datetime, upper: datetime, conn) -> dict:
+def get_first_hour(lower: datetime, upper: datetime, conn: "Connection") -> dict:
     """Query the database for the oldest hour of data currently stored in the database."""
     print("Getting data")
     query = """
@@ -44,7 +45,7 @@ def get_first_hour(lower: datetime, upper: datetime, conn) -> dict:
     return data
 
 
-def delete_first_hour(lower: datetime, upper: datetime, conn) -> None:
+def delete_first_hour(lower: datetime, upper: datetime, conn: "Connection") -> None:
     """Delete the oldest hour of data currently stored in the database."""
     lower, upper = get_time_range()
     query = """

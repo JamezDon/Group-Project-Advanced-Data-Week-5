@@ -21,7 +21,7 @@ def create_directories(base_dir:str="c17-james-plant-bucket"):
     ]
     for sub_dir in sub_dirs:
         full_path = os.path.join(base_dir, sub_dir)
-        os.makedirs(full_path)
+        os.makedirs(full_path, exist_ok=True)
         print(f"Created {full_path}")
 
 

@@ -1,6 +1,5 @@
 """Transform the data ready to upload to s3."""
 import os
-from os import environ as ENV
 
 import pandas as pd
 import pyarrow as pa
@@ -43,7 +42,7 @@ def sensor_data(data: pd.DataFrame):
 
     pq.write_to_dataset(
         table,
-        root_path="c17-james-plant-bucket/input/sensor_reading.",
+        root_path="c17-james-plant-bucket/input/sensor_reading",
         partition_cols=["year", "month", "day", "hour"]
     )
 
@@ -52,4 +51,3 @@ if __name__ == "__main__":
     load_dotenv()
     sensor_reading_data = read_csv()
     sensor_data(sensor_reading_data)
-    print("done")
