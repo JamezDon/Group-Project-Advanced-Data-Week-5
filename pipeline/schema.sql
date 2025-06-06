@@ -83,6 +83,7 @@ CREATE TABLE alert (
     alert_id BIGINT IDENTITY(1,1),
     plant_id SMALLINT NOT NULL,
     alert_type_id SMALLINT NOT NULL,
+    alert_value DECIMAL(5, 2) NOT NULL,
     sent_at DATETIME2(0) NOT NULL,
     PRIMARY KEY (alert_id),
     FOREIGN KEY (plant_id)
