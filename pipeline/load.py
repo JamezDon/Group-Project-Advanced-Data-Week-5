@@ -10,7 +10,7 @@ import pyodbc
 def get_db_connection():
     """Gets a connection to the SQL Server plants database."""
 
-    connection = pyodbc.connect(driver='{ODBC Driver 18 for SQL Server}',
+    connection = pyodbc.connect(driver=ENV["DB_DRIVER"],
                                 server=ENV["DB_HOST"],
                                 database=ENV["DB_NAME"],
                                 TrustServerCertificate='yes',
@@ -20,7 +20,7 @@ def get_db_connection():
     return connection
 
 
-def get_db_cursor(connection):
+def get_db_cursor(connection: "Connection") -> "Cursor":
     """Gets a cursor for the SQL Server plants database."""
 
     cursor = connection.cursor()
@@ -60,7 +60,7 @@ def get_plant_master_data(plant: dict) -> dict:
     return plant_master
 
 
-def get_country_id(connection, plant: dict) -> dict:
+def get_country_id(connection: "Connection", plant: dict) -> dict:
     """Gets the corresponding country ID from database using country name."""
 
     curs = get_db_cursor(connection)
@@ -72,7 +72,7 @@ def get_country_id(connection, plant: dict) -> dict:
     return result
 
 
-def get_origin_id(connection, location_data: dict) -> dict:
+def get_origin_id(connection: "Connection", location_data: dict) -> dict:
     """Gets the corresponding origin ID from database using longitude and latitude."""
 
     curs = get_db_cursor(connection)
@@ -84,7 +84,7 @@ def get_origin_id(connection, location_data: dict) -> dict:
     return result
 
 
-def get_plant_id(connection, plant_data: dict) -> dict:
+def get_plant_id(connection: "Connection", plant_data: dict) -> dict:
     """Gets the corresponding origin ID from database using longitude and latitude."""
 
     curs = get_db_cursor(connection)
@@ -100,7 +100,76 @@ def get_plant_id(connection, plant_data: dict) -> dict:
     return result
 
 
-def load_plant_master_data(connection, plants_data: list[dict]) -> None:
+def get_botanist_id(connection: "Connection", plant_data: dict) -> dict:
+    """Gets the corresponding botanist ID from database using botanist name and email."""
+
+    curs = get_db_cursor(connection)
+
+    curs.execute("""SELECT botanist_id
+                    FROM botanist
+                    WHERE botanist_name = ?
+                    AND email = ?""",
+                 (plant_data["botanist"]["name"],
+                  plant_data["botanist"]["email"]))
+    result = curs.fetchone()[0]
+
+    return result
+
+
+def load_botanist_assignment_data(connection: "Connection", plants_data: list[dict]) -> None:
+    """Loads botanist assignment data from dictionary to botanist assignment table in database."""
+
+    insert_query = """
+                IF NOT EXISTS (
+                    SELECT 1 FROM botanist_assignment
+                    WHERE botanist_id = ?
+                    AND plant_id = ?)
+                BEGIN
+                    INSERT INTO botanist_assignment
+                    VALUES (?, ?)
+                END
+                """
+
+    curs = get_db_cursor(connection)
+    for plant in plants_data:
+        plant_id = get_plant_id(connection, plant)
+        botanist_id = get_botanist_id(connection, plant)
+        curs.execute(
+            insert_query, (botanist_id,
+                           plant_id,
+                           botanist_id,
+                           plant_id)
+        )
+        connection.commit()
+
+
+def load_botanist_data(connection: "Connection", plants_data: list[dict]) -> None:
+    """Loads botanist data from dictionary to botanist table in database."""
+
+    insert_query = """
+                IF NOT EXISTS (
+                    SELECT 1 FROM botanist
+                    WHERE botanist_name = ?
+                    AND email = ?)
+                BEGIN
+                    INSERT INTO botanist
+                    VALUES (?, ?, ?)
+                END
+                """
+
+    curs = get_db_cursor(connection)
+    for plant in plants_data:
+        botanist = plant["botanist"]
+        curs.execute(
+            insert_query, (botanist["name"],
+                           botanist["email"],
+                           botanist["name"],
+                           botanist["email"],
+                           botanist["phone"]))
+        connection.commit()
+
+
+def load_plant_master_data(connection: "Connection", plants_data: list[dict]) -> None:
     """Loads plant master data from dictionary to plant table in SQL Server database."""
 
     insert_query = """
@@ -129,7 +198,7 @@ def load_plant_master_data(connection, plants_data: list[dict]) -> None:
         connection.commit()
 
 
-def load_sensor_reading_data(connection, plants_data: list[dict]) -> None:
+def load_sensor_reading_data(connection: "Connection", plants_data: list[dict]) -> None:
     """Loads sensor reading data from dictionary to sensor reading table in SQL Server database."""
 
     insert_query = """
@@ -149,7 +218,7 @@ def load_sensor_reading_data(connection, plants_data: list[dict]) -> None:
         connection.commit()
 
 
-def load_origin_data(connection, plants_data: list[dict]) -> None:
+def load_origin_data(connection: "Connection", plants_data: list[dict]) -> None:
     """Loads origin location data from dictionary to origin table in database."""
 
     insert_query = """
@@ -176,7 +245,7 @@ def load_origin_data(connection, plants_data: list[dict]) -> None:
         connection.commit()
 
 
-def load_country_data(connection, plants_data: list[dict]) -> None:
+def load_country_data(connection: "Connection", plants_data: list[dict]) -> None:
     """Loads country origin data from to country table in SQL Server database."""
 
     insert_query = """
@@ -214,6 +283,8 @@ if __name__ == "__main__":
 
     conn = get_db_connection()
 
+    load_botanist_data(conn, seed_data)
+    load_botanist_assignment_data(conn, seed_data)
     load_country_data(conn, seed_data)
     load_origin_data(conn, seed_data)
     load_plant_master_data(conn, seed_data)
