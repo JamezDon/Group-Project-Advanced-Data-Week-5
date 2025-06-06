@@ -76,7 +76,7 @@ CREATE TABLE botanist_assignment (
 CREATE TABLE alert_type (
     alert_type_id SMALLINT IDENTITY(1,1),
     alert_type_name VARCHAR(30) NOT NULL UNIQUE,
-    PRIMARY KEY alert_type_id
+    PRIMARY KEY (alert_type_id)
 );
 
 CREATE TABLE alert (
@@ -91,3 +91,8 @@ CREATE TABLE alert (
     FOREIGN KEY (alert_type_id)
         REFERENCES alert_type(alert_type_id)
 );
+
+INSERT INTO alert_type
+VALUES 
+('temperature'),
+('soil moisture');
