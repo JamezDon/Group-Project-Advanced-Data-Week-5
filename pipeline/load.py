@@ -105,7 +105,7 @@ def get_plant_id(connection: "Connection", plant_data: dict) -> dict:
 
 
 def get_botanist_id(connection: "Connection", plant_data: dict) -> dict:
-    """Gets the corresponding botanist ID from database using botanist name."""
+    """Gets the corresponding botanist ID from database using botanist name and email."""
 
     curs = get_db_cursor(connection)
 
