@@ -6,7 +6,7 @@ from transform import create_directories, load_metadata
 from load import connect_to_s3, load_files_to_bucket
 
 
-def lambda_handler():
+def lambda_handler(event: dict, context: dict) -> dict:
     """Run the entire ETL pipeline."""
     #Extract
     get_metadata()
