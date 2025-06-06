@@ -12,10 +12,10 @@ The aim of this project is to provide the botany wing of the Liverpool Museum of
 
 ### ERD
 
-![Project ERD](assert/project_erd.png)
+![Project ERD](assets/project_erd.png)
 
 ### Architecture Diagram
 
-![Project architecture diagramD](assert/project_architecture_diagram.png)
+![Project architecture diagramD](assets/project_architecture_diagram.png)
 
 ## Setup and installation
