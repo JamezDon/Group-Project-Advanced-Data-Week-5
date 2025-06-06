@@ -1,0 +1,14 @@
+from python:latest
+
+workdir /app
+
+copy requirements.txt .
+copy main.py .
+copy extract.py .
+copy load.py .
+copy transform.py .
+
+run pip install --no-cache-dir -r requirements.txt
+
+
+cmd ["python", "main.py"]

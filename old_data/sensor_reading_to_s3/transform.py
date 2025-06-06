@@ -1,5 +1,6 @@
 """Transform the data ready to upload to s3."""
 import os
+from os import environ as ENV
 
 import pandas as pd
 import pyarrow as pa
@@ -7,25 +8,10 @@ import pyarrow.parquet as pq
 from dotenv import load_dotenv
 
 
+
 def read_csv() -> pd.DataFrame:
     """Read sensor reading csv"""
     return pd.read_csv("data/sensor_reading.csv")
-
-
-def create_directories(base_dir:str="c17-james-plant-bucket"):
-    """Create the directories ready for the metadata."""
-    sub_dirs = [
-        "input/plant",
-        "input/origin",
-        "input/country",
-        "input/botanist_assignment",
-        "input/botanist",
-        "input/plant"
-    ]
-    for sub_dir in sub_dirs:
-        full_path = os.path.join(base_dir, sub_dir)
-        os.makedirs(full_path)
-        print(f"Created {full_path}")
 
 
 def sensor_data(data: pd.DataFrame):
@@ -38,11 +24,18 @@ def sensor_data(data: pd.DataFrame):
     data["minute"] = data["taken_at"].dt.minute
     data = data.drop(columns=["taken_at"])
 
-    table = pa.Table.from_pandas(data)
+    summary = data.groupby(["plant_id", "year", "month", "day", "hour"]
+                     ).agg({
+                         "temperature": "mean",
+                         "soil_moisture": "mean"
+                     }).reset_index()
+
+
+    table = pa.Table.from_pandas(summary)
 
     pq.write_to_dataset(
         table,
-        root_path="c17-james-plant-bucket/input/sensor_reading",
+        root_path=f"{ENV["TARGET_BUCKET_NAME"]}/input/sensor_reading",
         partition_cols=["year", "month", "day", "hour"]
     )
 

@@ -16,9 +16,8 @@ def connect_to_s3() -> client:
 
 def load_files_to_bucket(s3) -> None:
     """Load to s3."""
-    root_path = "c17-james-plant-bucket"
     bucket_name = ENV["TARGET_BUCKET_NAME"]
-    for dirpath, _, filenames in os.walk(root_path):
+    for dirpath, _, filenames in os.walk(bucket_name):
         for filename in filenames:
             if filename.endswith(".parquet"):
                 local_path = os.path.join(dirpath, filename)
