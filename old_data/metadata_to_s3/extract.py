@@ -2,7 +2,6 @@
 from datetime import datetime, timedelta
 import os
 from os import environ as ENV
-from typing import Tuple
 import logging
 
 import pyodbc
@@ -22,7 +21,7 @@ def get_connection():
     return conn
 
 
-def get_time_range() -> Tuple[datetime, datetime]:
+def get_time_range() -> tuple[datetime, datetime]:
     """Get time range of the oldest hour of data currently stored in the database."""
     now = datetime.now().replace(
         minute=0, second=0, microsecond=0)
