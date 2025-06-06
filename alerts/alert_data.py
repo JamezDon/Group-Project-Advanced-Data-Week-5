@@ -146,12 +146,12 @@ def temp_alert_required(reading: dict, connection: "Connection") -> bool:
 def soil_moisture_alert_required(reading: dict, connection: "Connection") -> bool:
     """Checks if plants require an alert for soil moisture."""
 
-    optimum_soil_moisture = 20
+    soil_moisture_threshold = 20
 
     soil_moisture = reading["avg_soil_moisture"]
     plant_id = get_plant_id(connection, reading)
 
-    soil_moisture_alert = soil_moisture < optimum_soil_moisture
+    soil_moisture_alert = soil_moisture < soil_moisture_threshold
 
     if soil_moisture_alert:
         if not recent_alert_sent(
@@ -171,3 +171,5 @@ if __name__ == "__main__":
             insert_alert_query(plant, 1, conn)
         if soil_moisture_alert_required(plant, conn):
             insert_alert_query(plant, 2, conn)
+
+    conn.close()
