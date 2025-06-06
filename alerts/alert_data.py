@@ -161,15 +161,58 @@ def soil_moisture_alert_required(reading: dict, connection: "Connection") -> boo
     return False
 
 
+def make_html(data: list[dict]) -> str:
+    """Converts the data into html to make the alert look better."""
+    start = f"""<!DOCTYPE html>
+                <html>
+                <body>
+
+                <h1> Plant Alerts </h1>
+            """
+    body = ""
+    for plant in data:
+        body += f"""
+                <h2> Plant {plant["plant_id"]} ({plant["plant_name"]}) </h2>
+
+                <h3> Sensor readings:</h3>
+                
+                <p> Average temperature over last 3 readings: {plant["avg_temp"]} </p>
+                <p> Average soil moisture over last 3 readings: {plant["avg_soil_moisture"]} </p>
+
+
+                <h3> Alert information:</h3>
+
+                <p> Alert sent at: {plant["alert_sent_at"]} </p>
+                <p> Alert type: {plant["alert_type"]} </p>
+                """
+
+    end = """</body>
+            </html>
+            """
+    return start+body+end
+
+
+def add_alert(plant: dict, alert_type: list[str]) -> dict:
+    """Adds alerts to the plants that need it."""
+    plant["alert_sent_at"] = datetime.now()
+    plant["alert_type"] = alert_type
+    return plant
+
+
 if __name__ == "__main__":
     load_dotenv()
     conn = get_db_connection()
     average_readings = get_last_three_readings(conn)
+    alerts = []
 
     for plant in average_readings:
-        if temp_alert_required(plant, conn):
+        if temp_alert_required(plant, conn) and soil_moisture_alert_required(plant, conn):
+            alerts.append(add_alert(plant, ["temperature", "soil moisture"]))
+        elif temp_alert_required(plant, conn):
             insert_alert_query(plant, 1, conn)
-        if soil_moisture_alert_required(plant, conn):
+            alerts.append(add_alert(plant, ["temperature"]))
+        elif soil_moisture_alert_required(plant, conn):
             insert_alert_query(plant, 2, conn)
+            alerts.append(add_alert(plant, ["soil moisture"]))
 
     conn.close()
